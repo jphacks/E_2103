@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: 
-    - dev/front_0
+    - master
   pull_request:
     branches:
     - dev/front_0
