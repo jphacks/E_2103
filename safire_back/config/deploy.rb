@@ -2,6 +2,7 @@
 lock "~> 3.16.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 set :application, "E_2103/safire"
 set :repo_url, "https://github.com/jphacks/E_2103"
 set :branch, "dev/back_0"
@@ -12,6 +13,12 @@ set :deploy_to, "/var/www/#{fetch :application}"
 # set :branch, "dev/back_0"
 # set :deploy_to, "/var/www/#{fetch :application}/safire_back"
 >>>>>>> 436667b4c7da76f2298073c28733fd02d8e5019f
+=======
+set :application, "E_2103"
+set :repo_url, "https://github.com/jphacks/E_2103"
+set :branch, "dev/back_0"
+set :deploy_to, "/var/www/#{fetch :application}/safire_back"
+>>>>>>> 5898ad1 (Fixed CI/CD settings)
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
