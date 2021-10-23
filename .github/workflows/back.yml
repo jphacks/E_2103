@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy Rails to EC2
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches:
+    - dev/back_0
+    types: [closed]
+  # Triggers the workflow on push or pull request events but only for the master branch
+  # push:
+  #   branches: 
+  #   - master
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          ref: dev/back_0
+      # ↓環境変数
+      - name: Deploy
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+          HOST_NAME: ${{ secrets.HOST_NAME }}
+          DIRECTORY: ${{ secrets.DIRECTORY }}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd /var/www/E_2103/safire_back &&
+          sudo git pull origin dev/back_0 &&
+          sudo ~/.rbenv/shims/bundle install &&
+          sudo ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
+          sudo ~/.rbenv/shims/bundle exec rails db:migrate RAILS_ENV=production &&
+          sudo kill -9 $(cat tmp/pids/server.pid) &&
+          sudo rails s -e production'
+        timeout-minutes: 1
