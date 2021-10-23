@@ -25,6 +25,7 @@ set :deploy_to, "/var/www/#{fetch :application}/safire_back"
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
 append :linked_files, "config/master.key"
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads", "public/assets"
@@ -47,3 +48,8 @@ set :ssh_options, {
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
+
+# set :rbenv_ruby_version, '2.5.1'
+set :rbenv_path, '~/.rbenv' #指定するとこのパスは以下のbundleが、指定しないと$HOME配下のbundleが実行された
+set :bundle_path, './vendor/bundle'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
