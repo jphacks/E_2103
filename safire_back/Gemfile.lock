@@ -82,7 +82,6 @@ GEM
       capistrano (~> 3.7)
       capistrano-bundler
       puma (>= 4.0, < 6.0)
-    chronic (0.10.2)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     erubi (1.10.0)
