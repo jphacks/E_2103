@@ -24,15 +24,8 @@ lock "~> 3.16.0"
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
-<<<<<<< HEAD
-<<<<<<< HEAD
-append :linked_files, "config/master.yml"
-=======
 # append :linked_files, "config/master.key"
->>>>>>> 436667b4c7da76f2298073c28733fd02d8e5019f
-=======
-append :linked_files, "config/master.key"
->>>>>>> 159fd69 (Fixed capistrano settings)
+
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads", "public/assets", ".bundle"
