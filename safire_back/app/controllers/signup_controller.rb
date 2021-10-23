@@ -3,11 +3,7 @@ class SignupController < ApplicationController
     # authenticate!
     logger.debug("come in")
     # Match.where('id>0').destroy_all
-<<<<<<< HEAD
-    render :json => { message: "テストだよ~んんaああえええ", user: "none", status: 200}
-=======
-    render :json => { message: "テスト'", user: "none", status: 200}
->>>>>>> 0c75527 (Fixed test description)
+    render :json => { message: "テストだよん", user: "none", status: 200}
   end
 
   def create
