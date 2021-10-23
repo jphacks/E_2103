@@ -40,4 +40,4 @@ jobs:
           sudo ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
           sudo ~/.rbenv/shims/bundle exec rails db:migrate RAILS_ENV=production &&
           sudo kill $(cat tmp/pids/server.pid) &&
-          nohup sudo ~/.rbenv/shims/rails s -e production &'
+          echo "sudo rails s -e production" &'
