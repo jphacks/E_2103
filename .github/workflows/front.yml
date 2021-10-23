@@ -48,5 +48,4 @@ jobs:
         env:
           # Set token in GitHub settings
           # project -> settings -> secrets -> add token
-        working-directory: ./safire_front
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
