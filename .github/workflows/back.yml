@@ -41,4 +41,4 @@ jobs:
           sudo ~/.rbenv/shims/bundle exec rails db:migrate RAILS_ENV=production &&
           sudo kill -9 $(cat tmp/pids/server.pid) &&
           sudo rails s -e production'
-        timeout-minutes: 30
+        timeout-minutes: 1
