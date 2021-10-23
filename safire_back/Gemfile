@@ -41,7 +41,7 @@ group :development do
   gem 'capistrano', '~> 3.16.0'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-  gem 'capistrano-passenger'
+  # gem 'capistrano-passenger'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -52,5 +52,3 @@ gem 'activerecord-import'
 group :production do
   gem 'unicorn', '5.4.1'
 end
-
-gem 'passenger'
