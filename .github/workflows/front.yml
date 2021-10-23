@@ -34,10 +34,13 @@ jobs:
         working-directory: ./safire_front
       
       - run: npm install -g @angular/cli
+        working-directory: ./safire_front
       
       - run: npm install -g @ionic
+        working-directory: ./safire_front
 
       - run: npm install -g @ionic/cli
+        working-directory: ./safire_front
       
       - name: build ionic
         run: |
