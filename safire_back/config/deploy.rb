@@ -1,17 +1,10 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-<<<<<<< HEAD
-set :application, "E_2103/safire"
-set :repo_url, "https://github.com/jphacks/E_2103"
-set :branch, "dev/back_0"
-set :deploy_to, "/var/www/#{fetch :application}"
-=======
 # set :application, "E_2103"
 # set :repo_url, "https://github.com/jphacks/E_2103"
 # set :branch, "dev/back_0"
 # set :deploy_to, "/var/www/#{fetch :application}/safire_back"
->>>>>>> 436667b4c7da76f2298073c28733fd02d8e5019f
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -30,12 +23,7 @@ set :deploy_to, "/var/www/#{fetch :application}"
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
-<<<<<<< HEAD
-append :linked_files, "config/master.yml"
-=======
 # append :linked_files, "config/master.key"
->>>>>>> 436667b4c7da76f2298073c28733fd02d8e5019f
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads", "public/assets", ".bundle"
