@@ -1,8 +1,10 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "E_2103"
-set :repo_url, "git@github.com:kami9811/E_2103.git"
+set :application, "E_2103/safire"
+set :repo_url, "https://github.com/jphacks/E_2103"
+set :branch, "dev/back_0"
+set :deploy_to, "/var/www/#{fetch :application}"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -22,6 +24,7 @@ set :repo_url, "git@github.com:kami9811/E_2103.git"
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
+append :linked_files, "config/master.yml"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
@@ -44,15 +47,3 @@ set :ssh_options, {
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
-
-set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
-# unix:/usr/share/nginx/html/safire
-
-set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
-
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
