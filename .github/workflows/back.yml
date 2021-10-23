@@ -34,10 +34,10 @@ jobs:
           HOST_NAME: ${{ secrets.HOST_NAME }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd sample_app &&
-          git pull origin master &&
-          ~/.rbenv/shims/bundle install &&
-          ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
-          ~/.rbenv/shims/bundle exec rails db:migrate RAILS_ENV=production &&
-          kill $(cat tmp/pids/puma.pid) &&
-          ~/.rbenv/shims/rails s -e production'
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd ${DIRECTORY} &&
+          sudo git pull origin dev/back_0 &&
+          sudo ~/.rbenv/shims/bundle install &&
+          sudo ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
+          sudo ~/.rbenv/shims/bundle exec rails db:migrate RAILS_ENV=production &&
+          sudo kill $(cat tmp/pids/puma.pid) &&
+          sudo ~/.rbenv/shims/rails s -e production'
