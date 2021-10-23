@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 1
+  owner_id: MyString
+  user_id: MyString
+  status: 1
+
+two:
+  project_id: 1
+  owner_id: MyString
+  user_id: MyString
+  status: 1

@@ -1,0 +1,24 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>title</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]=true>
+  <!--
+    <div class="div_title">
+      <h1>プロジェクト名</h1>
+    </div>
+    <div class="div_other">
+      <img src="/assets/img/project_img_none.png">
+    </div>
+  -->
+    <div [style.color]="background" class="div_title">
+      <h1>{{title}}</h1>
+    </div>
+    <div [style.background]="background" class="div_other">
+      <div class="image_container">
+        <img [src]="thumbnail">
+      </div>
+    </div>
+</ion-content>

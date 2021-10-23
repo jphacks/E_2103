@@ -1,0 +1,134 @@
+ion-content {
+    --background: #aaaaaa;
+}
+
+.top_button_list {
+    width: 95%;
+}
+.top-button {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+}
+.slides ion-card {
+    height: 150px;
+    overflow: scroll;
+}
+.card-text {
+    font-weight: bold;
+}
+
+.comments {
+    width: 80%;
+    height: 250px;
+    margin: 80px auto;
+    padding: 0;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.comments_inner {
+    width: 100%;
+    height: 100%;
+}
+
+// .btn-group {
+//     width: 100%;
+//     margin: 10px auto;
+//     display: flex;
+//     justify-content: center;
+    
+// }
+
+// .btn-group ion-button {
+//     height: 50px;
+//     margin-right: 50px;
+//     margin-left: 50px;
+// }
+
+// .btn-filler {
+//     --background: #deb887;
+//     font-size: 23px;
+//     font-weight: bolder;
+// }
+
+// .btn-end {
+//     --background: #ffffff;
+//     font-size: 23px;
+//     --color: #deb887;
+//     --border-color: #deb887;
+//     --border-style: solid;
+//     --border-width: 5px;
+//     --border-radius: 5px;
+
+//     font-weight: bolder;
+// }
+
+// .btn-group p {
+//     font-size: 30px;
+//     color: #ffffff;
+//     margin: 0;
+// }
+// .btn-group span {
+//     font-size: 50px;
+// }
+
+.my-custom-class {
+    --background: #222;
+    --spinner-color: #fff;
+
+    color: #fff;
+}
+
+.bottom-container {
+    width: 95%;
+    height: 30%;
+}
+
+.camera-container {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.analysis-text {
+    background-color: white;
+    height: 250px;
+    width: 95%;
+    overflow: scroll;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 150%
+}
+.words-inspector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    margin-top: 8%;
+}
+.bottom-button {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 5%;
+}
+
+#camera {
+    width: "300";
+    height: "200";
+    margin: 0 auto;
+}

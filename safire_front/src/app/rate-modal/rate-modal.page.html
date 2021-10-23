@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" >評価する</span></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <div class="ion-padding rate_label">点数: {{rate}} 点</div>
+    <mat-slider
+    class="ion-padding slider"
+    thumbLabel
+    [(ngModel)] = "rate"
+    tickInterval="5"
+    step="0.1"
+    min="0"
+    max="5"
+    aria-label="units"></mat-slider>
+  </div>
+
+  <ion-button class="ion-padding" expand="block" (click)="postRate()">点数を決定する</ion-button>
+  <ion-button class="ion-padding" expand="block" fill="outline" (click)="dismiss()">戻る</ion-button>
+</ion-content>

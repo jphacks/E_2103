@@ -1,0 +1,63 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+    <div>
+        <div>
+            <header class="header">
+                <div class="header-main">
+                    <a href="">
+                        <div class="header-main_logo">
+                            <img src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
+                        </div>
+                    </a>
+                    <div class="header-main_menu">
+                        <ion-button class="header-main_menu_signup" [routerLink]="['/signup']">新規登録</ion-button>
+                    </div>
+                </div>
+            </header>
+            <div class="main">
+                <section class="login-main">
+                    <div class="login-main_card">
+                        <h2 class="login-main_title">ログインページ</h2>
+                        <hr color="#136fff">
+                        <form>
+                            <div class="login-userid">
+                                <div class="login-userid_title">
+                                    <p>ユーザID</p>
+                                </div>
+                                <input type="text" value="" class="login-userid_input" name='user_id' [(ngModel)]='user_id'>
+                            </div>
+                            <div class="login-passwd">
+                                <div class="login-passwd_title">
+                                    <p>パスワード</p>
+                                </div>
+                                <input type="password" value="" class="login-passwd_input" name='password' [(ngModel)]='password'>
+                            </div>
+                            <div>
+                                <ion-button class="login-send" (click)="login()">ログイン</ion-button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <footer class="footer">
+                <div class="footer-body">
+                    <div class="footer-body_logo">
+                        <div class="display_flex">
+                            <img id="safire_mark" src="/assets/img/safire.png" alt="safireマーク">
+                            <img id="safire_logo" src="/assets/img/safire_logo.png" alt="SaFireロゴ">
+                        </div>
+                        <p>宝石である「あなたの挑戦」をさらに磨き上げる！</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</ion-content>

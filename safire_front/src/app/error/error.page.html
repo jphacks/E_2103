@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true">
+  <div>
+      <div>
+          <header class="header">
+              <div class="header-main">
+                  <div class="header-main_logo" (click)='toUserHome()'>
+                      <img src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
+                  </div>
+                  <div class="header-main_menu">
+                      <ion-button class="header-main_menu_logout" (click)='logout()'>ログアウト</ion-button>
+                  </div>
+              </div>
+          </header>
+          <div class="main">
+            <div class="sub">
+              <p>ページが見つかりません</p>
+              <a href="/home">ホームへ戻る</a>
+            </div>
+          </div>
+          <footer class="footer">
+              <div class="footer-body">
+                  <div class="footer-body_logo">
+                      <div class="display_flex">
+                          <img id="safire_mark" src="/assets/img/safire.png" alt="safireマーク">
+                          <img id="safire_logo" src="/assets/img/safire_logo.png" alt="SaFireロゴ">
+                      </div>
+                      <p>宝石である「あなたの挑戦」をさらに磨き上げる！</p>
+                  </div>
+              </div>
+          </footer>
+      </div>
+  </div>
+</ion-content>

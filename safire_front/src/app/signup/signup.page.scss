@@ -1,0 +1,430 @@
+/** 要素 **/
+body {
+    display: block;
+    margin: 0;
+}
+
+header {
+    display: block;
+}
+
+footer {
+    display: block;
+}
+
+img {
+    border-style: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+button, input, select, textarea {
+    border-style: none;
+}
+
+button {
+    color: inherit;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font: inherit;
+}
+
+h2 {
+    display: block;
+    font-size: 24px;
+    margin-block-start: 13.28px;
+    margin-block-end: 13.28px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
+    display: block;
+    font-size: 18.72px;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul ul {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+section {
+    display: block;
+}
+
+/** ヘッダー **/
+.header {
+    width: 100%;
+    height: 200px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #75a9ff;
+}
+
+.header-main_logo {
+    padding: 0px 0 0px 30px;
+    display: flex;
+    align-items: center;
+}
+.header-main_logo img {
+    height: 30%;
+    width: 30%;
+}
+
+/** フッター **/
+.footer {
+    width: 100%;
+    height: 7vw;
+    margin-top: 50px;
+    padding-top: 30px;
+    background: #75a9ff;
+    color: #ffffff;
+    /*position: absolute;
+    bottom: 0;*/
+}
+
+.footer-body {
+    margin: 0 2.8550512445vw 3.7818448023vw 3.2942898975vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-body_logo {
+    width: 30.6412884334vw;
+}
+#safire_mark {
+    width: 5%;
+    height: 5%;
+}
+#safire_logo {
+    width: 20%;
+    height: 20%;
+}
+.footer-body_logo p {
+    margin-top: 0;
+    font-size: .9516837482vw;
+    font-weight: 500;
+}
+
+/** ホームメイン **/
+.main {
+    width: 100%;
+    padding: 120px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-main {
+    padding: 0 0 0 20px;
+}
+
+.signup-main_card {
+    width: 700px;
+    height: 1150px;
+    padding: 40px 40px 40px 40px;
+    position: relative;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 6px solid #136fff;
+    color: #757575;
+}
+
+.signup-main h2 {
+    font-size: 30px;
+}
+
+.signup-main_title {
+    margin: 0 0 10px 0;
+    position: relative;
+    text-align: center;
+}
+
+.signup-userid{
+    margin: 20px 20px 40px 20px;
+    position: relative;
+    top: 10px;
+}
+
+.signup-userid_title p {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.signup-userid_input {
+    width: 500px;
+    height: 50px;
+    align-items: left;
+    border-radius: 5px;
+    border: 3px solid #757575;
+    outline: 0;
+}
+.signup-userid_input:focus {
+    border: 3px solid #ff9900;
+}
+
+.signup-passwd {
+    margin: 0px 20px 40px 20px;
+}
+
+.signup-passwd_title p {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.signup-passwd_input {
+    width: 500px;
+    height: 50px;
+    align-items: left;
+    border-radius: 5px;
+    border: 3px solid #757575;
+    outline: 0;
+}
+.signup-passwd_input:focus {
+    border: 3px solid #ff9900;
+}
+
+.signup-passwd-confirm {
+    margin: 0px 20px 40px 20px;
+}
+
+.signup-passwd-confirm_title p {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.signup-passwd-confirm_input {
+    width: 500px;
+    height: 50px;
+    align-items: left;
+    border-radius: 5px;
+    border: 3px solid #757575;
+    outline: 0;
+}
+.signup-passwd-confirm_input:focus {
+    border: 3px solid #ff9900;
+}
+
+.signup-age {
+    margin: 0px 20px 40px 20px;
+}
+
+.signup-age_title p {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.signup-age_input {
+    width: 500px;
+    height: 50px;
+    align-items: left;
+    border-radius: 5px;
+    border: 3px solid #757575;
+    outline: 0;
+}
+.signup-age_input:focus {
+    border: 3px solid #ff9900;
+}
+
+.signup-gender {
+    margin: 0px 20px 40px 20px;
+}
+.signup-gender input[type=radio] {
+    display: none;
+}
+.signup-gender input[type=radio]:checked + label {
+    
+    background: #a9adaf;/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+.signup-gender label {
+    display: block; /* ブロックレベル要素化する */
+    /*float: center; /* 要素の左寄せ・回り込を指定する */
+    margin: 5px 8px 5px 8px; /* ラベル外側の余白を指定する */
+    width: 120px; /* ラベルの横幅を指定する */
+    height: 40px; /* ラベルの高さを指定する */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 40px; /* 行の高さを指定する */
+    padding-left: 5px; /* ラベル内左側の余白を指定する */
+    padding-right: 5px; /* ラベル内右側の余白を指定する */
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+    color: #b20000; /* フォントの色を指定 */
+    border: 2px solid #006DD9;/* ラベルの境界線を実線で指定する */
+    border-radius: 5px; /* 角丸を指定する */
+    font-weight: bold;
+}
+
+.signup-gender_title p {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.signup-gender_radio{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+/*.signup-school_grade {
+    margin: 0px 20px 40px 20px;
+}
+
+.signup-school_grade_title p {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.signup-school_grade_radio{
+    font-size: 20px;
+    margin: 0 15px;
+}
+.signup-school_grade_radio input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 2px;
+}*/
+
+.signup-school_grade {
+    margin: 0px 20px 40px 20px;
+}
+.signup-school_grade input[type=radio] {
+    display: none;
+}
+.signup-school_grade input[type=radio]:checked + label {
+    
+    background: #a9adaf;/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+.signup-school_grade label {
+    display: block; /* ブロックレベル要素化する */
+    /*float: center; /* 要素の左寄せ・回り込を指定する */
+    margin: 5px 8px 5px 8px; /* ラベル外側の余白を指定する */
+    width: 120px; /* ラベルの横幅を指定する */
+    height: 40px; /* ラベルの高さを指定する */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 40px; /* 行の高さを指定する */
+    padding-left: 5px; /* ラベル内左側の余白を指定する */
+    padding-right: 5px; /* ラベル内右側の余白を指定する */
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+    color: #b20000; /* フォントの色を指定 */
+    border: 2px solid #006DD9;/* ラベルの境界線を実線で指定する */
+    border-radius: 5px; /* 角丸を指定する */
+    font-weight: bold;
+}
+
+.signup-school_grade_title p {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.signup-school_grade_radio{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.signup-profile {
+    margin: 0px 20px 40px 20px;
+}
+
+.signup-profile_title p {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.signup-profile_input {
+    width: 500px;
+    height: 100px;
+    align-items: left;
+    border-radius: 5px;
+    border: 3px solid #757575;
+    outline: 0;
+}
+.signup-profile_input:focus {
+    border: 3px solid #ff9900;
+}
+
+.signup-send {
+    width: 500px;
+    height: 70px;
+    margin: 20px 0px 40px 0px;
+    align-items: left;
+    color: #ffffff;
+    background-color: #136fff;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.signup-send:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+/*.signup-send a {
+    color: #ffffff;
+    text-decoration: none;
+}*/

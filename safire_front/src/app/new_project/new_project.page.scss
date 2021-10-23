@@ -1,0 +1,524 @@
+/** 要素 **/
+body {
+    display: block;
+    margin: 0;
+}
+
+header {
+    display: block;
+}
+
+footer {
+    display: block;
+}
+
+img {
+    border-style: none;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    border-style: none;
+}
+
+button {
+    color: inherit;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font: inherit;
+}
+
+h2 {
+    display: block;
+    font-size: 24px;
+    margin-block-start: 13.28px;
+    margin-block-end: 13.28px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
+    display: block;
+    font-size: 18.72px;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul ul {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+section {
+    display: block;
+}
+
+article {
+    display: block;
+}
+
+/** 便利 **/
+.display_flex {
+    display: flex;
+}
+
+.center {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/** ヘッダー **/
+.header {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #75a9ff;
+}
+
+.header-main_logo {
+    padding: 0px 0 0px 30px;
+    display: flex;
+    align-items: center;
+}
+.header-main_logo img {
+    height: 30%;
+    width: 30%;
+}
+
+/** フッター **/
+.footer {
+    width: 100%;
+    height: 7vw;
+    margin-top: 50px;
+    padding-top: 30px;
+    background: #75a9ff;
+    color: #ffffff;
+}
+
+.footer-body {
+    margin: 0 2.8550512445vw 3.7818448023vw 3.2942898975vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-body_logo {
+    width: 30.6412884334vw;
+}
+#safire_mark {
+    width: 5%;
+    height: 5%;
+}
+#safire_logo {
+    width: 20%;
+    height: 20%;
+}
+.footer-body_logo p {
+    margin-top: 0;
+    font-size: .9516837482vw;
+    font-weight: 500;
+}
+
+/** ホームメイン **/
+.project-form {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 120px 0 0;
+}
+
+.project-form_title {
+    margin: 0 0 45px 0;
+    position: relative;
+    text-align: center;
+}
+
+.project-form_main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-form_main_content {
+    width: 50%;
+    margin: 32px 0 0 32px;
+}
+
+.project-form_main_content_title {
+    margin-bottom: 7px;
+}
+.project-form_main_content_title input {
+    outline: none;
+    width: 400px;
+    background-color: #eeeeee;
+}
+
+.project-form_main_content_description {
+    width: 100%;
+    margin-bottom: 16px;
+}
+.project-form_main_content_description textarea {
+    width: 400px;
+    outline: none;
+    background-color: #eeeeee;
+}
+
+.project-form_main_content_tags {
+    padding-left: 0px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.project-form_main_content_tags p {
+    width: 30px;
+    margin: auto;
+    
+}
+.project-form_main_content_tags button{
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.project-form_tags_dialog {
+    height: 600px;
+    width: 1000px;
+    border: 10px solid #75a9ff;
+    align-items: center;
+    text-align: center;
+}
+
+.project-form_tags_dialog_title {
+    color: #757575;
+    text-align: center;
+}
+
+.project-form_tags_dialog_main {
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+}
+.project-form_tags_dialog_main h3 {
+    display: flex;
+}
+
+.project-form_tags_dialog_sub{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.project-form_tags_dialog_main input[type=checkbox] {
+    display: none;
+}
+.project-form_tags_dialog_main input[type=checkbox]:checked + label {
+    
+    background: #31A9EE;/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+.project-form_tags_dialog_main label {
+    display: block; /* ブロックレベル要素化する */
+    /*float: center; /* 要素の左寄せ・回り込を指定する */
+    margin: 5px 8px 5px 8px; /* ラベル外側の余白を指定する */
+    width: 120px; /* ラベルの横幅を指定する */
+    height: 45px; /* ラベルの高さを指定する */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 45px; /* 行の高さを指定する */
+    padding-left: 5px; /* ラベル内左側の余白を指定する */
+    padding-right: 5px; /* ラベル内右側の余白を指定する */
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+    color: #b20000; /* フォントの色を指定 */
+    border: 2px solid #006DD9;/* ラベルの境界線を実線で指定する */
+    border-radius: 5px; /* 角丸を指定する */
+}
+
+.project-form_tags_dialog_finish {
+    height: 40px;
+    width: 120px;
+    --background: #ffffff;
+    font-size: 23px;
+    --color: #deb887;
+    --border-color: #deb887;
+    --border-style: solid;
+    --border-width: 5px;
+    --border-radius: 5px;
+
+    font-weight: bolder;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    
+}
+.project-form_tags_dialog_finish:hover  {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.project-form_main_content_color {
+    padding-left: 0px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.project-form_main_content_color p {
+    margin: auto;
+}
+.project-form_main_content_color button{
+    width: 15%;
+    height: 15%;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.project-form_color_dialog {
+    height: 400px;
+    width: 200px;
+    border: 10px solid #75a9ff;
+    align-items: center;
+    text-align: center;
+}
+
+.project-form_color_dialog_title {
+    color: #757575;
+    text-align: center;
+}
+
+.project-form_color_dialog_main {
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+}
+.project-form_color_dialog_main h3 {
+    display: flex;
+}
+
+.project-form_color_dialog_sub{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.project-form_color_dialog_main input[type=radio] {
+    display: none;
+}
+.project-form_color_dialog_main input[type=radio]:checked + label {
+    
+    background: #31A9EE;/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+.project-form_color_dialog_main label {
+    display: block; /* ブロックレベル要素化する */
+    /*float: center; /* 要素の左寄せ・回り込を指定する */
+    margin: 5px 8px 5px 8px; /* ラベル外側の余白を指定する */
+    width: 120px; /* ラベルの横幅を指定する */
+    height: 45px; /* ラベルの高さを指定する */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 45px; /* 行の高さを指定する */
+    padding-left: 5px; /* ラベル内左側の余白を指定する */
+    padding-right: 5px; /* ラベル内右側の余白を指定する */
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+    color: #b20000; /* フォントの色を指定 */
+    border: 2px solid #006DD9;/* ラベルの境界線を実線で指定する */
+    border-radius: 5px; /* 角丸を指定する */
+}
+
+.project-form_color_dialog_finish {
+    height: 40px;
+    width: 120px;
+    --background: #ffffff;
+    font-size: 23px;
+    --color: #deb887;
+    --border-color: #deb887;
+    --border-style: solid;
+    --border-width: 5px;
+    --border-radius: 5px;
+
+    font-weight: bolder;
+    
+}
+.project-form_color_dialog_finish:hover  {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.color-picker {
+    position: relative;
+    width: 70px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    text-align: center;
+}
+.color-picker:hover {
+    cursor: pointer;
+}
+
+.project-form_main_thumbnails {
+    width: 50%;
+    margin: 32px 0 0 0px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.project-form_main_thumbnails_upload {
+    width: 50%;
+    margin: 0 0 0 0px;
+    padding: 0 0 0 0;
+    text-align: center;
+    position: relative;
+    top: 0;
+}
+#thumbnails {
+    width: 271px;
+    height: 186px;
+    // content: url('/assets/img/project_img_none.png');
+    cursor: pointer;
+}
+#thumbnails-input {
+    display: none;
+}
+
+.icon_detail {
+    width: 24px;
+    height: 24px;
+    margin: 30px 5px 0 0;
+}
+
+.project-form_detail_title {
+    margin: 30px 0 0 0;
+    position: relative;
+    text-align: center;
+}
+
+.project-form_detail {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.project-form_detail_content {
+    width: 50%;
+    margin: 10px 0 0 32px;
+}
+
+.project-form_detail_description {
+    width: 100%;
+    margin-bottom: 16px;
+}
+.project-form_detail_description textarea {
+    width: 400px;
+    height: 186px;
+    outline: none;
+    background-color: #eeeeee;
+}
+
+.project-form_detail_thumbnails {
+    width: 50%;
+    margin: 10px 0 0 0px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.project-form_detail_thumbnails_upload {
+    width: 271px;
+    height: 186px;
+    // content: url('/assets/img/project_img_none.png');
+    cursor: pointer;
+}
+
+#detail_background_img_input {
+    display: none;
+}
+#detail_point_img_input {
+    display: none;
+}
+#detail_tech_img_input {
+    display: none;
+}
+
+.btn-submission {
+    width: 250px;
+    height: 50px;
+    display: flex;
+    margin: 5px auto;
+    color: #ffffff;
+    background-color: #deb887;
+    font-weight: bolder;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.btn-submission:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+.btn-submission img {
+    margin-right: 5px;
+    width: 22px;
+    height: 22px;
+}
+.btn-submission p {
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+.my-custom-class {
+    --background: #222;
+    --spinner-color: #fff;
+
+    color: #fff;
+}

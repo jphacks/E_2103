@@ -1,0 +1,134 @@
+version: "2.0"
+
+nlu:
+- intent: fillersentence
+  examples: |
+    - "それでは[えー](filler)チーム門構えが発表を始めていきます"
+    - "このサービスとは、[えっと](filler)一人の運転が辛いあなたのための無駄以上に楽しく安心なドライブを提供するために生まれたものです"
+    - "[えー](filler)、とにかく無駄に楽しく安全な一人運転を実現しました"
+    - "基本的に音声ありの顔出し無しなので、[まあ](filler)気軽に始められるスマホアプリだと、[えー](filler)思います",
+    - "運転中に携帯を触る機会を減らすために、[ああ](filler)オートログイン機能やワンタッチ操作を実装しました"
+    - "チームの2人は熊本と鹿児島の出身で、[えー](filler)車社会であったこともあり一人運転の『眠気』や『辛さ』に着目しました"
+    - "乗車人数が1人の割合は平日は73.8パーセントで、[えー](filler)休日は52パーセントとなっています"
+    - "一人運転のつまらなさや、それに伴う[ええ](filler)漫然運転といった、[えー](filler)問題を解決するために開発しました"
+    - "心地よい運転や会話を実現するために[そのー](filler)推薦システムを実装しました"
+    - "様々な情報を解析し、全ユーザにぴったりな話し相手も[まあ](filler)マッチングしてくれます"
+    - "暇なときに機会にやることを決めてもらうという、[まあ](filler)脱力しきったアイデアです"
+    - "課題と[えっと](filler)暇を繰り返してる自分が、一番使うものがいいなと思い作りました"
+    - "でも[まあ](filler)たぶん使いません"
+    - "ランダムに発言してくれるところと、[えー](filler)タイマーが技術的なアピール点です"
+    - "超簡単に[そのー](filler)歓声を轟かせることができます"
+    - "リアクションした時にもBot実行するので、[えーと](filler)これでタイムラインを汚さずに済みます"
+    - "オンラインで発表した時にも、[ええ](filler)大歓声が聞きたいという想いがベースになっています"
+    - "つまり、その[まあ](filler)承認欲求の塊です"
+    - "通常だと、すでに音声が再生されている時にイベント発火しても、[あー](filler)再生が終わるまで反応しません"
+    - "割り込み再生ができるように[えー](filler)ちょっと工夫して実装しました"
+    - "モバイルアプリですが、[えー](filler)スマホの中に留まらず、[えー](filler)外部の情報を得られます"
+    - "この弱肉強食の世界で[えっと](filler)魚は一方的に人間に釣られてしまいます"
+    - "そんな魚に[そのー](filler)生き伸びる術を与えたいと思ったので[えー](filler)このモバイルアプリを作りました"
+    - "推し技術は[ええ](filler)リアルタイムの画像認識です"
+    - "ファイヤーベースを用いて、[えー](filler)googleのデータからカメラに何が写っているのかを認識します"
+    - "心地のアニメーションに加え、[えー](filler)リアルなデザインを取り入れたことでリアルを追求しました"
+    - "さらに消しゴムで[えー](filler)[あー](filler)文字を消せるように機能追加しました"
+    - "細かすぎるゆえにできる絞り込みが[えーっと](filler)推しのアイディアです"
+    - "現在は[そのお](filler)スマホ1つで色々な情報が取れる時代なのです"
+    - "取れる[えー](filler)情報を盛り込めるだけ盛り込んだらおもしろいことになるんじゃないかなと[えー](filler)思いました"
+    - "はじめてのAzureの[あー](filler)デプロイに5時間かかりました"
+    - "全く何も作業していなくても[えー](filler)カッコイイ何かをやっているように見えるものです"
+    - "画面の片側でネットサーフィンをしていても、[そのー](filler)もう片側で作業が進んでいるように見えます"
+    - "表示されるグラフなどが動いて[まあ](filler)カッコイイです"
+    - "仕事場や学校などで[えー](filler)どうしてもサボりたい、でも怒られたくないと思います"
+    - "そういった場面で[えーと](filler)バレずにサボろうという悪い考えから生まれました"
+    - "あたかも作業が捗っているように見せる[えー](filler)matplotlibとpandasの組み合わせです"
+    - "煩悩を排除し、視聴時間制限を設け、映写機風コントローラーで、[えー](filler)楽しく時間が節約できます"
+    - "YouTubeを作業しながら見てると、[ええ](filler)気がついたら夜になってることがあります"
+    - "そんな自分を戒めるために[まあ](filler)このアプリケーションを作りました"
+    - "そのためにせっかく良いものを作ったのに、なかなかそれが伝えられず、使える場合ももどかしいものがありました"
+- intent: greet
+  examples: |
+    - やあ
+    - こんにちは
+    - みなさんこんにちは
+    - おはようございます
+    - こんばんは
+    - やあどうも
+    - さあ行こう
+    - よお親友
+    - よろしくお願いいたします
+    - お願いいたします
+
+- intent: goodbye
+  examples: |
+    - また後で
+    - さようなら
+    - バイバイ
+    - おやすみ
+    - 良い1日を
+    - またどこかで
+
+- intent: nonsence
+  examples: |
+    - アイウエオ
+    - あいうえお
+    - かきくけこ
+    - あああああああああああ
+
+# - intent: affirm
+#   examples: |
+#     - yes
+#     - y
+#     - indeed
+#     - of course
+#     - that sounds good
+#     - correct
+
+# - intent: deny
+#   examples: |
+#     - no
+#     - n
+#     - never
+#     - I don't think so
+#     - don't like that
+#     - no way
+#     - not really
+
+# - intent: mood_great
+#   examples: |
+#     - perfect
+#     - great
+#     - amazing
+#     - feeling like a king
+#     - wonderful
+#     - I am feeling very good
+#     - I am great
+#     - I am amazing
+#     - I am going to save the world
+#     - super stoked
+#     - extremely good
+#     - so so perfect
+#     - so good
+#     - so perfect
+
+# - intent: mood_unhappy
+#   examples: |
+#     - my day was horrible
+#     - I am sad
+#     - I don't feel very well
+#     - I am disappointed
+#     - super sad
+#     - I'm so sad
+#     - sad
+#     - very sad
+#     - unhappy
+#     - not good
+#     - not very good
+#     - extremly sad
+#     - so saad
+#     - so sad
+
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot?
+#     - are you a human?
+#     - am I talking to a bot?
+#     - am I talking to a human?

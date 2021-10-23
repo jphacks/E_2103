@@ -1,0 +1,205 @@
+/** 要素 **/
+body {
+    display: block;
+    margin: 0;
+}
+
+header {
+    display: block;
+}
+
+footer {
+    display: block;
+}
+
+img {
+    border-style: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+button, input, select, textarea {
+    border-style: none;
+}
+
+button {
+    color: inherit;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font: inherit;
+}
+
+h2 {
+    display: block;
+    font-size: 24px;
+    margin-block-start: 13.28px;
+    margin-block-end: 13.28px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
+    display: block;
+    font-size: 18.72px;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul ul {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+section {
+    display: block;
+}
+
+/** 便利 **/
+.display_flex {
+    display: flex;
+}
+
+.center {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text_center {
+    text-align: center;
+}
+
+/** ヘッダー **/
+.header {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #75a9ff;
+}
+
+.header-main_logo {
+    padding: 0px 0 0px 30px;
+    display: flex;
+    align-items: center;
+}
+.header-main_logo img {
+    height: 30%;
+    width: 30%;
+    cursor: pointer;
+}
+
+.header-main_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.header-main_menu_logout {
+    width: 120px;
+    height: 40px;
+    margin: 0 20px 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0);
+    font-size: 20px;
+}
+.header-main_menu_logout a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/** フッター **/
+.footer {
+    width: 100%;
+    height: 7vw;
+    margin-top: 200px;
+    padding-top: 30px;
+    background: #75a9ff;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-body {
+    margin: 0 2.8550512445vw 3.7818448023vw 3.2942898975vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-body_logo {
+    width: 30.6412884334vw;
+}
+#safire_mark {
+    width: 5%;
+    height: 5%;
+}
+#safire_logo {
+    width: 20%;
+    height: 20%;
+}
+.footer-body_logo p {
+    margin-top: 0;
+    font-size: .9516837482vw;
+    font-weight: 500;
+}
+
+/** main **/
+.main {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.sub {
+    display: block;
+}
+.sub p {
+    margin-top: 300px;
+    font-size: 50px;
+}
+.sub a {
+    margin-top: 100px;
+}

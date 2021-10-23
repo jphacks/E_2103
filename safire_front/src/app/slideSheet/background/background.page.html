@@ -1,0 +1,30 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>title</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]=true>
+  <!--
+    <div class="div_main">
+      <h1>つくった目的</h1>
+      <p>
+        こんな理由で作ったんですよね！うんうん！
+      </p>
+    </div>
+    <div class="div_img">
+      <img src="/assets/img/project_img_none.png">
+    </div>
+  -->
+  <div class="div_main">
+    <h1>作った背景</h1>
+    <ng-container *ngFor="let abstract of abstract_list" class="ion-padding">
+      <div class="ion-padding abstract-text">
+        {{abstract}}
+      </div>
+    </ng-container>
+  </div>
+  <div [style.background]="background" class="div_img">
+    <img [src]="thumbnail">
+  </div>
+</ion-content>

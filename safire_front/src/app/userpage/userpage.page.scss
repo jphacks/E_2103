@@ -1,0 +1,560 @@
+/** 要素 **/
+body {
+    display: block;
+    margin: 0;
+}
+
+header {
+    display: block;
+}
+
+footer {
+    display: block;
+}
+
+img {
+    border-style: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+button, input, select, textarea {
+    border-style: none;
+}
+
+button {
+    color: inherit;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font: inherit;
+}
+
+h2 {
+    display: block;
+    font-size: 24px;
+    margin-block-start: 13.28px;
+    margin-block-end: 13.28px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
+    display: block;
+    font-size: 18.72px;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul ul {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+section {
+    display: block;
+}
+
+/** 便利 **/
+.display_flex {
+    display: flex;
+}
+
+.center {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.display_right {
+    display: flex;
+    justify-content: right;
+}
+
+/** ヘッダー **/
+.header {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #75a9ff;
+}
+
+.header-main_logo {
+    padding: 0px 0 0px 30px;
+    display: flex;
+    align-items: center;
+}
+.header-main_logo img {
+    height: 30%;
+    width: 30%;
+    cursor: pointer;
+}
+
+.header-main_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.header-main_menu_logout {
+    width: 120px;
+    height: 40px;
+    margin: 0 20px 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0);
+    font-size: 20px;
+}
+.header-main_menu_logout a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/** フッター **/
+.footer {
+    width: 100%;
+    height: 7vw;
+    margin-top: 200px;
+    padding-top: 30px;
+    background: #75a9ff;
+    color: #ffffff;
+}
+
+.footer-body {
+    margin: 0 2.8550512445vw 3.7818448023vw 3.2942898975vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-body_logo {
+    width: 30.6412884334vw;
+}
+#safire_mark {
+    width: 5%;
+    height: 5%;
+}
+#safire_logo {
+    width: 20%;
+    height: 20%;
+}
+.footer-body_logo p {
+    margin-top: 0;
+    font-size: .9516837482vw;
+    font-weight: 500;
+}
+
+/** ホームメイン **/
+.home-main {
+    width: 100%;
+    padding: 120px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user_name {
+    margin: 0 0 45px 0;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    border-bottom: 4px solid #75a9ff;
+}
+
+.user-info {
+    width: 700px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-info_icon {
+    width: 50%;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    text-align: center;
+    position: relative;
+    top: 0;
+}
+
+#user_icon {
+    width: 150px;
+    height: 150px;
+
+}
+
+.user-info_profile {
+    width: 50%;
+    margin: 0px 0 0 0px;
+}
+
+.user-card_profile_content {
+    position: relative;
+}
+.user-card_profile_content h3 {
+    position: absolute;
+    top: 6px;
+
+    width: 350px;
+    text-align: center;
+}
+.user-card_profile_content hr {
+    position: absolute;
+    top: 10px;
+}
+.user-card_profile_content textarea {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+
+    width: 260px;
+    height: 145px;
+    outline: none;
+    background-color: #ffffff;
+}
+.user-card_profile_content img {
+    width: 350px;
+    height: 240px;
+}
+
+
+/** おすすめのユーザ **/
+.recommended-user-list {
+    padding: 0 0 0 90px;
+}
+
+.recommended-user-list_title {
+    margin: 0 0 45px 0;
+    position: relative;
+    text-align: center;
+}
+
+.recommended-user-list_content {
+}
+
+/** みんなの作品 **/
+.project-list {
+    padding: 30px 0 0 90px;
+}
+
+.project-list_title {
+    margin: 0 0 45px 0;
+    position: relative;
+    text-align: left;
+}
+
+.project-list_content {
+}
+
+.projects {
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.projects-list {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.project-card {
+    width: 300px;
+    height: 400px;
+    margin-bottom: 50px;
+    padding-left: 0;
+    border-radius: 16px;
+    background: #eeeeee;
+    box-shadow: 5px 5px 15px #bbbbbb, -5px -5px 15px #eeeeee;
+    list-style: none;
+    transform: .3s;
+}
+.project-card:hover{
+    cursor: pointer;
+}
+
+.project-card_thumnail {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 0%;
+}
+.project-card_thumnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.project-card_title {
+    height: 13%;
+    padding: 0 1% 0 1%;
+    margin-top: 0;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid #75a9ff;
+}
+.project-card_title h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 114px;
+    color: rgba(0, 0, 0, 0.89);
+}
+
+.project-card_tags {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 0%;
+    display: flex;
+    justify-content: center;
+}
+
+.project-card_user {
+    padding-left: 3%;
+    display: flex;
+    align-items: center;
+}
+.project-card_user p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.project-card_created {
+    width: 300px;
+    height: 25px;
+    display: flex;
+    justify-content: right;
+}
+.project-card_created p {
+    padding-right: 3%;
+    margin-bottom: 5px;
+}
+
+.project-card_promotion {
+    padding: 0 3%;
+}
+.project-card_promotion p {
+    font-size: 12px;
+    display: flex;
+    text-align: left;
+}
+
+.project-card_date {
+    padding: 0 3%;
+    margin-bottom: 0;
+    text-align: right;
+}
+.project-card_date p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* プロジェクト参加の申請 */
+.applied-user-list_content {
+}
+.applied-users {
+    width: 800px;
+}
+.applied-users-list {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.user-card {
+    display: flex;
+    width: 230px;
+    height: 70px;
+    margin-bottom: 20px;
+    padding-left: 0;
+    border-radius: 16px;
+    background: #eeeeee;
+    box-shadow: 5px 5px 15px #bbbbbb, -5px -5px 15px #eeeeee;
+    list-style: none;
+    transform: .3s;
+    cursor: pointer;
+}
+.user-card_icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0%;
+}
+.user-card_icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.user-card_profile {
+    margin: 3% 0 3% 5%;
+    padding-left: 0;
+}
+.user-card_name {
+    // margin: 5px;
+    display: flex;
+    align-items: center;
+}
+.user-card_name p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.user-card_tags {
+    display: flex;
+    align-items: center;
+}
+.user-card_tags p {
+    margin: 0;
+}
+
+.liked-project_dialog {
+    height: 600px;
+    width: 1000px;
+    border: 10px solid #75a9ff;
+    align-items: center;
+    text-align: center;
+}
+
+.liked-project_dialog_title {
+    color: #757575;
+    text-align: center;
+}
+
+.liked-project_dialog_finish {
+    height: 40px;
+    margin-top: 20px;
+    width: 300px;
+    --background: #ffffff;
+    font-size: 23px;
+    --color: #deb887;
+    --border-color: #deb887;
+    --border-style: solid;
+    --border-width: 5px;
+    --border-radius: 5px;
+    font-weight: bolder;
+    
+    
+}
+.liked-project_dialog_finish:hover  {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.liked-project_dialog_content {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.liked_projects {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.liked_project-card-list {
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.liked_project-card {
+    width: 300px;
+    height: 450px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-left: 0;
+    border-radius: 16px;
+    background: #eeeeee;
+    box-shadow: 5px 5px 15px #bbbbbb, -5px -5px 15px #eeeeee;
+    list-style: none;
+    transform: .3s;
+}
+.liked_project-card:hover{
+    cursor: pointer;
+}
+
+.liked-project_content {
+    height: 80px;
+}
+
+.btn_show_liked-project {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+}
+.btn_show_liked-project button {
+    width: 700px;
+    display: inline-block;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color: #9eaab6;
+    box-shadow: 0px 2px 2px 1px #dcdcdc;
+    border-bottom: solid 5px #778899;
+    text-decoration: none;
+    color: #fff;
+}
+.btn_show_liked-project button:active{
+    box-shadow: none;
+    position:relative;
+    border-bottom:none;
+    top:7px;
+}
