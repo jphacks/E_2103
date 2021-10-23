@@ -45,7 +45,7 @@ jobs:
         working-directory: ./safire_front
         
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@v1.1.0
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
