@@ -172,14 +172,9 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
-    unicorn (5.4.1)
-      kgio (~> 2.6)
-      raindrops (~> 0.7)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    whenever (1.0.0)
-      chronic (>= 0.6.3)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -203,8 +198,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
   tzinfo-data
-  unicorn (= 5.4.1)
-  whenever
 
 RUBY VERSION
    ruby 2.5.1p57
