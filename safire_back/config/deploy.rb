@@ -1,10 +1,10 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "E_2103/safire"
+set :application, "E_2103"
 set :repo_url, "https://github.com/jphacks/E_2103"
 set :branch, "dev/back_0"
-set :deploy_to, "/var/www/#{fetch :application}"
+set :deploy_to, "/var/www/#{fetch :application}/safire_back"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
