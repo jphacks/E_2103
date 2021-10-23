@@ -76,8 +76,6 @@ GEM
       sshkit (>= 1.9.0)
     capistrano-bundler (1.6.0)
       capistrano (~> 3.1)
-    capistrano-passenger (0.2.0)
-      capistrano (~> 3.0)
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -112,9 +110,6 @@ GEM
     nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    passenger (6.0.11)
-      rack
-      rake (>= 0.8.1)
     puma (4.3.8)
       nio4r (~> 2.0)
     racc (1.5.2)
@@ -185,13 +180,11 @@ DEPENDENCIES
 <<<<<<< HEAD
 =======
   capistrano (~> 3.16.0)
-  capistrano-passenger
   capistrano-rails
   capistrano-rbenv
 >>>>>>> 16151e0 (Fixed gem version)
   listen (~> 3.2)
   mysql2 (>= 0.4.4)
-  passenger
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.4)
