@@ -25,7 +25,6 @@ set :deploy_to, "/var/www/#{fetch :application}/safire_back"
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
 append :linked_files, "config/master.key"
-set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads", "public/assets"
