@@ -24,13 +24,6 @@ lock "~> 3.16.0"
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
-<<<<<<< HEAD
-# append :linked_files, "config/master.key"
-
-=======
-append :linked_files, "config/master.key"
-set :linked_files, fetch(:linked_files, []).push("config/master.key")
->>>>>>> c1ea321 (Fixed some settings for CI/CD)
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads", "public/assets", ".bundle"
@@ -46,7 +39,6 @@ set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-<<<<<<< HEAD
 # set :ssh_options, {
 #   auth_methods: ['publickey'], 
 #   keys: ['~/.ssh/aws/AmazonLinux2.pem'] 
@@ -59,17 +51,3 @@ set :linked_files, fetch(:linked_files, []).push("config/master.key")
 # set :rbenv_path, '~/.rbenv' #指定するとこのパスは以下のbundleが、指定しないと$HOME配下のbundleが実行された
 # set :bundle_path, './vendor/bundle'
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-=======
-set :ssh_options, {
-  auth_methods: ['publickey'], 
-  keys: ['~/.ssh/aws/AmazonLinux2.pem'] 
-}
-
-set :rbenv_type, :user
-set :rbenv_ruby, '2.5.1'
-
-# set :rbenv_ruby_version, '2.5.1'
-set :rbenv_path, '~/.rbenv' #指定するとこのパスは以下のbundleが、指定しないと$HOME配下のbundleが実行された
-set :bundle_path, './vendor/bundle'
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
->>>>>>> c1ea321 (Fixed some settings for CI/CD)
