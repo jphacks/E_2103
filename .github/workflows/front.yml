@@ -34,10 +34,12 @@ jobs:
         uses: coturiv/setup-ionic@v1.0.0
         
       - run: npm install
+        working-directory: ./safire_front
       
       - name: build ionic
         run: |
           ionic build --prod
+        working-directory: ./safire_front
         
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v1.1.0
@@ -46,4 +48,5 @@ jobs:
         env:
           # Set token in GitHub settings
           # project -> settings -> secrets -> add token
+        working-directory: ./safire_front
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
