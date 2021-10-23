@@ -39,5 +39,5 @@ jobs:
           sudo ~/.rbenv/shims/bundle install &&
           sudo ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
           sudo ~/.rbenv/shims/bundle exec rails db:migrate RAILS_ENV=production &&
-          sudo kill $(cat tmp/pids/puma.pid) &&
+          sudo kill $(cat tmp/pids/server.pid) &&
           sudo ~/.rbenv/shims/rails s -e production'
