@@ -52,3 +52,4 @@ jobs:
           # Set token in GitHub settings
           # project -> settings -> secrets -> add token
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_PATH: ./safire_front
