@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'error',
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
   },
+  {
+    path: 'practice/:project_id',
+    loadChildren: () => import('./practice/practice.module').then( m => m.PracticePageModule)
+  },
   /*{
     path: 'title',
     loadChildren: () => import('./title/title.module').then( m => m.TitlePageModule)
