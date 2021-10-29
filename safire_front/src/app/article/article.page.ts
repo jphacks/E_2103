@@ -104,7 +104,7 @@ export class ArticlePage implements OnInit {
   }
 
   toTraining = () => {
-    this.router.navigate(['/feedback', this.project_id]);
+    this.router.navigate(['/practice', this.project_id]);
   }
 
   toEdit = () => {
