@@ -133,7 +133,7 @@ class ProjectController < ApplicationController
   def get_target
     project = Project.find(project_params["id"])
     object_list = ["smile_times", "filler_times", "negative_times", "time_min", "time_sec",
-                   "smile_result", "filler_result", "negative_result", "time_result"]
+                   "smile_result", "filler_result", "negative_result", "time_result", "project_times"]
     target_object = project.attributes.select {|k,v| object_list.include?(k)}
     render :json => target_object
   end
@@ -157,11 +157,13 @@ class ProjectController < ApplicationController
     filler = (project["filler_result"].blank? or project_params["filler_result"] < project["filler_result"]) ? project_params["filler_result"] : project["filler_result"]
     negative = (project["negative_result"].blank? or project_params["negative_result"] < project["negative_result"]) ? project_params["negative_result"] : project["negative_result"]
     time = (project["time_result"].blank? or project_params["time_result"] < project["time_result"]) ? project_params["time_result"] : project["time_result"]
+    practice_times = project["project_times"] + 1
     project.assign_attributes(
       smile_result: smile,
       filler_result: filler,
       negative_result: negative,
       time_result: time,
+      project_times: practice_times
     )
     project.save!
     render :json => {"message": "SUCCESSFUL"}
