@@ -130,6 +130,26 @@ class ProjectController < ApplicationController
     render :json => { message: "プロジェクトの更新に成功しました." }
   end
 
+  def get_target
+    project = Project.find(project_params["id"])
+    object_list = ["smile_times", "filler_times", "negative_times", "time_min", "time_sec"]
+    target_object = project.attributes.select {|k,v| object_list.include?(k)}
+    render :json => target_object
+  end
+
+  def set_target
+    project = Project.find(project_params["id"])
+    project.assign_attributes(
+      smile_times: project_params["smile_times"],
+      filler_times: project_params["filler_times"],
+      negative_times: project_params["negative_times"],
+      time_min: project_params["time_min"],
+      time_sec: project_params["time_sec"]
+    )
+    project.save!
+    render :json => {"message": "SUCCESSFUL"}
+  end
+
   private
     def project_params
       params.permit(
@@ -146,6 +166,11 @@ class ProjectController < ApplicationController
         :thumbnail_technology,
         :appendix,
         :color,
+        :smile_times,
+        :filler_times,
+        :negative_times,
+        :time_min,
+        :time_sec,
         tag_list: [],
         abstract_background: [:text, :rankScore],
         abstract_idea: [:text, :rankScore],

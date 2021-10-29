@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     post :login, on: :member
   end
   resources :home, only: %i(index)
-  resources :project, only: %i(create show update)
+  resources :project, only: %i(create show update) do
+    get :get_target, on: :member
+    post :set_target, on: :member
+  end
   resources :mypage, only: %i(show)
   resources :presentation, only: %i(show)
   resources :member, only: %i(index create show update)
