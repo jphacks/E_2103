@@ -28,6 +28,7 @@ export class PracticePage implements OnInit {
   time_min: number
   time_sec: number
   modal_return: any
+  status_list: any[] = []
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -41,6 +42,10 @@ export class PracticePage implements OnInit {
             this.negative_times = res["negative_times"]
             this.time_min = res["time_min"]
             this.time_sec = res["time_sec"]
+            // NULLチェック
+            // クリアチェック
+            // 差チェック
+
           }
         )
       }
