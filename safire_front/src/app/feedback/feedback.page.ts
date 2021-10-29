@@ -59,6 +59,8 @@ export class FeedbackPage implements OnInit {
   m: number = 0
   s: number = 0
 
+  project_id: number
+
   top_button_list: any[] = [
     {
       name: "入力内容表示",
@@ -90,7 +92,8 @@ export class FeedbackPage implements OnInit {
     // this.getTokenOrRefresh()
     this.route.params.subscribe(
       params => {
-        this.gs.httpGet("https://techfusion-studio.com/safire/presentation/" + params["project_id"]).subscribe(
+        this.project_id = params["project_id"]
+        this.gs.httpGet("https://techfusion-studio.com/safire/presentation/" + this.project_id).subscribe(
           res => {
             this.return = res
             console.log(res)
@@ -429,8 +432,8 @@ export class FeedbackPage implements OnInit {
     await alert.present();
   }
   
-  toProject = () => {
-    this.router.navigate(['/article'])
+  toDashboard = () => {
+    this.router.navigate(['/practice', this.project_id])
     this.top_button_list[0]["list"] = []
     this.top_button_list[1]["list"] = []
     this.top_button_list[2]["list"] = []
