@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :project, only: %i(create show update) do
     get :get_target, on: :member
     post :set_target, on: :member
+    post :set_result, on: :member
   end
   resources :mypage, only: %i(show)
   resources :presentation, only: %i(show)
