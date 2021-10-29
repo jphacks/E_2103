@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_21_232436) do
+ActiveRecord::Schema.define(version: 2021_10_29_131440) do
 
   create_table "abstracts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "project_id"
@@ -63,6 +63,12 @@ ActiveRecord::Schema.define(version: 2021_09_21_232436) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "color", default: "99ff99", null: false
     t.integer "view_times", default: 0, null: false
+    t.integer "smile_times", default: 0, null: false
+    t.integer "filler_times", default: 0, null: false
+    t.integer "negative_times", default: 0, null: false
+    t.integer "time_min", default: 0, null: false
+    t.integer "time_sec", default: 0, null: false
+    t.integer "project_times", default: 0, null: false
   end
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
