@@ -303,6 +303,7 @@ export class FeedbackPage implements OnInit {
   }
 
   startPractice = () => {
+    navigator.mediaDevices.getUserMedia({audio: true, video: true})
     navigator.permissions.query({name: 'microphone'})
     .then((result) => {
       // なんらかの処理。
