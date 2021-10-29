@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { GlobalService } from '../global.service';
+import { environment } from 'src/environments/environment';
 
 import { ModalController } from '@ionic/angular';
 import { ModalSettingPage } from './modal-setting/modal-setting.page';
+import { fill } from '@tensorflow/tfjs-core';
 
 @Component({
   selector: 'app-practice',
@@ -15,6 +18,7 @@ export class PracticePage implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public modalController: ModalController,
+    public gs: GlobalService
   ) { }
 
   project_id: string
@@ -23,11 +27,22 @@ export class PracticePage implements OnInit {
   negative_times: number
   time_min: number
   time_sec: number
+  modal_return: any
 
   ngOnInit() {
     this.route.params.subscribe(
       params => {
         this.project_id = params["project_id"]
+        this.gs.httpGet(environment.url+'project/'+this.project_id+'/get_target').subscribe(
+          (res) => {
+            console.log(res)
+            this.smile_times = res["smile_times"]
+            this.filler_times = res["filler_times"]
+            this.negative_times = res["negative_times"]
+            this.time_min = res["time_min"]
+            this.time_sec = res["time_sec"]
+          }
+        )
       }
     )
   }
@@ -51,6 +66,13 @@ export class PracticePage implements OnInit {
         'time_sec': this.time_sec
       }
     });
-    return await modal.present();
+    await modal.present();
+    this.modal_return = await modal.onDidDismiss()
+    this.smile_times = this.modal_return["data"]["smile_times"]
+    this.filler_times = this.modal_return["data"]["filler_times"]
+    this.negative_times = this.modal_return["data"]["negative_times"]
+    this.time_min = this.modal_return["data"]["time_min"]
+    this.time_sec = this.modal_return["data"]["time_sec"]
   }
+
 }

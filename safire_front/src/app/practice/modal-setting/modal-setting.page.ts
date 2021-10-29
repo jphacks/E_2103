@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { GlobalService } from '../../global.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal-setting',
@@ -37,16 +38,22 @@ export class ModalSettingPage implements OnInit {
       'time_min': this.time_min,
       'time_sec': this.time_sec
     }
-    // this.gs.http(this.url + "rate", body).subscribe(
-    //   res => {
-    //     console.log(res)
-    //     this.alertResult()
-    //   }
-    // )
-    this.alertResult()
+    this.gs.http(environment.url + "project/" + this.project_id + '/set_target', body).subscribe(
+      res => {
+        console.log(res)
+        this.alertResult()
+      }
+    )
   }
   dismiss = () => {
-    this.modalController.dismiss({"dissmiss": true})
+    this.modalController.dismiss({
+      'project_id': this.project_id,
+      'smile_times': this.smile_times,
+      'filler_times': this.filler_times,
+      'negative_times': this.negative_times,
+      'time_min': this.time_min,
+      'time_sec': this.time_sec
+    })
   }
 
   async alertResult() {
