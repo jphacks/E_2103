@@ -132,7 +132,8 @@ class ProjectController < ApplicationController
 
   def get_target
     project = Project.find(project_params["id"])
-    object_list = ["smile_times", "filler_times", "negative_times", "time_min", "time_sec"]
+    object_list = ["smile_times", "filler_times", "negative_times", "time_min", "time_sec",
+                   "smile_result", "filler_result", "negative_result", "time_result"]
     target_object = project.attributes.select {|k,v| object_list.include?(k)}
     render :json => target_object
   end
@@ -145,6 +146,22 @@ class ProjectController < ApplicationController
       negative_times: project_params["negative_times"],
       time_min: project_params["time_min"],
       time_sec: project_params["time_sec"]
+    )
+    project.save!
+    render :json => {"message": "SUCCESSFUL"}
+  end
+
+  def set_result
+    project = Project.find(project_params["id"])
+    smile = (project["smile_result"].blank? or project_params["smile_result"] > project["smile_result"]) ? project_params["smile_result"] : project["smile_result"]
+    filler = (project["filler_result"].blank? or project_params["filler_result"] < project["filler_result"]) ? project_params["filler_result"] : project["filler_result"]
+    negative = (project["negative_result"].blank? or project_params["negative_result"] < project["negative_result"]) ? project_params["negative_result"] : project["negative_result"]
+    time = (project["time_result"].blank? or project_params["time_result"] < project["time_result"]) ? project_params["time_result"] : project["time_result"]
+    project.assign_attributes(
+      smile_result: smile,
+      filler_result: filler,
+      negative_result: negative,
+      time_result: time,
     )
     project.save!
     render :json => {"message": "SUCCESSFUL"}
@@ -171,6 +188,10 @@ class ProjectController < ApplicationController
         :negative_times,
         :time_min,
         :time_sec,
+        :smile_result,
+        :filler_result,
+        :negative_result,
+        :time_result,
         tag_list: [],
         abstract_background: [:text, :rankScore],
         abstract_idea: [:text, :rankScore],
