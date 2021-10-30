@@ -55,6 +55,7 @@ URL: https://safire-betterhack.web.app/
 * CI/CDなどのDevOpsについて、GitHub Actionsを用いて実装した。
   * Ionic -> Firebase
   * Rails -> EC2
+* フィラー検知モデルの検証と修正
 * `特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。`
   * 特に力を入れた部分のcommit_id
     * 165428a （「発表練習画面」や「発表練習結果」の表示プロセスやシステム設計に関するもの）
