@@ -558,3 +558,28 @@ section {
     border-bottom:none;
     top:7px;
 }
+
+.achievement-container {
+    width: 700px;
+    display        : flex;                 /* FlexBox定義         */
+    justify-content: center;               /* 揃えの定義          */
+    flex-wrap      : wrap;                 /* 折り返し定義        */
+    // --background: url('../../assets/svg/blurry-gradient-haikei.svg') no-repeat center center / cover;
+    background-image: url('../../assets/svg/blurry-gradient-haikei.svg');
+    background-size: cover;
+    border-radius: 20px;
+}
+.achievement-block {
+    width: 30%;
+    height: 100px;
+    margin: auto;
+}
+.achievement-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.achievement-text {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
