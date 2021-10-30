@@ -14,6 +14,8 @@ import * as faceapi from 'face-api.js';
 import { ModalController } from '@ionic/angular';
 import { ModalResultPage } from './modal-result/modal-result.page';
 
+import { environment } from 'src/environments/environment';
+
 declare global {
   interface MediaDevices {
     getDisplayMedia(constraints?: MediaStreamConstraints): Promise<MediaStream>;
@@ -185,8 +187,8 @@ export class FeedbackPage implements OnInit {
       this.char_per_sec =  speed.toFixed(1)
       this.speedManagement(speed)
       this.text = this.text + `[${this.timer} ${this.char_per_sec}char/sec] `
-      // his.checkFiller(String(result.text))  // filler検知を行う場合
-      this.checkNegative(String(result.text))  // filler検知を飛ばす場合
+      this.checkFiller(String(result.text))  // filler検知を行う場合
+      // this.checkNegative(String(result.text))  // filler検知を飛ばす場合
       // this.text = this.text + `[${this.timer} ${this.char_per_sec}char/sec] ${result.text}<br>`  // 何も行わない場合
     }
     if (this.speechFlag == true) {
@@ -203,7 +205,7 @@ export class FeedbackPage implements OnInit {
   }
   checkFiller = (text) => {
     const body = { text: text.split("。")[0] }
-    this.gs.http("https://45e6-133-237-7-86.ngrok.io/model/parse", body).subscribe(
+    this.gs.http(environment.filler+"model/parse", body).subscribe(
       res => {
         console.log(res)
         this.filler_times += res["entities"].length
