@@ -148,6 +148,10 @@ export class FeedbackPage implements OnInit {
 
   startSpeech = () => {
     this.text = ""
+    this.smile_sequence = []
+    this.filler_sequence = []
+    this.negative_sequence= []
+    this.speed_sequence = []
     this.speechFlag = true
     this.sttFromMic()
     this.startRecording()
@@ -181,8 +185,8 @@ export class FeedbackPage implements OnInit {
       this.char_per_sec =  speed.toFixed(1)
       this.speedManagement(speed)
       this.text = this.text + `[${this.timer} ${this.char_per_sec}char/sec] `
-      this.checkFiller(String(result.text))  // filler検知を行う場合
-      // this.checkNegative(String(result.text))  // filler検知を飛ばす場合
+      // his.checkFiller(String(result.text))  // filler検知を行う場合
+      this.checkNegative(String(result.text))  // filler検知を飛ばす場合
       // this.text = this.text + `[${this.timer} ${this.char_per_sec}char/sec] ${result.text}<br>`  // 何も行わない場合
     }
     if (this.speechFlag == true) {
