@@ -5,7 +5,7 @@
 ## 外部リンク
 ### 製品説明動画
 URL: https://youtu.be/W0Cnm3vreQk
-### Web上での公開URL
+### Web上でのアプリ（作品）公開URL
 URL: https://safire-betterhack.web.app/
 
 ## 製品概要
