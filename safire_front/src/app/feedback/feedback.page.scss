@@ -3,7 +3,7 @@ ion-content {
 }
 
 .top_button_list {
-    width: 95%;
+    width: 96%;
 }
 .top-button {
     font-size: 18px;
@@ -14,7 +14,7 @@ ion-content {
 
 .slides {
     display: flex;
-    width: 95%;
+    width: 97%;
     margin: 0 auto;
 }
 .slides ion-card {
@@ -92,7 +92,6 @@ ion-content {
 
 .bottom-container {
     width: 95%;
-    height: 30%;
 }
 
 .camera-container {
@@ -102,8 +101,8 @@ ion-content {
 
 .analysis-text {
     background-color: white;
-    height: 250px;
-    width: 95%;
+    height: 200px;
+    width: 94%;
     overflow: scroll;
     margin: 0 auto;
     font-size: 20px;
@@ -117,18 +116,16 @@ ion-content {
     font-size: 30px;
     color: white;
     font-weight: bold;
-    margin-top: 8%;
 }
 .bottom-button {
     font-weight: bold;
     font-size: 18px;
     background-color: white;
     border-radius: 10px;
-    margin-top: 5%;
 }
 
 #camera {
-    width: "300";
-    height: "200";
+    width: 300px;
+    height: 200px;
     margin: 0 auto;
 }
