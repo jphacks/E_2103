@@ -1,0 +1,129 @@
+[
+  {
+    "text": "\"割り込み再生ができるようにえーちょっと工夫して実装しました\"",
+    "entities": [
+      {
+        "start": 14,
+        "end": 16,
+        "value": "えー",
+        "entity": "filler"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "filler",
+        "start": 14,
+        "end": 16,
+        "confidence_entity": 0.9995075464248657,
+        "value": "えー",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "filler",
+        "start": 16,
+        "end": 20,
+        "confidence_entity": 0.9055942893028259,
+        "value": "ちょっと",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "\"現在はそのおスマホ1つで色々な情報が取れる時代なのです\"",
+    "entities": [
+      {
+        "start": 4,
+        "end": 7,
+        "value": "そのお",
+        "entity": "filler"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "\"基本的に音声ありの顔出し無しなので、まあ気軽に始められるスマホアプリだと、えー思います\",",
+    "entities": [
+      {
+        "start": 19,
+        "end": 21,
+        "value": "まあ",
+        "entity": "filler"
+      },
+      {
+        "start": 38,
+        "end": 40,
+        "value": "えー",
+        "entity": "filler"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "filler",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.74095618724823,
+        "value": "あり",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "filler",
+        "start": 19,
+        "end": 21,
+        "confidence_entity": 0.9971379041671753,
+        "value": "まあ",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "filler",
+        "start": 38,
+        "end": 40,
+        "confidence_entity": 0.9993844032287598,
+        "value": "えー",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "\"つまり、そのまあ承認欲求の塊です\"",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "まあ",
+        "entity": "filler"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "filler",
+        "start": 5,
+        "end": 7,
+        "confidence_entity": 0.9534986019134521,
+        "value": "その",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "filler",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.9734786748886108,
+        "value": "まあ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "\"そのためにせっかく良いものを作ったのに、なかなかそれが伝えられず、使える場合ももどかしいものがありました\"",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "filler",
+        "start": 1,
+        "end": 3,
+        "confidence_entity": 0.9560467004776001,
+        "value": "その",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "goodbye": {
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
+    "support": 6,
+    "confused_with": {
+      "greet": 2
+    }
+  },
+  "fillersentence": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 41,
+    "confused_with": {}
+  },
+  "greet": {
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1-score": 0.9090909090909091,
+    "support": 10,
+    "confused_with": {}
+  },
+  "accuracy": 0.9649122807017544,
+  "macro avg": {
+    "precision": 0.9444444444444445,
+    "recall": 0.8888888888888888,
+    "f1-score": 0.903030303030303,
+    "support": 57
+  },
+  "weighted avg": {
+    "precision": 0.9707602339181287,
+    "recall": 0.9649122807017544,
+    "f1-score": 0.9629984051036683,
+    "support": 57
+  }
+}
