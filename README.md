@@ -68,7 +68,7 @@
 
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
-
+```
 @article{zhang2016joint,
   title={Joint face detection and alignment using multitask cascaded convolutional networks},
   author={Zhang, Kaipeng and Zhang, Zhanpeng and Li, Zhifeng and Qiao, Yu},
