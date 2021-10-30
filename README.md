@@ -1,10 +1,10 @@
 # SaFire: 教育 × Tech
 
-[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/49345024/139520066-a80fbcbd-2ac9-4c0c-a3c2-8e08d0a58c6b.png)](https://youtu.be/W0Cnm3vreQk)
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/49345024/139520066-a80fbcbd-2ac9-4c0c-a3c2-8e08d0a58c6b.png)](https://youtu.be/8OratEfNJaQ)
 
 ## 外部リンク
 ### 製品説明動画
-URL: https://youtu.be/W0Cnm3vreQk
+URL: https://youtu.be/8OratEfNJaQ
 ### Web上でのアプリ（作品）公開URL
 URL: https://safire-betterhack.web.app/
 
