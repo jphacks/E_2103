@@ -26,6 +26,21 @@
                     </div>
                 </section>
 
+                <div class="achievement-container ion-margin">
+                    <div class="achievement-block">
+                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="document-outline"></ion-icon> 投稿数</div>
+                        <div class="achievement-text">{{total_post}}</div>
+                    </div>
+                    <div class="achievement-block">
+                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="ribbon-outline"></ion-icon>目標全達成数</div>
+                        <div class="achievement-text">{{total_clear}}</div>
+                    </div>
+                    <div class="achievement-block">
+                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="barbell-outline"></ion-icon>練習回数</div>
+                        <div class="achievement-text">{{total_practice}}</div>
+                    </div>
+                </div>
+
                 <div class="liked-project_content">
                     <div class="btn_show_liked-project">
                         <button onclick="document.getElementById('dialog_liked-project').showModal()">{{user_id_page}}さんが高評価したプロジェクトを見る</button>  
