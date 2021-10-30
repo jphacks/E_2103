@@ -1,0 +1,18 @@
+[
+  {
+    "text": "さようなら",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8867917060852051
+    }
+  },
+  {
+    "text": "おやすみ",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5950254797935486
+    }
+  }
+]
