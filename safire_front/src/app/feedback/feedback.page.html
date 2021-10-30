@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content [fullscreen]=true>
+<ion-content>
   <ion-grid class="top_button_list">
     <ion-row>
       <ion-col *ngFor="let top_button of top_button_list; index as i">
@@ -23,7 +23,7 @@
     </ion-row>
   </ion-grid>
 
-  <div class="ion-padding analysis-text" [innerHTML]="text"></div>
+  <div class="analysis-text" [innerHTML]="text"></div>
 
   <ion-grid class="bottom-container">
     <ion-row>
