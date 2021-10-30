@@ -61,7 +61,7 @@ export class ModalResultPage implements OnInit {
         // m sの復元
         const target_time: number = (60000 * res["time_min"]) + (1000 * res["time_sec"])
         //時間の誤差を出す
-        this.time_diff = Math.abs(target_time - this.time_result)
+        this.time_diff = Math.abs(target_time - this.time_result) / 1000
         if ((30 < res["time_result"]) && (30 < this.time_diff)) {
           this.left_target = this.left_target + 1
         }
