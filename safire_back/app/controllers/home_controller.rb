@@ -20,7 +20,7 @@ class HomeController < ApplicationController
     
     # 閲覧数上位5プロジェクト
     top_project_list = []
-    top_projects = Project.order(view_times: "DESC").order(created_at: "DESC").limit(5)
+    top_projects = Project.order(view_times: "DESC").order(created_at: "DESC").limit(3)
     top_projects.each do |project|
       tags_for_top = ProjectTag.where(project_id: project.id)
       top_project_list.push({"id": project["id"], "name": project["title"], "tag_list": tags_for_top.map(&:tag)})
