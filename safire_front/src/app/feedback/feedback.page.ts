@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GlobalService } from '../global.service';
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
@@ -27,7 +27,7 @@ declare global {
   templateUrl: './feedback.page.html',
   styleUrls: ['./feedback.page.scss'],
 })
-export class FeedbackPage implements OnInit {
+export class FeedbackPage implements OnInit, OnDestroy {
 
   text: string = "しゃべった内容をここで確認！"
   status: string = "しゃべった内容をここで確認！"
@@ -119,6 +119,11 @@ export class FeedbackPage implements OnInit {
         )
       }
     )
+  }
+  ngOnDestroy() {
+    if (this.video_flag) {
+      this.stream.getTracks().forEach(track => track.stop())  // 遷移時のカメラ停止
+    }
   }
 
   setList = (res) => {
