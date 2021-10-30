@@ -1,0 +1,43 @@
+.score-header {
+  font-size: 36px;
+  font-weight: bold;
+}
+.score-container {
+  display        : flex;                 /* FlexBox定義         */
+  justify-content: center;               /* 揃えの定義          */
+  flex-wrap      : wrap;                 /* 折り返し定義        */
+}
+.score-block {
+  width: 250px;
+  height: 150px;
+  margin: 20px;
+}
+.score-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.score-text {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  &__sub {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+.video-container {
+  width: 90%;
+  margin: 0 auto;
+}
+#playback_video {
+  width: 100%;
+}
+.video-download {
+  font-weight: bold;
+}
+.button-container {
+  width: 90%;
+  margin: 0 auto;
+}
