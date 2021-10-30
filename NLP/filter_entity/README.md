@@ -20,6 +20,6 @@
 ## deploy
 We used ngrok as rasa tunnering tool.  In the future we introduce cloud management system into this architechture.
 ```
-- rasa run --enable-api -m PATH/TO/MODEL
+- rasa run --enable-api -m PATH/TO/MODEL --cors "*"
 - ngrok http 5005
 ```
