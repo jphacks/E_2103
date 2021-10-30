@@ -17,7 +17,8 @@
 ### 製品説明
 小中学生のためのポートフォリオサイトです。<br>
 発表資料の自動作成や発表態度のフィードバックにより、小中学生の発表や練習をサポートします！！<br>
-また、レコメンドシステムで嗜好の合う学生を推薦し、他学生のプロジェクトを閲覧する事による『主体的』な学びを推進します
+また、レコメンドシステムでユーザ類似度の高い学生を推薦し、他学生のプロジェクトを閲覧する事による『主体的』な学びを推進します<br>
+他学生の作品へのお気に入り機能やメンバー・共同編集なども充実！
 
 ### 特長
 #### 1. 低リテラシーでも発表資料を簡単に作成！！
@@ -32,8 +33,9 @@
 ### 解決出来ること
 * 発表に対する場数・経験不足を解決し、小中学生の『主体性』を育みます
 ### 今後の展望
-`hogehoge`
-### 注力したこと（こだわり等）
+* マイページに成長記録を確認できるダッシュボードを実装
+* 独自の採点・実績システムによるゲーミフィケーションを実装し、更に楽しく主体的な発表練習を促進
+### 注力したこと
 * 発表練習画面・発表練習スコアのダッシュボードUX
 * 発表態度のフィードバック機能
 
@@ -56,6 +58,8 @@
 * Azure
 * AWS
 * ionic
+* Firebase
+* ngrok
 
 #### システム構成
 <img width="80%" height='80%' alt="スクリーンショット 2021-10-30 10 59 16" src="https://user-images.githubusercontent.com/63716217/139516584-5adf006e-794c-467b-b670-ec17defb58ee.png">
@@ -64,5 +68,15 @@
 
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
-* 
-* 
+'''
+@article{zhang2016joint,
+  title={Joint face detection and alignment using multitask cascaded convolutional networks},
+  author={Zhang, Kaipeng and Zhang, Zhanpeng and Li, Zhifeng and Qiao, Yu},
+  journal={IEEE Signal Processing Letters},
+  volume={23},
+  number={10},
+  pages={1499--1503},
+  year={2016},
+  publisher={IEEE}
+}
+```
