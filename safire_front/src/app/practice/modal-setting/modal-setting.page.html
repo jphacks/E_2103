@@ -7,7 +7,7 @@
 <ion-content>
   <form (submit)="postTarget()">
     <ion-item>
-      <ion-label position="stacked">目標スマイル回数（5秒に1回検知されます）</ion-label>
+      <ion-label position="stacked">目標スマイル回数（3秒に1回検知されます）</ion-label>
       <ion-input required type="number" placeholder="ここに入力: X回以上" [(ngModel)]="smile_times" name="smile_times"></ion-input>
       <ion-label position="stacked">目標フィラー回数</ion-label>
       <ion-input required type="number" placeholder="ここに入力: X回未満" [(ngModel)]="filler_times" name="filler_times"></ion-input>

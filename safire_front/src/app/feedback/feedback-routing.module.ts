@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: FeedbackPage
+  },
+  {
+    path: 'modal-result',
+    loadChildren: () => import('./modal-result/modal-result.module').then( m => m.ModalResultPageModule)
   }
 ];
 

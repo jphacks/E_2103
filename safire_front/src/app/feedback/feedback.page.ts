@@ -11,6 +11,9 @@ import marked from 'marked';
 
 import * as faceapi from 'face-api.js';
 
+import { ModalController } from '@ionic/angular';
+import { ModalResultPage } from './modal-result/modal-result.page';
+
 declare global {
   interface MediaDevices {
     getDisplayMedia(constraints?: MediaStreamConstraints): Promise<MediaStream>;
@@ -50,6 +53,8 @@ export class FeedbackPage implements OnInit {
   timer_between: any
   timer: string = "00:00"
   char_per_sec: string
+  speed_list: number[] = []
+  speed_mean: number = 0
 
   filler_times: number = 0
   negative_times: number = 0
@@ -60,6 +65,13 @@ export class FeedbackPage implements OnInit {
   s: number = 0
 
   project_id: number
+
+  // 5秒ごとに格納
+  smile_sequence: number[] = []
+  filler_sequence: number[] = []
+  negative_sequence: number[] = []
+  speed_sequence: number[] = []
+  sequence_id: any
 
   top_button_list: any[] = [
     {
@@ -80,12 +92,15 @@ export class FeedbackPage implements OnInit {
     }
   ]
 
+  blob: Blob
+
   constructor(
     private router: Router,
     public gs: GlobalService,
     private route: ActivatedRoute,
     private alertController: AlertController,
     public loadingController: LoadingController,
+    public modalController: ModalController,
   ) { }
 
   ngOnInit() {
@@ -162,11 +177,13 @@ export class FeedbackPage implements OnInit {
 
   setText = (result) => {
     if (result.reason === sdk.ResultReason.RecognizedSpeech) {
-      this.char_per_sec =  (result.text.length / ((Date.now() - this.timer_last) / 1000)).toFixed(1)
+      const speed = (result.text.length / ((Date.now() - this.timer_last) / 1000))
+      this.char_per_sec =  speed.toFixed(1)
+      this.speedManagement(speed)
       this.text = this.text + `[${this.timer} ${this.char_per_sec}char/sec] `
-      // this.checkFiller(String(result.text))
+      // this.checkFiller(String(result.text))  // filler検知を行う場合
       this.checkNegative(String(result.text))  // filler検知を飛ばす場合
-      // this.text = this.text + `[${this.timer} ${this.char_per_sec}char/sec] ${result.text}<br>`
+      // this.text = this.text + `[${this.timer} ${this.char_per_sec}char/sec] ${result.text}<br>`  // 何も行わない場合
     }
     if (this.speechFlag == true) {
       this.sttFromMic()
@@ -175,6 +192,10 @@ export class FeedbackPage implements OnInit {
       this.text = this.text + "[END]"
       this.stopRecording()
     }
+  }
+  speedManagement = (speed) => {
+    this.speed_list.push(speed)
+    this.speed_mean = this.speed_list.reduce((previous, current) => previous + current) / this.speed_list.length
   }
   checkFiller = (text) => {
     const body = { text: text.split("。")[0] }
@@ -377,12 +398,14 @@ export class FeedbackPage implements OnInit {
     this.download_link = document.createElement('a');
     this.recorder.ondataavailable = e => {
       console.log("ondataavailable", e);
-      const blob = new Blob([e.data], { type: e.data.type });
-      const blobUrl = URL.createObjectURL(blob);
-      this.download_link.download = "movie.webm";
-      this.download_link.href = blobUrl;
-      this.download_link.style.display = "block";
-      this.download_link.click();
+      this.blob = new Blob([e.data], { type: e.data.type });
+      this.openResult()
+      // const blob = new Blob([e.data], { type: e.data.type });
+      // const blobUrl = URL.createObjectURL(blob);
+      // this.download_link.download = "movie.webm";
+      // this.download_link.href = blobUrl;
+      // this.download_link.style.display = "block";
+      // this.download_link.click();  // Direct auto download
     };
   }
   stopRecording = () => {
@@ -397,12 +420,14 @@ export class FeedbackPage implements OnInit {
     this.timer_start = Date.now()
     this.timer_last = this.timer_start
     this.countUp()
+    this.checkSequence()
   }
   countUp = () => {
     this.timer_id = setTimeout(() => {
         this.timer_between = Date.now() - this.timer_start
         if (this.m >= 10) {
           this.speechFlag = false
+          this.stopTimer()
           this.alertLimit()
         }
         else {
@@ -410,6 +435,15 @@ export class FeedbackPage implements OnInit {
           this.countUp();
         }
     },200);
+  }
+  checkSequence = () => {
+    this.sequence_id = setTimeout(() => {
+      this.checkSequence()
+      this.smile_sequence.push(this.smile_times)
+      this.filler_sequence.push(this.filler_times)
+      this.negative_sequence.push(this.negative_times)
+      this.speed_sequence.push(this.speed_mean)
+    }, 5000)
   }
   updateTimer = () => {
     this.m = Math.floor(this.timer_between / 60000);
@@ -423,6 +457,7 @@ export class FeedbackPage implements OnInit {
   }
   stopTimer = () => {
     clearTimeout(this.timer_id)
+    clearTimeout(this.sequence_id)
   }
   alertLimit = async () => {
     const alert = await this.alertController.create({
@@ -437,5 +472,32 @@ export class FeedbackPage implements OnInit {
     this.top_button_list[0]["list"] = []
     this.top_button_list[1]["list"] = []
     this.top_button_list[2]["list"] = []
+  }
+  openResult = async () => {
+    // 最終値の打ち込み
+    this.smile_sequence.push(this.smile_times)
+    this.filler_sequence.push(this.filler_times)
+    this.negative_sequence.push(this.negative_times)
+    this.speed_sequence.push(this.speed_mean)
+
+    // modal展開
+    const modal = await this.modalController.create({
+      component: ModalResultPage,
+      componentProps: {
+        'blob': this.blob,
+        'smile_sequence': this.smile_sequence,
+        'filler_sequence': this.filler_sequence,
+        'negative_sequence': this.negative_sequence,
+        'speed_sequence': this.speed_sequence,
+        'smile_result': this.smile_times,
+        'filler_result': this.filler_times,
+        'negative_result': this.negative_times,
+        'time_result': this.timer_between,
+        'project_id': this.project_id
+      }
+    });
+    await modal.present();
+    // this.modal_return = await modal.onDidDismiss()
+    // this.smile_times = this.modal_return["data"]["smile_times"]
   }
 }

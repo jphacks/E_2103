@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>練習結果</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="score-header ion-padding">{{result_message}}</div>
+  <div class="score-title ion-padding-top"><ion-icon class="ion-padding-right" name="bar-chart-outline"></ion-icon> 各種スコア</div>
+  <div class="score-container">
+    <div class="score-block">
+      <app-chart [sequence]="smile_sequence" label="スマイル回数" color="#000acc" class="ion-padding"></app-chart>
+    </div>
+    <div class="score-block">
+      <app-chart [sequence]="filler_sequence" label="フィラー回数" color="#cc00ad" class="ion-padding"></app-chart>
+    </div>
+    <div class="score-block">
+      <app-chart [sequence]="negative_sequence" label="ネガティブ回数" color="#cc4700" class="ion-padding"></app-chart>
+    </div>
+    <div class="score-block">
+      <app-chart [sequence]="speed_sequence" label="発声スピード" color="#5ccc00" class="ion-padding"></app-chart>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <video id="playback_video" controls type="video/webm"></video>
+    <a id="download">
+      <ion-button class="video_download ion-padding-vertical" expand="block" (click)="download()">ダウンロード</ion-button>
+    </a>
+  </div>
+ 
+  <div class="button-container">
+    <ion-button class="ion-padding-vertical" expand="block" fill="outline" (click)="dismiss()">閉じる</ion-button>
+  </div>
+</ion-content>
