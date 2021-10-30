@@ -53,10 +53,7 @@ URL: https://safire-betterhack.web.app/
   * 小中学生でも分かって、楽しめるような高度なUXを実現。
   * 楽しめるだけでなく、効果的な練習ができるよう、便利な練習振り返り機能にも注力した。
 * 「マイページ」でも「練習にフォーカス」した実績を表示するようにしており、「VS commit」となる新しいアウトプットへの概念を導入した。
-<<<<<<< HEAD
 * 自動資料作成処理の高速化
-=======
->>>>>>> d8da9c8 (Fixed README)
 * CI/CDなどのDevOpsについて、GitHub Actionsを用いて実装した。
   * Ionic -> Firebase
   * Rails -> EC2
