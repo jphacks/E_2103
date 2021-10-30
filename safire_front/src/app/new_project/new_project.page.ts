@@ -52,6 +52,9 @@ export class NewProjectPage {
   edit_flag: boolean = false
   project_id: number
 
+  abstract_id: string[] = []
+  abstract_flag: boolean[] = [false, false, false]
+
   constructor(
     private router: Router,
     public gs: GlobalService,
@@ -100,7 +103,6 @@ export class NewProjectPage {
           this.project_id = params['project_id']
           this.gs.httpGet("https://techfusion-studio.com/safire/project/"+this.project_id).subscribe(
             res => {
-              console.log(res)
               this.title = res["title"]
               this.thumbnail = res["thumbnail"]
               this.user_id = res["user_id"]
@@ -140,7 +142,6 @@ export class NewProjectPage {
           this.imgSrcPoint = '/assets/img/project_img_none.png'
           this.imgSrcTech = '/assets/img/project_img_none.png'
         }
-        // console.log(this.edit_flag)
       }
     )
 
@@ -153,19 +154,15 @@ export class NewProjectPage {
 
   postProject = () => {
     const body = this.postObj;
-    console.log(body)
 
     if (this.edit_flag) {
       this.gs.httpPut(this.url+'project/'+this.project_id, body).subscribe(
         res => {
           this.returnObj = res;
-          console.log(this.returnObj['message']);
           if(this.returnObj['message']){
-            console.log('Success: Post Project')
             this.router.navigate(['home']);
           }
           else {
-            console.log('Error');
             return;
           }
         }
@@ -175,13 +172,10 @@ export class NewProjectPage {
       this.gs.http(this.url+'project', body).subscribe(
         res => {
           this.returnObj = res;
-          console.log(this.returnObj['message']);
           if(this.returnObj['message']){
-            console.log('Success: Post Project')
             this.router.navigate(['home']);
           }
           else {
-            console.log('Error');
             return;
           }
         }
@@ -199,7 +193,6 @@ export class NewProjectPage {
     const allCheckBoxes = document.querySelectorAll("input[type='checkbox']") as NodeListOf<HTMLInputElement>;
     allCheckBoxes.forEach(checkBox => {
       if(checkBox && checkBox.checked) {
-        console.log('yeah!')
         this.tag_list.push(checkBox.value)
       }
     });
@@ -224,7 +217,6 @@ export class NewProjectPage {
     fileReader.onloadend = () => {
       img.onload = () => {
         // 画像軽量化
-        console.log('Image Processing');
         const imgType = img.src.substring(5, img.src.indexOf(';'));
         const imgWidth = img.width * (this.imgHeight / img.height);
         const canvas = document.createElement('canvas');
@@ -251,7 +243,6 @@ export class NewProjectPage {
     fileReader.onloadend = () => {
       img.onload = () => {
         // 画像軽量化
-        console.log('Image Processing');
         const imgType = img.src.substring(5, img.src.indexOf(';'));
         const imgWidth = img.width * (this.imgHeight / img.height);
         const canvas = document.createElement('canvas');
@@ -278,7 +269,6 @@ export class NewProjectPage {
     fileReader.onloadend = () => {
       img.onload = () => {
         // 画像軽量化
-        console.log('Image Processing');
         const imgType = img.src.substring(5, img.src.indexOf(';'));
         const imgWidth = img.width * (this.imgHeight / img.height);
         const canvas = document.createElement('canvas');
@@ -305,7 +295,6 @@ export class NewProjectPage {
     fileReader.onloadend = () => {
       img.onload = () => {
         // 画像軽量化
-        console.log('Image Processing');
         const imgType = img.src.substring(5, img.src.indexOf(';'));
         const imgWidth = img.width * (this.imgHeight / img.height);
         const canvas = document.createElement('canvas');
@@ -349,34 +338,21 @@ export class NewProjectPage {
     
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
-      message: '1分程度、AIの文章要約に時間がかかります\nしばらくお待ちください😊',
+      message: '10秒程度、AIの文章要約に時間がかかります\nしばらくお待ちください😊',
       duration: 120000
     });
     await this.loading.present();
-    this.getKeyPhrase(this.postObj["description_background"], 0)
+    this.getKeyPhrase()
   }
 
-  async getKeyPhrase(text: string, times: number ) {
+  getKeyPhrase = async () => {
+    this.getKeyPhraseParallel(this.postObj["description_background"], 0)
+    this.getKeyPhraseParallel(this.postObj["description_idea"], 1)
+    this.getKeyPhraseParallel(this.postObj["description_technology"], 2)
+  }
 
-    /*
-    const key = '06adf4e018174acca54b1d98b5a633e9';
-    const endpoint = 'https://safire.cognitiveservices.azure.com/';
-
-    const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
-
-    const keyPhrasesInput = [
-      "1. とにかく無駄に楽しく安全な一人運転を実現．てれ助手席の「話し相手」✕「前方確認」でもう漫然運転はさせません．  2. 基本的に音声ありの顔出し無し．気軽に始められるスマホアプリ．  3. 運転中につき，携帯を触る機会を減らすオートログイン機能やワンタッチ操作実装．",
-      "ja"
-    ];
-    const keyPhraseResult = await textAnalyticsClient.extractKeyPhrases(keyPhrasesInput);
-    console.log(keyPhraseResult)
-    */
-    /*
-    keyPhraseResult.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        console.log(`\tDocument Key Phrases: ${document.keyPhrases}`);
-    });*/
-    const abstract_id = String(Math.floor(Math.random() * 1000000000))
+  getKeyPhraseParallel = ( text: string, time: number ) => {
+    this.abstract_id[time] = String(Math.floor(Math.random() * 1000000000))
     let body = {
       "analysisInput": {
         "documents": []
@@ -395,33 +371,28 @@ export class NewProjectPage {
     }
     body["analysisInput"]["documents"].push({
       "language": "ja",
-      "id": `${abstract_id}`,
+      "id": `${this.abstract_id[time]}`,
       "text": `${text}`  // description
     })
     this.gs.httpAbst('https://safire.cognitiveservices.azure.com/text/analytics/v3.2-preview.1/analyze', body).subscribe(
       res => {
-        console.log(res.headers.get('operation-location'))
-        this.interval[times] = setInterval(() => {
+        this.interval[time] = setInterval(() => {
           this.gs.httpGetAbst(res.headers.get('operation-location')).subscribe(
             res => {
-              console.log(res)
               // listの中の'text'を採用する
               if (res["status"] == "succeeded") {
                 const abstract = res["tasks"]["extractiveSummarizationTasks"][0]["results"]["documents"][0]["sentences"]
-                if (times == 0) {
-                  this.postObj['abstract_background'] = abstract;
-                  this.getKeyPhrase(this.postObj["description_idea"], 1)
-                }
-                else if (times == 1) {
-                  this.postObj['abstract_idea'] = abstract;
-                  this.getKeyPhrase(this.postObj["description_technology"], 2)
-                }
-                else if (times == 2) {
-                  this.postObj['abstract_technology'] = abstract;
+                if (time == 0) this.postObj['abstract_background'] = abstract;
+                else if (time == 1) this.postObj['abstract_idea'] = abstract;
+                else if (time == 2) this.postObj['abstract_technology'] = abstract;
+
+                this.abstract_flag[time] = true
+
+                if (this.abstract_flag[0] && this.abstract_flag[1] && this.abstract_flag[2]) {
                   this.postProject()
                   this.loading.dismiss()
                 }
-                clearInterval(this.interval[times])
+                clearInterval(this.interval[time])
               }
             }
           )
