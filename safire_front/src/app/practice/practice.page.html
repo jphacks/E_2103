@@ -1,0 +1,75 @@
+<ion-content>
+  <div>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-main">
+            <div class="header-main_logo" (click)='toUserHome()'>
+                <img src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
+            </div>
+        </div>
+    </header>
+    <div class="home-main">
+      <div>
+        <!-- 評価 -->
+        <div>
+          <div class="target-header">発表目標</div>
+            <div class="target-container">
+              <div class="target-block">
+                <div class="target-title ion-padding"><ion-icon name="happy-outline"></ion-icon>スマイル目標</div>
+                <div class="target-text ion-padding">{{status_list[0]}}</div>
+                <div class="target-text__sub ion-padding">目標回数: {{smile_times}}回以上</div>
+              </div>
+
+              <div class="target-block">
+                <div class="target-title ion-padding"><ion-icon name="color-fill-outline"></ion-icon>フィラー目標</div>
+                <div class="target-text ion-padding">{{status_list[1]}}</div>
+                <div class="target-text__sub ion-padding">目標回数: {{filler_times}}回未満</div>
+              </div>
+
+              <div class="target-block">
+                <div class="target-title ion-padding"><ion-icon name="sad-outline"></ion-icon>ネガティブ目標</div>
+                <div class="target-text ion-padding">{{status_list[2]}}</div>
+                <div class="target-text__sub ion-padding">目標回数: {{negative_times}}回未満</div>
+              </div>
+
+              <div class="target-block">
+                <div class="target-title ion-padding"><ion-icon name="hourglass-outline"></ion-icon>発表時間目標</div>
+                <div class="target-text ion-padding">{{status_list[3]}}</div>
+                <div class="target-text__sub ion-padding">目標時間: {{time_min}}分{{time_sec}}秒</div>
+              </div>
+            </div>
+            <div class="target-container">
+              <div class="target-block">
+                <div class="target-title ion-padding"><ion-icon name="barbell-outline"></ion-icon>練習回数</div>
+                <div class="target-text ion-padding">{{practice_times}}</div>
+              </div>
+            </div>
+
+            <div class="target-button-container">
+              <div class="target-button-wide">
+                <ion-button expand="block" fill="outline" class="target-button ion-padding" (click)="presentModal()">目標を設定</ion-button>
+              </div>
+              <div class="target-button-wide">
+                <ion-button expand="block" class="target-button ion-padding" (click)="toFeedback()">練習モードを開始</ion-button>
+              </div>
+              <div class="target-button-wide">
+                <ion-button expand="block" fill="outline" class="target-button ion-padding" color="secondary" (click)="toArticle()">プロジェクトページに戻る</ion-button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <div class="footer-body">
+          <div class="footer-body_logo">
+              <div class="display_flex">
+                  <img id="safire_mark" src="/assets/img/safire.png" alt="safireマーク">
+                  <img id="safire_logo" src="/assets/img/safire_logo.png" alt="SaFireロゴ">
+              </div>
+              <p>宝石である「あなたの挑戦」をさらに磨き上げる！</p>
+          </div>
+      </div>
+    </footer>
+  </div>
+</ion-content>
