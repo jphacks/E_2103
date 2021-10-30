@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-userpage',
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['userpage.page.scss']
 })
 export class UserpagePage {
-  url: string = 'https://techfusion-studio.com/safire/'
+  url: string = environment.url
   postObj: any = {};
   returnObj: any = {};
   own_project_list: any[];
@@ -24,6 +25,10 @@ export class UserpagePage {
   applied_flag: boolean
 
   liked_project_list: any[];
+
+  total_post: number = 0
+  total_clear: number = 0
+  total_practice: number = 0
 
   constructor(
     private router: Router,
@@ -57,6 +62,10 @@ export class UserpagePage {
           this.setLikedProjects(this.returnObj['liked_project_list'])
           this.checkTagListLength_liked(this.liked_project_list);
           //プロジェクト一覧
+
+          this.total_post = res["total_post"]
+          this.total_clear = res["total_clear"]
+          this.total_practice = res["total_practice"]
         }
         else{
           return;
