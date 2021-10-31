@@ -162,6 +162,7 @@ export class HomePage implements OnInit {
   }
 
   practiceLatestPost = () => {
+    localStorage.project_id = this.latest_project_id
     this.router.navigate(['/practice', this.latest_project_id])
   }
 }
