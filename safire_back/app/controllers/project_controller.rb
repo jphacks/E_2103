@@ -169,6 +169,15 @@ class ProjectController < ApplicationController
     render :json => {"message": "SUCCESSFUL"}
   end
 
+  def latest_project
+    project = Project.where(user_id: params["id"]).last
+    if project.present?
+      render :json => { project_id: project["id"] }
+    else
+      render :json => { project_id: nil }
+    end
+  end
+
   private
     def project_params
       params.permit(
