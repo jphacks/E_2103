@@ -4,9 +4,14 @@
 
 ## 外部リンク
 ### 製品説明動画
-URL: https://youtu.be/8OratEfNJaQ
+URL: https://youtu.be/8OratEfNJaQ （差し替え版の動画）
 ### Web上でのアプリ（作品）公開URL
-URL: https://safire-betterhack.web.app/
+URL: https://safire-betterhack.web.app/ \
+※ __練習モードは会員登録をして、記事を投稿する必要があります。__
+
+耐久テストが十分でないため、フィラー検知モデルがアクセス数によってはクラッシュする可能性があります（現状ではクラッシュは未確認）。 \
+フィラー検知の部分でエラーが出た場合は、次のリンクより、フィラー検知を抜かした処理のバージョンをご利用ください。 \
+URL: https://safire-staging.web.app/
 
 ## 製品概要
 ### 背景
