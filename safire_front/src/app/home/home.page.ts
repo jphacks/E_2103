@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +22,6 @@ export class HomePage implements OnInit {
     "/assets/img/view_ranking_other.png"
   ]
 
-  ranking_flag: boolean = false;
-  ranking_display: string = "表示する"
   ranking_project: any[] = [{
     img: "/assets/img/view_ranking_1.png",
     id: 1,
@@ -37,18 +36,6 @@ export class HomePage implements OnInit {
   },
   {
     img: "/assets/img/view_ranking_3.png",
-    id: 1,
-    title: "すごいサービス",
-    tag_list: ["AI", "IoT"]
-  },
-  {
-    img: "/assets/img/view_ranking_other.png",
-    id: 1,
-    title: "すごいサービス",
-    tag_list: ["AI", "IoT"]
-  },
-  {
-    img: "/assets/img/view_ranking_other.png",
     id: 1,
     title: "すごいサービス",
     tag_list: ["AI", "IoT"]
@@ -71,6 +58,9 @@ export class HomePage implements OnInit {
 
   login_flag: boolean
 
+  challenge_flag: boolean = false
+  latest_project_id: number
+
   constructor(
     private router: Router,
     public gs: GlobalService
@@ -92,6 +82,15 @@ export class HomePage implements OnInit {
           this.setRecommendUser(this.returnObj.user_list)
           this.setRecommendProject(this.returnObj.top_project_list)
         }
+      }
+    )
+    this.gs.httpGet(environment.url+'project/'+localStorage.user_id+'/latest_project').subscribe(
+      (res) => {
+        if (res["project_id"] != null) {
+          this.challenge_flag = true
+          this.latest_project_id = res["project_id"]
+        }
+        else this.challenge_flag = false
       }
     )
   }
@@ -132,12 +131,6 @@ export class HomePage implements OnInit {
     this.router.navigate(['article']);
   }
 
-  changeRankingDisplay = () => {
-    this.ranking_flag = !this.ranking_flag
-    if (this.ranking_flag) this.ranking_display = "表示を消す"
-    else this.ranking_display = "表示する"
-  }
-
   /** プロジェクトタグが3つ以上の場合はproject-cardに収まらないので3つだけ表示 **/
   checkTagListLength = (projects: any[]) => {
     for(let i in projects){
@@ -166,5 +159,9 @@ export class HomePage implements OnInit {
         //this.ranking_project[i]['tag_list'].push('+')
       }
     }
+  }
+
+  practiceLatestPost = () => {
+    this.router.navigate(['/practice', this.latest_project_id])
   }
 }

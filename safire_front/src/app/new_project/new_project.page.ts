@@ -338,7 +338,7 @@ export class NewProjectPage {
     
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
-      message: '10秒程度、AIの文章要約に時間がかかります\nしばらくお待ちください😊',
+      message: '10秒程度、AI文章要約に時間がかかります！<div>しばらくお待ちください😊',
       duration: 120000
     });
     await this.loading.present();
