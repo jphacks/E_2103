@@ -40,6 +40,11 @@
                             <P><ruby>最新作品<rt>さくひん</rt></ruby>の<ruby>練習<rt>れんしゅう</rt></ruby></P>
                             <ion-icon name="barbell-outline"></ion-icon>
                         </div>
+                        <div *ngIf="challenge_flag" class="new-project new-challenge-color" (click)="practiceLatestPost()">
+                            <ion-icon name="barbell-outline"></ion-icon>
+                            <P>最新作品の練習</P>
+                            <ion-icon name="barbell-outline"></ion-icon>
+                        </div>
                     </li>
                 </ul>
             </div>
