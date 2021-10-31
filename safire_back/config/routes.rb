@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :home, only: %i(index)
   resources :project, only: %i(create show update) do
     get :get_target, on: :member
+    get :latest_project, on: :member
     post :set_target, on: :member
     post :set_result, on: :member
   end
