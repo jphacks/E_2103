@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -57,6 +58,9 @@ export class HomePage implements OnInit {
 
   login_flag: boolean
 
+  challenge_flag: boolean = false
+  latest_project_id: number
+
   constructor(
     private router: Router,
     public gs: GlobalService
@@ -78,6 +82,15 @@ export class HomePage implements OnInit {
           this.setRecommendUser(this.returnObj.user_list)
           this.setRecommendProject(this.returnObj.top_project_list)
         }
+      }
+    )
+    this.gs.httpGet(environment.url+'project/'+localStorage.user_id+'/latest_project').subscribe(
+      (res) => {
+        if (res["project_id"] != null) {
+          this.challenge_flag = true
+          this.latest_project_id = res["project_id"]
+        }
+        else this.challenge_flag = false
       }
     )
   }
@@ -149,6 +162,6 @@ export class HomePage implements OnInit {
   }
 
   practiceLatestPost = () => {
-    console.log('practice/{:project_id}に遷移')
+    this.router.navigate(['/practice', this.latest_project_id])
   }
 }

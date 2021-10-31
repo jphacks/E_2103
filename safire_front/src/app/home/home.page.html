@@ -35,7 +35,7 @@
                             <img src="assets/img/pencil.png">
                             <P>作品を投稿</P>
                         </div>
-                        <div class="new-project new-challenge-color" (click)="practiceLatestPost()">
+                        <div *ngIf="challenge_flag" class="new-project new-challenge-color" (click)="practiceLatestPost()">
                             <ion-icon name="barbell-outline"></ion-icon>
                             <P>最新作品の練習</P>
                             <ion-icon name="barbell-outline"></ion-icon>
