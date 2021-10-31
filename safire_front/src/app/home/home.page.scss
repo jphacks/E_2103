@@ -220,8 +220,8 @@ section {
 
 /** 閲覧数ランキング **/
 .home-left {
-    width: 280px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     padding: 13px 16px 21px;
     margin: 24px auto 0 60px;
     display: flex;
@@ -250,7 +250,7 @@ section {
 }
 
 .tomypage-card {
-    width: 250px;
+    width: 220px;
     display: flex;
     margin: 5px 0;
 }
@@ -273,7 +273,7 @@ section {
 
 .tomypage-card_title {
     display: flex;
-    width: 200px;
+    width: 170px;
     height: 70px;
     margin-bottom: 20px;
     margin-left: 10px;
@@ -285,12 +285,12 @@ section {
 .tomypage-card_title p {
     margin: auto 20px;
     text-align: left;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 
 .new-project {
-    width: 250px;
+    width: 220px;
     height: 50px;
     display: flex;
     margin: 5px 0;
@@ -299,6 +299,12 @@ section {
     border-radius: 10px;
     align-items: center;
     justify-content: center;
+}
+.new-project-color {
+    background-color: #136fff;
+}
+.new-challenge-color {
+    background-color: #ff8b0f;
 }
 .new-project:hover {
     opacity: 0.5;
@@ -374,7 +380,7 @@ section {
 .user-card {
     display: flex;
     width: 230px;
-    height: 70px;
+    height: 80px;
     margin-bottom: 20px;
     padding-left: 0;
     border-radius: 16px;
@@ -386,8 +392,8 @@ section {
 }
 
 .user-card_icon {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 0%;
 }
 .user-card_icon img {
@@ -419,6 +425,14 @@ section {
 }
 .user-card_tags p {
     margin: 0;
+}
+
+.article-card {
+    &__image {
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 }
 
 .recommended-project-list_title {

@@ -21,8 +21,6 @@ export class HomePage implements OnInit {
     "/assets/img/view_ranking_other.png"
   ]
 
-  ranking_flag: boolean = false;
-  ranking_display: string = "表示する"
   ranking_project: any[] = [{
     img: "/assets/img/view_ranking_1.png",
     id: 1,
@@ -37,18 +35,6 @@ export class HomePage implements OnInit {
   },
   {
     img: "/assets/img/view_ranking_3.png",
-    id: 1,
-    title: "すごいサービス",
-    tag_list: ["AI", "IoT"]
-  },
-  {
-    img: "/assets/img/view_ranking_other.png",
-    id: 1,
-    title: "すごいサービス",
-    tag_list: ["AI", "IoT"]
-  },
-  {
-    img: "/assets/img/view_ranking_other.png",
     id: 1,
     title: "すごいサービス",
     tag_list: ["AI", "IoT"]
@@ -132,12 +118,6 @@ export class HomePage implements OnInit {
     this.router.navigate(['article']);
   }
 
-  changeRankingDisplay = () => {
-    this.ranking_flag = !this.ranking_flag
-    if (this.ranking_flag) this.ranking_display = "表示を消す"
-    else this.ranking_display = "表示する"
-  }
-
   /** プロジェクトタグが3つ以上の場合はproject-cardに収まらないので3つだけ表示 **/
   checkTagListLength = (projects: any[]) => {
     for(let i in projects){
@@ -166,5 +146,9 @@ export class HomePage implements OnInit {
         //this.ranking_project[i]['tag_list'].push('+')
       }
     }
+  }
+
+  practiceLatestPost = () => {
+    console.log('practice/{:project_id}に遷移')
   }
 }
