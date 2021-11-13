@@ -44,9 +44,9 @@ class MypageController < ApplicationController
     end
 
     render :json => { message: "マイページの情報の取得に成功しました.", user_id: mypage_params["id"],
-    　　　　　　　　　　　description: profile.description, own_project_list: projects_list,
-    　　　　　　　　　　　liked_project_list: liked_projects_list,
-                      total_post: total_post, total_clear: total_clear, total_practice: total_practice }
+      description: profile.description, own_project_list: projects_list,
+      liked_project_list: liked_projects_list,
+      total_post: total_post, total_clear: total_clear, total_practice: total_practice }
   end
 
   private
