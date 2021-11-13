@@ -10,7 +10,7 @@
                     <ion-button class="header-main_menu_logout" (click)='logout()'>ログアウト</ion-button>
                 </div>
                 <div *ngIf="!login_flag" class="header-main_menu">
-                    <ion-button class="header-main_menu_signup" (click)='signup()'>新規登録</ion-button>
+                    <ion-button class="header-main_menu_signup" (click)='signup()'><ruby>新規登録<rt>しんきとうろく</rt></ruby></ion-button>
                     <ion-button class="header-main_menu_login" (click)='login()'>ログイン</ion-button>
                 </div>
             </div>
@@ -33,11 +33,11 @@
                     <li>
                         <div class="new-project new-project-color" (click)="toNewProject()">
                             <img src="assets/img/pencil.png">
-                            <P>作品を投稿</P>
+                            <P><ruby>作品<rt>さくひん</rt></ruby>を<ruby>投稿<rt>とうこう</rt></ruby></P>
                         </div>
                         <div *ngIf="challenge_flag" class="new-project new-challenge-color" (click)="practiceLatestPost()">
                             <ion-icon name="barbell-outline"></ion-icon>
-                            <P>最新作品の練習</P>
+                            <P><ruby>最新作品<rt>さくひん</rt></ruby>の<ruby>練習<rt>れんしゅう</rt></ruby></P>
                             <ion-icon name="barbell-outline"></ion-icon>
                         </div>
                     </li>
@@ -74,7 +74,7 @@
                     </div>
                 </ng-container>
 
-                <h2 class="recommended-project-list_title">おすすめ記事</h2>
+                <h2 class="recommended-project-list_title">おすすめ<ruby>記事<rt>きじ</rt></ruby></h2>
                 <div class="recommended-user-list_content">
                     <div class="recommended-users">
                         <ion-row class="recommended-users-list">
@@ -101,7 +101,7 @@
             </section>
 
             <section class="project-list">
-                <h2 class="project-list_title">みんなの作品</h2>
+                <h2 class="project-list_title">みんなの<ruby>作品<rt>さくひん</rt></ruby></h2>
                 <div class="project-list_content">
                     <div class="projects">
                         <div *ngFor='let project of project_list'>
