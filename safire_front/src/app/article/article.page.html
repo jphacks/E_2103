@@ -19,10 +19,10 @@
 
         <article class="project">
             <div class="btn-presentation">
-                <ion-button *ngIf="apply_flag" color="secondary" (click)="presentModal()"><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" >評価する</span></ion-button>
-                <ion-button *ngIf="apply_flag" fill="outline" (click)="alertConfirm()"><ion-icon name="people-outline"></ion-icon><span class="ion-padding" >メンバー参加の申請</span></ion-button>
-                <ion-button *ngIf="member_flag" fill="outline" (click)="toEdit()"><ion-icon name="pencil-outline"></ion-icon><span class="ion-padding" >編集</span></ion-button>
-                <ion-button *ngIf="member_flag" fill="outline" (click)="toTraining()"><ion-icon name="trending-up-outline"></ion-icon><span class="ion-padding" >発表練習</span></ion-button>
+                <ion-button *ngIf="apply_flag" color="secondary" (click)="presentModal()"><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" ><ruby>評価<rt>ひょうか</rt></ruby>する</span></ion-button>
+                <ion-button *ngIf="apply_flag" fill="outline" (click)="alertConfirm()"><ion-icon name="people-outline"></ion-icon><span class="ion-padding" >メンバー<ruby>参加<rt>さんか</rt></ruby>の<ruby>申請<rt>しんせい</rt></ruby></span></ion-button>
+                <ion-button *ngIf="member_flag" fill="outline" (click)="toEdit()"><ion-icon name="pencil-outline"></ion-icon><span class="ion-padding" ><ruby>編集<rt>へんしゅう</rt></ruby></span></ion-button>
+                <ion-button *ngIf="member_flag" fill="outline" (click)="toTraining()"><ion-icon name="trending-up-outline"></ion-icon><span class="ion-padding" ><ruby>発表練習<rt>はっぴょうれんしゅう</rt></ruby></span></ion-button>
                 <ion-button (click)="toPresentation()"><ion-icon name="videocam-outline"></ion-icon><span class="ion-padding" >プレゼンモード</span></ion-button>
             </div>
             <div class="text_center"><h1 class="project_title">{{title}}</h1></div>
@@ -81,7 +81,7 @@
 
             <hr color="#31apee">
             
-            <h2 class="project_detail_title">作った背景</h2>
+            <h2 class="project_detail_title"><ruby>作<rt>つく</rt></ruby>った<ruby>背景<rt>はいけい</rt></ruby></h2>
             <section class="project_detail">
                 <div class="project_detail_content">
                     <div class="project_detail_description">
@@ -107,7 +107,7 @@
                 </div>
             </section>
 
-            <div class="display_flex"><div class="center"><img class="icon_detail" src="/assets/img/icon_tech.png"><h2 class="project_detail_title">技術の工夫</h2></div></div>
+            <div class="display_flex"><div class="center"><img class="icon_detail" src="/assets/img/icon_tech.png"><h2 class="project_detail_title"><ruby>技術<rt>ぎじゅつ</rt></ruby>の<ruby>工夫<rt>くふう</rt></ruby></h2></div></div>
             <section class="project_detail">
                 <div class="project_detail_content">
                     <div class="project_detail_description">
@@ -120,7 +120,7 @@
                 </div>
             </section>
 
-            <h2 class="project_detail_title">作品の補足説明</h2>
+            <h2 class="project_detail_title"><ruby>作品<rt>さくひん</rt></ruby>の<ruby>補足説明<rt>ほそくせつめい</rt></ruby></h2>
             <div class="note center">
                 <div class="display_block" id="appendix" [innerHTML]="appendix_html"></div>
             </div>

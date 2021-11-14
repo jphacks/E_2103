@@ -77,17 +77,17 @@ export class FeedbackPage implements OnInit, OnDestroy {
 
   top_button_list: any[] = [
     {
-      name: "入力内容表示",
+      name: "<ruby>入力内容表示<rt>にゅうりょくないようひょうじ</rt></ruby>",
       fill: "outline",
       flag: true,
       list: []
     },{
-      name: "要約内容表示",
+      name: "<ruby>要約内容表示<rt>ようやくないようひょうじ</rt></ruby>",
       fill: "solid",
       flag: false,
       list: []
     },{
-      name: "補足内容表示",
+      name: "<ruby>補足内容表示<rt>ほそくないようひょうじ</rt></ruby>",
       fill: "solid",
       flag: false,
       list: []

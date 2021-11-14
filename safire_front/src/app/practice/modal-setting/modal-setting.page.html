@@ -1,19 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><ion-icon name="golf-outline"></ion-icon>目標の設定</ion-title>
+    <ion-title><ion-icon name="golf-outline"></ion-icon><ruby>目標<rt>もくひょう</rt></ruby>の<ruby>設定<rt>せってい</rt></ruby></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form (submit)="postTarget()">
     <ion-item>
-      <ion-label position="stacked">目標スマイル回数（3秒に1回検知されます）</ion-label>
+      <ion-label position="stacked"><ruby>目標<rt>もくひょう</rt></ruby>スマイル<ruby>回数<rt>かいすう</rt></ruby>（3<ruby>秒<rt>びょう</rt></ruby>に1<ruby>回検知<rt>かいけんち</rt></ruby>されます）</ion-label>
       <ion-input required type="number" placeholder="ここに入力: X回以上" [(ngModel)]="smile_times" name="smile_times"></ion-input>
-      <ion-label position="stacked">目標フィラー回数</ion-label>
+      <ion-label position="stacked"><ruby>目標<rt>もくひょう</rt></ruby>フィラー<ruby>回数<rt>かいすう</rt></ruby></ion-label>
       <ion-input required type="number" placeholder="ここに入力: X回未満" [(ngModel)]="filler_times" name="filler_times"></ion-input>
-      <ion-label position="stacked">目標ネガティブ回数</ion-label>
+      <ion-label position="stacked"><ruby>目標<rt>もくひょう</rt></ruby>ネガティブ<ruby>回数<rt>かいすう</rt></ruby></ion-label>
       <ion-input required type="number" placeholder="ここに入力: X回未満" [(ngModel)]="negative_times" name="negative_times"></ion-input>
-      <ion-label position="stacked">目標発表時間（誤差30秒以内でクリア！）</ion-label>
+      <ion-label position="stacked"><ruby>目標発表時間<rt>もくひょうはっぴょうじかん</rt></ruby>（<ruby>誤差<rt>ごさ</rt></ruby>30<ruby>秒以内<rt>びょういない</rt></ruby>でクリア！）</ion-label>
       <ion-input required type="number" placeholder="ここに入力:（分）" [(ngModel)]="time_min" name="time_min"></ion-input>
       <ion-input required type="number" placeholder="ここに入力:（秒）" [(ngModel)]="time_sec" name="time_sec"></ion-input>
     </ion-item>
@@ -22,7 +22,7 @@
       <button type="submit" id="post-article-button">投稿する</button>
     </div>
     -->
-    <ion-button class="ion-padding" type="submit" expand="block">決定</ion-button>
-    <ion-button class="ion-padding" expand="block" fill="outline" (click)="dismiss()">戻る</ion-button>
+    <ion-button class="ion-padding" type="submit" expand="block"><span><ruby>決定<rt>けってい</rt></ruby></span></ion-button>
+    <ion-button class="ion-padding" expand="block" fill="outline" (click)="dismiss()"><span><ruby>戻<rt>もど</rt></ruby>る</span></ion-button>
   </form>
 </ion-content>

@@ -8,7 +8,7 @@
   <ion-grid class="top_button_list">
     <ion-row>
       <ion-col *ngFor="let top_button of top_button_list; index as i">
-        <ion-button class="top-button" expand="block" [fill]="top_button.fill" (click)="clickTopButton(i)">{{top_button.name}}</ion-button>
+        <ion-button class="top-button" expand="block" [fill]="top_button.fill" (click)="clickTopButton(i)"><span [innerHTML]="top_button.name"></span></ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -42,8 +42,8 @@
 
       <ion-col size="4">
         <ion-grid>
-          <ion-row class="ion-justify-content-start"><ion-col><ion-button class="bottom-button" expand="block" (click)="startPractice()">練習（録画）開始</ion-button></ion-col></ion-row>
-          <ion-row class="ion-justify-content-center"><ion-col><ion-button class="bottom-button" expand="block" fill="outline" (click)="stopSpeech()">練習（録画）終了</ion-button></ion-col></ion-row>
+          <ion-row class="ion-justify-content-start"><ion-col><ion-button class="bottom-button" expand="block" (click)="startPractice()"><ruby>練習<rt>れんしゅう</rt></ruby><ruby>（録画）<rt>ろくが</rt></ruby><ruby>開始<rt>かいし</rt></ruby></ion-button></ion-col></ion-row>
+          <ion-row class="ion-justify-content-center"><ion-col><ion-button class="bottom-button" expand="block" fill="outline" (click)="stopSpeech()"><ruby>練習<rt>れんしゅう</rt></ruby><ruby>（録画）<rt>ろくが</rt></ruby><ruby>終了<rt>しゅうりょう</rt></ruby></ion-button></ion-col></ion-row>
           <ion-row class="ion-justify-content-end"><ion-col><ion-button class="bottom-button" color="secondary" expand="block" (click)="toDashboard()">ダッシュボードへ</ion-button></ion-col></ion-row>
         </ion-grid>
       </ion-col>
