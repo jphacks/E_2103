@@ -22,7 +22,7 @@
             <div class="main">
                 <section class="signup-main">
                     <div class="signup-main_card">
-                        <h2 class="signup-main_title">新規登録ページ</h2>
+                        <h2 class="signup-main_title"><ruby>新規登録<rt>しんきとうろく</rt></ruby>ページ</h2>
                         <hr color="#136fff">
                         <form>
                             <div class="signup-userid">
@@ -39,56 +39,56 @@
                             </div>
                             <div class="signup-passwd-confirm">
                                 <div class="signup-passwd-confirm_title">
-                                    <p>パスワード（確認用）</p>
+                                    <p>パスワード（<ruby>確認用<rt>かくにんよう</rt></ruby>）</p>
                                 </div>
                                 <input type="password" value="" class="signup-passwd-confirm_input" name="password_confirm" [(ngModel)]='password_confirm'>
                             </div>
                             <div class="signup-age">
                                 <div class="signup-age_title">
-                                    <p>年齢</p>
+                                    <p><ruby>年齢<rt>ねんれい</rt></ruby></p>
                                 </div>
                                 <input type="number" value="" class="signup-age_input" name="age" [(ngModel)]='age'>
                             </div>
                             <div class="signup-gender">
                                 <div class="signup-gender_title">
-                                    <p>性別</p>
+                                    <p><ruby>性別<rt>せいべつ</rt></ruby></p>
                                 </div>
                                 <div class="signup-gender_radio">
                                     <input type="radio" name="signup_gender_radio" value="man" id="gender_man" [(ngModel)]='gender' [checked]="gender=='man'">
-                                    <label for="gender_man">男性</label>
+                                    <label for="gender_man"><ruby>男性<rt>だんせい</rt></ruby></label>
                                     <input type="radio" name="signup_gender_radio" value="woman" id="gender_woman" [(ngModel)]='gender' [checked]="gender=='woman'">
-                                    <label for="gender_woman">女性</label>
+                                    <label for="gender_woman"><ruby>女性<rt>じょせい</rt></ruby></label>
                                     <input type="radio" name="signup_gender_radio" value="others" id="gender_others" [(ngModel)]='gender' [checked]="gender=='others'" checked>
-                                    <label for="gender_others">その他</label>
+                                    <label for="gender_others">その<ruby>他<rt>た</rt></ruby></label>
                                 </div>
                             </div>
                             <div class="signup-school_grade">
                                 <div class="signup-school_grade_title">
-                                    <p>学校区分</p>
+                                    <p><ruby>学校区分<rt>がっこうくぶん</rt></ruby></p>
                                 </div>
                                 <div class="signup-school_grade_radio">
                                     <input type="radio" name="signup-school_grade_radio" value="小学校" id="school_grade_1" [(ngModel)]='school_grade' [checked]="school_grade=='小学校'" checked>
-                                    <label for="school_grade_1">小学校</label>
+                                    <label for="school_grade_1"><ruby>小学校<rt>しょうがっこう</rt></ruby></label>
                                     <input type="radio" name="signup-school_grade_radio" value="中学校" id="school_grade_2" [(ngModel)]='school_grade' [checked]="school_grade=='中学校'">
-                                    <label for="school_grade_2">中学校</label>
+                                    <label for="school_grade_2"><ruby>中学校<rt>ちゅうがっこう</rt></ruby></label>
                                     <input type="radio" name="signup-school_grade_radio" value="高等学校" id="school_grade_3" [(ngModel)]='school_grade' [checked]="school_grade=='高等学校'">
-                                    <label for="school_grade_3">高等学校</label>
+                                    <label for="school_grade_3"><ruby>高等学校<rt>こうとうがっこう</rt></ruby></label>
                                     <input type="radio" name="signup-school_grade_radio" value="高専" id="school_grade_4" [(ngModel)]='school_grade' [checked]="school_grade=='高専'">
-                                    <label for="school_grade_4">高専</label>
+                                    <label for="school_grade_4"><ruby>高専<rt>こうせん</rt></ruby></label>
                                     <input type="radio" name="signup-school_grade_radio" value="大学" id="school_grade_5" [(ngModel)]='school_grade' [checked]="school_grade=='大学'">
-                                    <label for="school_grade_5">大学</label>
+                                    <label for="school_grade_5"><ruby>大学<rt>だいがく</rt></ruby></label>
                                     <input type="radio" name="signup-school_grade_radio" value="社会人" id="school_grade_6" [(ngModel)]='school_grade' [checked]="school_grade=='社会人'">
-                                    <label for="school_grade_6">社会人</label>
+                                    <label for="school_grade_6"><ruby>社会人<rt>しゃかいじん</rt></ruby></label>
                                 </div>
                             </div>
                             <div class="signup-profile">
                                 <div class="signup-profile_title">
-                                    <p>自己紹介</p>
+                                    <p><ruby>自己紹介<rt>じこしょうかい</rt></ruby></p>
                                 </div>
                                 <textarea id='description' class="signup-profile_input" name="description" [(ngModel)]='description'></textarea>
                             </div>
 
-                            <ion-button class="signup-send" (click)='signup()'>新規登録</ion-button>
+                            <ion-button class="signup-send" (click)='signup()'><ruby>新規登録<rt>しんきとうろく</rt></ruby></ion-button>
                         </form>
                     </div>
                 </section>

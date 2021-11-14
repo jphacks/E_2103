@@ -20,7 +20,7 @@
                     <div class="user-info_profile">
                         <div class="user-card_profile_content">
                             <img src="/assets/img/ring_memo.jpeg">
-                            <h3>自己紹介</h3>
+                            <h3><ruby>自己紹介<rt>じこしょうかい</rt></ruby></h3>
                             <textarea id="project_description" readonly>{{description}}</textarea>
                         </div>
                     </div>
@@ -28,28 +28,28 @@
 
                 <div class="achievement-container ion-margin">
                     <div class="achievement-block">
-                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="document-outline"></ion-icon> 投稿数</div>
+                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="document-outline"></ion-icon> <ruby>投稿数<rt>とうこうすう</rt></ruby></div>
                         <div class="achievement-text">{{total_post}}</div>
                     </div>
                     <div class="achievement-block">
-                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="ribbon-outline"></ion-icon>目標全達成数</div>
+                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="ribbon-outline"></ion-icon><ruby>目標全達成数<rt>もくひょうぜんたっせいすう</rt></ruby></div>
                         <div class="achievement-text">{{total_clear}}</div>
                     </div>
                     <div class="achievement-block">
-                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="barbell-outline"></ion-icon>練習回数</div>
+                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="barbell-outline"></ion-icon><ruby>練習回数<rt>れんしゅうかいすう</rt></ruby></div>
                         <div class="achievement-text">{{total_practice}}</div>
                     </div>
                 </div>
 
                 <div class="liked-project_content">
                     <div class="btn_show_liked-project">
-                        <button onclick="document.getElementById('dialog_liked-project').showModal()">{{user_id_page}}さんが高評価したプロジェクトを見る</button>  
+                        <button onclick="document.getElementById('dialog_liked-project').showModal()">{{user_id_page}}さんが<ruby>高評価<rt>こうひょうか</rt></ruby>したプロジェクトを<ruby>見<rt>み</rt></ruby>る</button>  
                     </div>
                 </div>
 
                 <section class="project-list">
                     <ng-container *ngIf="applied_flag">
-                        <h2 class="project-list_title">プロジェクトのメンバー参加申請</h2>
+                        <h2 class="project-list_title">プロジェクトのメンバー<ruby>参加申請<rt>さんかしんせい</rt></ruby></h2>
                         <div class="applied-user-list_content">
                             <div class="applied-users">
                                 <ion-row class="applied-users-list">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </ng-container>
-                    <h2 class="project-list_title">{{user_id_page}}さんの作品</h2>
+                    <h2 class="project-list_title">{{user_id_page}}さんの<ruby>作品<rt>さくひん</rt></ruby></h2>
                     <div class="project-list_content">
                         <div class="projects">
                             <div *ngFor="let item of own_project_list">
@@ -106,10 +106,10 @@
 
 
                 <dialog class="liked-project_dialog" id="dialog_liked-project">
-                    <h2 class="liked-project_dialog_title">{{user_id_page}}さんが高評価したプロジェクト</h2>
+                    <h2 class="liked-project_dialog_title">{{user_id_page}}さんが<ruby>高評価<rt>こうひょうか</rt></ruby>したプロジェクト</h2>
                     <hr color="#136fff">
                     <div class="display_right">
-                        <ion-button class="liked-project_dialog_finish" onclick="document.getElementById('dialog_liked-project').close();">完了</ion-button>
+                        <ion-button class="liked-project_dialog_finish" onclick="document.getElementById('dialog_liked-project').close();"><ruby>完了<rt>かんりょう</rt></ruby></ion-button>
                     </div>
                     <div class="liked-project_dialog_content">
                         <div class="liked_projects">

@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" >評価する</span></ion-title>
+    <ion-title><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" ><ruby>評価<rt>ひょうか</rt></ruby>する</span></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    <div class="ion-padding rate_label">点数: {{rate}} 点</div>
+    <div class="ion-padding rate_label"><ruby>点数<rt>てんすう</rt></ruby>: {{rate}} <ruby>点<rt>てん</rt></ruby></div>
     <mat-slider
     class="ion-padding slider"
     thumbLabel
@@ -18,6 +18,6 @@
     aria-label="units"></mat-slider>
   </div>
 
-  <ion-button class="ion-padding" expand="block" (click)="postRate()">点数を決定する</ion-button>
-  <ion-button class="ion-padding" expand="block" fill="outline" (click)="dismiss()">戻る</ion-button>
+  <ion-button class="ion-padding" expand="block" (click)="postRate()"><span><ruby>点数<rt>てんすう</rt></ruby>を<ruby>決定<rt>けってい</rt></ruby>する</span></ion-button>
+  <ion-button class="ion-padding" expand="block" fill="outline" (click)="dismiss()"><span><ruby>戻<rt>もど</rt></ruby>る</span></ion-button>
 </ion-content>

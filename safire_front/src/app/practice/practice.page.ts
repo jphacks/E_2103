@@ -89,28 +89,28 @@ export class PracticePage implements OnInit {
   }
 
   checkTarget = () => {
-    if (this.smile_result == null) this.status_list[0] = "未挑戦…"
-    else if (this.smile_result >= this.smile_times) this.status_list[0] = "🎉達成"
+    if (this.smile_result == null) this.status_list[0] = "<ruby>未挑戦<rt>みちょうせん</rt></ruby>…"
+    else if (this.smile_result >= this.smile_times) this.status_list[0] = "🎉<ruby>達成<rt>たっせい</rt></ruby>"
     else {
-      this.status_list[0] = "あと" + String(this.smile_times - this.smile_result) + "回!"
+      this.status_list[0] = "あと" + String(this.smile_times - this.smile_result) + "<ruby>回<rt>かい</rt></ruby>!"
     }
 
-    if (this.filler_result == null) this.status_list[1] = "未挑戦…"
-    else if (this.filler_result < this.filler_times) this.status_list[1] = "🎉達成"
+    if (this.filler_result == null) this.status_list[1] = "<ruby>未挑戦<rt>みちょうせん</rt></ruby>…"
+    else if (this.filler_result < this.filler_times) this.status_list[1] = "🎉<ruby>達成<rt>たっせい</rt></ruby>"
     else {
-      this.status_list[1] = "あと" + String(this.filler_result - this.filler_times + 1) + "回!"
+      this.status_list[1] = "あと" + String(this.filler_result - this.filler_times + 1) + "<ruby>回<rt>かい</rt></ruby>!"
     }
 
-    if (this.negative_result == null) this.status_list[2] = "未挑戦…"
-    else if (this.negative_result < this.negative_times) this.status_list[2] = "🎉達成"
+    if (this.negative_result == null) this.status_list[2] = "<ruby>未挑戦<rt>みちょうせん</rt></ruby>…"
+    else if (this.negative_result < this.negative_times) this.status_list[2] = "🎉<ruby>達成<rt>たっせい</rt></ruby>"
     else {
-      this.status_list[2] = "あと" + String(this.negative_result - this.negative_times + 1) + "回!"
+      this.status_list[2] = "あと" + String(this.negative_result - this.negative_times + 1) + "<ruby>回<rt>かい</rt></ruby>!"
     }
 
-    if (this.time_result == null) this.status_list[3] = "未挑戦…"
-    else if (30 >= this.time_result) this.status_list[3] = "🎉達成"
+    if (this.time_result == null) this.status_list[3] = "<ruby>未挑戦<rt>みちょうせん</rt></ruby>…"
+    else if (30 >= this.time_result) this.status_list[3] = "🎉<ruby>達成<rt>たっせい</rt></ruby>"
     else {
-      this.status_list[3] = "あと" + String(this.time_result - 30) + "秒!"
+      this.status_list[3] = "あと" + String(this.time_result - 30) + "<ruby>秒<rt>びょう</rt></ruby>!"
     }
   }
 
