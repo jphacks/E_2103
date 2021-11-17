@@ -84,6 +84,27 @@ footer {
     border-bottom: 5px solid #75a9ff;
 }
 
+<<<<<<< HEAD
+=======
+.btn-presentation {
+    width: 250px;
+    position: absolute;
+    top: 120px;
+    right: 20px;
+    padding: 5px;
+    border: 3px solid #dddddd;
+}
+.btn-presentation img {
+    margin-right: 3px;
+    width: 30px;
+    height: 30px;
+}
+.btn-presentation ion-button {
+    height: 45px;
+    max-width: 245px;
+}
+
+>>>>>>> 940dd32 (first commit at feature/home_refact)
 .project-main {
     height: 420px;
     display: flex;
@@ -93,6 +114,7 @@ footer {
 .project-main_content {
     width: 60%;
     margin: 32px 0 0 32px;
+<<<<<<< HEAD
 }
 
 #project_description {
@@ -125,6 +147,24 @@ footer {
     max-width: 245px;
 }
 
+=======
+}
+
+#project_description {
+    width: 100%;
+    border-style: none;
+    background-color: #eeeeee;
+    margin-bottom: 16px;
+}
+
+.project-main_thumbnails {
+    width: 40%;
+    margin: 32px 0 0 0;
+    text-align: center;
+    justify-content: center;
+}
+
+>>>>>>> 940dd32 (first commit at feature/home_refact)
 #thumbnails {
     width: 271px;
     height: 186px;
