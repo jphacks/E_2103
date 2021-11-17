@@ -1,92 +1,18 @@
+/** footerを最下部に固定するための設定 **/
+.body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+.footer_fixer {
+    flex: 1;
+}
+
 /** 要素 **/
-body {
-    display: block;
-    margin: 0;
-}
-
-header {
-    display: block;
-}
-
-footer {
-    display: block;
-}
-
-img {
-    border-style: none;
-}
-
-a {
-    background-color: transparent;
-    text-decoration: none;
-}
-
-button, input, select, textarea {
-    border-style: none;
-}
-
-button {
-    color: inherit;
-}
-
-button, select {
-    text-transform: none;
-}
-
-button {
-    overflow: visible;
-}
-
-button, input, optgroup, select, textarea {
-    font: inherit;
-}
 
 h2 {
-    display: block;
     font-size: 24px;
-    margin-block-start: 13.28px;
-    margin-block-end: 13.28px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
-}
-
-h3 {
-    display: block;
-    font-size: 18.72px;
-    margin-block-start: 16px;
-    margin-block-end: 16px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-}
-
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 16px;
-    margin-block-end: 16px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-
-ul ul {
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-
-section {
-    display: block;
-}
-
-article {
-    display: block;
 }
 
 /** 便利 **/
@@ -101,35 +27,26 @@ article {
 }
 
 /** ヘッダー **/
-.header {
+header {
+    display: flex;
     width: 100%;
-    height: auto;
+    height: 70px;
     position: fixed;
     top: 0;
     z-index: 1000;
-}
-
-.header-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: #75a9ff;
 }
 
-.header-main_logo {
-    padding: 0px 0 0px 30px;
-    display: flex;
-    align-items: center;
-}
-.header-main_logo img {
-    height: 30%;
-    width: 30%;
+.header_logo {
+    padding: 0px 0px 0px 30px;
+    width: auto;
+    height: 70px;
 }
 
 /** フッター **/
-.footer {
+footer {
     width: 100%;
-    height: 7vw;
+    height: 150px;
     margin-top: 50px;
     padding-top: 30px;
     background: #75a9ff;
@@ -155,16 +72,22 @@ article {
     height: 20%;
 }
 .footer-body_logo p {
-    margin-top: 0;
-    font-size: .9516837482vw;
-    font-weight: 500;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 /** ホームメイン **/
 .project-form {
     width: 1000px;
-    margin: 0 auto;
-    padding: 120px 0 0;
+    margin: 100px auto;
+    justify-content: center;
+    background-color: white;
+}
+
+.project-form hr {
+    height: 2px;
+    background-color: #bad3ff;
 }
 
 .project-form_title {
@@ -174,55 +97,68 @@ article {
 }
 
 .project-form_main {
-    width: 100%;
+    height: 420px;
     display: flex;
-    align-items: center;
     margin-bottom: 20px;
 }
 
 .project-form_main_content {
-    width: 50%;
+    width: 60%;
     margin: 32px 0 0 32px;
 }
 
 .project-form_main_content_title {
-    margin-bottom: 7px;
-}
-.project-form_main_content_title input {
+    border-style: none;
     outline: none;
-    width: 400px;
+    margin-bottom: 7px;
+    width: 100%;
     background-color: #eeeeee;
 }
 
 .project-form_main_content_description {
     width: 100%;
-    margin-bottom: 16px;
-}
-.project-form_main_content_description textarea {
-    width: 400px;
+    border-style: none;
     outline: none;
     background-color: #eeeeee;
+    margin-bottom: 16px;
 }
 
-.project-form_main_content_tags {
-    padding-left: 0px;
-    margin-bottom: 16px;
+.project-form_main_content_tags_selector {
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style: none;
+    height: 35px;
 }
-.project-form_main_content_tags p {
-    width: 30px;
-    margin: auto;
-    
+.project-form_main_content_tags_selector p {
+    margin-top: 10px;
+    font-size: 15px;
 }
-.project-form_main_content_tags button{
-    width: 40px;
-    height: 40px;
-    margin: auto;
-    cursor: pointer;
+.project-form_main_content_tags_selector button {
+    width: 35px;
+    height: 35px;
     background-color: #ffffff;
+    padding: 0;
+    margin-left: 10px;
+}
+/*.project-form_main_content_tags_selector img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+}*/
+.btn_add_tags {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+.project-form_main_content_tags_display {
+    width: 100%;
+    height: 150px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+    background-color: white;
+    border: #bbbbbb solid 2px;
 }
 
 .project-form_tags_dialog {
@@ -244,7 +180,10 @@ article {
     text-align: center;
 }
 .project-form_tags_dialog_main h3 {
-    display: flex;
+    margin-left: 10px;
+    text-align: left;
+    font-weight: bold;
+    color: #757575;
 }
 
 .project-form_tags_dialog_sub{
@@ -280,7 +219,7 @@ article {
 }
 
 .project-form_tags_dialog_finish {
-    height: 40px;
+    height: 50px;
     width: 120px;
     --background: #ffffff;
     font-size: 23px;
@@ -302,21 +241,20 @@ article {
 }
 
 .project-form_main_content_color {
-    padding-left: 0px;
-    margin-bottom: 16px;
+    height: 35px;
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style: none;
+    margin-bottom: 16px;
 }
 .project-form_main_content_color p {
-    margin: auto;
+    margin-top: 10px;
+    font-size: 15px;
 }
-.project-form_main_content_color button{
-    width: 15%;
-    height: 15%;
+.project-form_main_content_color input{
+    width: 100px;
+    height: 100%;
     cursor: pointer;
-    background-color: #ffffff;
+    margin-left: 10px;
+    //background-color: #ffffff;
 }
 
 .project-form_color_dialog {
@@ -406,29 +344,44 @@ article {
 }
 
 .project-form_main_thumbnails {
-    width: 50%;
-    margin: 32px 0 0 0px;
-    display: flex;
+    width: 40%;
+    margin: 32px 0 0 0;
     text-align: center;
-    align-items: center;
+    justify-content: center;
 }
 
-.project-form_main_thumbnails_upload {
-    width: 50%;
-    margin: 0 0 0 0px;
-    padding: 0 0 0 0;
-    text-align: center;
-    position: relative;
-    top: 0;
-}
 #thumbnails {
     width: 271px;
     height: 186px;
-    // content: url('/assets/img/project_img_none.png');
-    cursor: pointer;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    top: 0;
+    border: #414141 solid 5px;
 }
 #thumbnails-input {
     display: none;
+}
+
+.btn_image_select {
+    width: 180px;
+    height: 40px;
+    margin: 2px auto;
+    color: #ffffff;
+    border-radius: 5px;
+    background: #75a9ff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: 3px 3px 13px #bbbbbb, -3px -3px 13px #eeeeee;
+}
+.btn_image_select:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+.btn_image_select p {
+    margin-bottom: 0;
 }
 
 .icon_detail {
@@ -441,50 +394,65 @@ article {
     margin: 30px 0 0 0;
     position: relative;
     text-align: center;
+    text-decoration: underline;
 }
 
 .project-form_detail {
-    width: 100%;
+    height: 280px;
     display: flex;
-    align-items: center;
+    margin-bottom: 0px;
 }
 
 .project-form_detail_content {
-    width: 50%;
-    margin: 10px 0 0 32px;
+    width: 60%;
+    margin: 32px 0 0 32px;
 }
-
-.project-form_detail_description {
+.project-form_detail_content textarea {
     width: 100%;
-    margin-bottom: 16px;
-}
-.project-form_detail_description textarea {
-    width: 400px;
     height: 186px;
     outline: none;
     background-color: #eeeeee;
+    margin-bottom: 16px;
 }
 
 .project-form_detail_thumbnails {
-    width: 50%;
-    margin: 10px 0 0 0px;
-    display: flex;
+    width: 40%;
+    margin: 32px 0 0 0;
     text-align: center;
-    align-items: center;
+    justify-content: center;
 }
 
-.project-form_detail_thumbnails_upload {
+#detail_background_img {
     width: 271px;
     height: 186px;
-    // content: url('/assets/img/project_img_none.png');
-    cursor: pointer;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    top: 0;
+    border: #414141 solid 5px;
 }
-
 #detail_background_img_input {
     display: none;
 }
+
+#detail_point_img {
+    width: 271px;
+    height: 186px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    top: 0;
+    border: #414141 solid 5px;
+}
 #detail_point_img_input {
     display: none;
+}
+
+#detail_tech_img {
+    width: 271px;
+    height: 186px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    top: 0;
+    border: #414141 solid 5px;
 }
 #detail_tech_img_input {
     display: none;

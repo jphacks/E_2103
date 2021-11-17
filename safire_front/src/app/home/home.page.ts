@@ -75,7 +75,6 @@ export class HomePage implements OnInit {
     this.gs.httpGet(this.url + 'home/' + '?' + 'user_id=' + localStorage.user_id).subscribe(
       res => {
         this.returnObj = res;
-        console.log(this.returnObj)
         if(this.returnObj['project_list']){
           this.project_list = this.returnObj['project_list'];
           this.checkTagListLength(this.project_list)
@@ -111,7 +110,6 @@ export class HomePage implements OnInit {
 
   checkLogin = () => {
     this.login_flag = (localStorage.user_id !== undefined)
-    console.log(this.login_flag)
   }
 
   toMypage = () => {
@@ -144,7 +142,6 @@ export class HomePage implements OnInit {
 
   setRecommendUser = (user_list: any[]) => {
     this.recommend_user = user_list;
-    console.log(this.recommend_user)
   }
 
   setRecommendProject = (project_list: any[]) => {

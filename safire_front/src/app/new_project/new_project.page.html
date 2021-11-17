@@ -1,191 +1,166 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-<!-- <head>
-    <script src="assets/plugin/jquery-3.1.1.min.js"></script>
-</head> -->
-
 <ion-content [fullscreen]="true">
-    <div>
-        <div>
-            <header class="header">
-                <div class="header-main">
-                    <a href="">
-                        <div class="header-main_logo">
-                            <img src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
+    <div class="body">
+        <header>
+            <a href="">
+                <img class="header_logo" src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
+            </a>
+        </header>
+        
+        <article class="project-form">
+            <section class="project-form_main">
+                <div class="project-form_main_content">
+                    <input class="project-form_main_content_title" id="project_title" type="text" placeholder="タイトル" autofocus="autofocus" maxlength="20" style="font-size: 40px;" [(ngModel)]='title'>
+                    <textarea class="project-form_main_content_description" id="project_description" maxlength="32" placeholder="どんなサービスか簡単に書いてね"></textarea>
+                    <div class="project-form_main_content_color">
+                        <p>メインカラー</p>
+                        <input class="color-picker" [(colorPicker)]="color" cpAlphaChannel="disabled" cpOutputFormat="auto" [style.background]="color" [value]="color" readonly/>
+                    </div>
+                    <div class="project-form_main_content_tags_selector">
+                        <p>タグ</p>
+                        <button onclick="document.getElementById('dialog_tags').showModal()">
+                            <ion-icon name="add-circle-sharp" class="btn_add_tags"></ion-icon>
+                        </button>
+                    </div>
+                    <div class="project-form_main_content_tags_display">
+                        <ng-container *ngFor="let tag of allCheckBoxes">
+                            <ion-chip *ngIf="tag.checked">
+                                <ion-label>{{tag.value}}</ion-label>
+                            </ion-chip>
+                        </ng-container>
+                    </div>
+                    <dialog class="project-form_tags_dialog" id="dialog_tags">
+                        <h2 class="project-form_tags_dialog_title">プロジェクトのタグ</h2>
+                        <hr color="#136fff">
+                        <div class="project-form_tags_dialog_main">
+                            <h3>プログラミング<ruby>言語<rt>げんご</rt></ruby></h3>
+                            <div class="project-form_tags_dialog_sub">
+                                <input type="checkbox" name="tag" value="Python" id="python">
+                                <label for="python" class="label_tags">Python</label>
+                                <input type="checkbox" name="tag" value="HTML/CSS" id="html_css">
+                                <label for="html_css" class="label_tags">HTML/CSS</label>
+                                <input type="checkbox" name="tag" value="JavaScript" id="javascript">
+                                <label for="javascript" class="label_tags">JavaScript</label>
+                                <input type="checkbox" name="tag" value="C/C++" id="C">
+                                <label for="C" class="label_tags">C/C++</label>
+                                <input type="checkbox" name="tag" value="C#" id="C#">
+                                <label for="C#" class="label_tags">C#</label>
+                                <input type="checkbox" name="tag" value="Java" id="java">
+                                <label for="java" class="label_tags">Java</label>
+                                <input type="checkbox" name="tag" value="Ruby" id="ruby">
+                                <label for="ruby" class="label_tags">Ruby</label>
+                                <input type="checkbox" name="tag" value="PHP" id="php">
+                                <label for="php" class="label_tags">PHP</label>
+                                <input type="checkbox" name="tag" value="SQL" id="sql">
+                                <label for="sql" class="label_tags">SQL</label>
+                                <input type="checkbox" name="tag" value="Swift" id="swift">
+                                <label for="swift" class="label_tags">Swift</label>
+                                <input type="checkbox" name="tag" value="Go" id="go">
+                                <label for="go" class="label_tags">Go</label>
+                                <input type="checkbox" name="tag" value="Kotlin" id="kotlin">
+                                <label for="kotlin" class="label_tags">Kotlin</label>
+                                <input type="checkbox" name="tag" value="R" id="r">
+                                <label for="r" class="label_tags">R</label>
+                                <input type="checkbox" name="tag" value="others_1" id="other_lang">
+                                <label for="other_lang" class="label_tags">その<ruby>他<rt>た</rt></ruby></label>
+                            </div>
+                            <h3>プロダクトのカテゴリ</h3>
+                            <div class="project-form_tags_dialog_sub">
+                                <input type="checkbox" name="tag" value="Web App" id="webapp">
+                                <label for="webapp" class="label_tags">Webアプリ</label>
+                                <input type="checkbox" name="tag" value="Native App" id="smartapp">
+                                <label for="smartapp" class="label_tags">スマホアプリ</label>
+                                <input type="checkbox" name="tag" value="Machine Learning" id="ml">
+                                <label for="ml" class="label_tags"><ruby>機械学習<rt>きかいがくしゅう</rt></ruby></label>
+                                <input type="checkbox" name="tag" value="AI" id="ai">
+                                <label for="ai" class="label_tags"><ruby>人工知能<rt>じんこうちのう</rt></ruby></label>
+                                <input type="checkbox" name="tag" value="others" id="other_cate">
+                                <label for="other_cate" class="label_tags">その<ruby>他<rt>た</rt></ruby></label>
+                            </div>
                         </div>
-                    </a>
+                        <ion-button class="project-form_tags_dialog_finish" (click)="setTags()" onclick="document.getElementById('dialog_tags').close();"><ruby>完了<rt>かんりょう</rt></ruby></ion-button>
+                    </dialog>
                 </div>
-            </header>
-            
-            <article class="project-form">
-                <h2 class="project-form_title"><ruby>編集<rt>へんしゅう</rt></ruby>ページ</h2>
-                <section class="project-form_main">
-                    <div class="project-form_main_content">
-                        <section class="title project-form_main_content_title">
-                            <input id="project_title" type="text" placeholder="タイトル" autofocus="autofocus" maxlength="20" style="font-size: 40px;" [(ngModel)]='title'>
-                        </section>
-                        <div class="project-form_main_content_description">
-                            <textarea id="project_description" maxlength="32" placeholder="どんなサービスか、かんたんに書いてね"></textarea>
+                <div class="project-form_main_thumbnails">
+                    <img id="thumbnails" [src]="imgSrcProject" alt="">
+                    <label for="thumbnails-input">
+                        <div class="btn_image_select">
+                            <p><ruby>画像<rt>がぞう</rt></ruby>を<ruby>選択<rt>せんたく</rt></ruby>する</p>
                         </div>
-                        <ul class="project-form_main_content_tags">
-                            <div class="display_flex">
-                                <div class="center">
-                                    <p>タグ</p>
-                                    <button onclick="document.getElementById('dialog_tags').showModal()">
-                                        <img src="/assets/img/btn_plus.png" alt="タグ追加">
-                                    </button>
-                                    <div>
-                                        <ng-container *ngFor="let tag of allCheckBoxes">
-                                            <ion-chip *ngIf="tag.checked">
-                                                <ion-label>{{tag.value}}</ion-label>
-                                            </ion-chip>
-                                        </ng-container>
-                                    </div>
-                                </div>
-                            </div>
-                        </ul>
-                        <dialog class="project-form_tags_dialog" id="dialog_tags">
-                            <h2 class="project-form_tags_dialog_title">プロジェクトのタグ</h2>
-                            <hr color="#136fff">
-                            <div class="project-form_tags_dialog_main">
-                                <h3>プログラミング<ruby>言語<rt>げんご</rt></ruby></h3>
-                                <div class="project-form_tags_dialog_sub">
-                                    <input type="checkbox" name="tag" value="Python" id="python">
-                                    <label for="python" class="label_tags">Python</label>
-                                    <input type="checkbox" name="tag" value="HTML/CSS" id="html_css">
-                                    <label for="html_css" class="label_tags">HTML/CSS</label>
-                                    <input type="checkbox" name="tag" value="JavaScript" id="javascript">
-                                    <label for="javascript" class="label_tags">JavaScript</label>
-                                    <input type="checkbox" name="tag" value="C/C++" id="C">
-                                    <label for="C" class="label_tags">C/C++</label>
-                                    <input type="checkbox" name="tag" value="C#" id="C#">
-                                    <label for="C#" class="label_tags">C#</label>
-                                    <input type="checkbox" name="tag" value="Java" id="java">
-                                    <label for="java" class="label_tags">Java</label>
-                                    <input type="checkbox" name="tag" value="Ruby" id="ruby">
-                                    <label for="ruby" class="label_tags">Ruby</label>
-                                    <input type="checkbox" name="tag" value="PHP" id="php">
-                                    <label for="php" class="label_tags">PHP</label>
-                                    <input type="checkbox" name="tag" value="SQL" id="sql">
-                                    <label for="sql" class="label_tags">SQL</label>
-                                    <input type="checkbox" name="tag" value="Swift" id="swift">
-                                    <label for="swift" class="label_tags">Swift</label>
-                                    <input type="checkbox" name="tag" value="Go" id="go">
-                                    <label for="go" class="label_tags">Go</label>
-                                    <input type="checkbox" name="tag" value="Kotlin" id="kotlin">
-                                    <label for="kotlin" class="label_tags">Kotlin</label>
-                                    <input type="checkbox" name="tag" value="R" id="r">
-                                    <label for="r" class="label_tags">R</label>
-                                    <input type="checkbox" name="tag" value="others_1" id="other_lang">
-                                    <label for="other_lang" class="label_tags">その<ruby>他<rt>た</rt></ruby></label>
-                                </div>
-                                <h3>プロダクトのカテゴリ</h3>
-                                <div class="project-form_tags_dialog_sub">
-                                    <input type="checkbox" name="tag" value="Web App" id="webapp">
-                                    <label for="webapp" class="label_tags">Webアプリ</label>
-                                    <input type="checkbox" name="tag" value="Native App" id="smartapp">
-                                    <label for="smartapp" class="label_tags">スマホアプリ</label>
-                                    <input type="checkbox" name="tag" value="Machine Learning" id="ml">
-                                    <label for="ml" class="label_tags"><ruby>機械学習<rt>きかいがくしゅう</rt></ruby></label>
-                                    <input type="checkbox" name="tag" value="AI" id="ai">
-                                    <label for="ai" class="label_tags"><ruby>人工知能<rt>じんこうちのう</rt></ruby></label>
-                                    <input type="checkbox" name="tag" value="others" id="other_cate">
-                                    <label for="other_cate" class="label_tags">その<ruby>他<rt>た</rt></ruby></label>
-                                </div>
-                            </div>
-                            <ion-button class="project-form_tags_dialog_finish" onclick="document.getElementById('dialog_tags').close();"><ruby>完了<rt>かんりょう</rt></ruby></ion-button>
-                        </dialog>
-                        <ul class="project-form_main_content_color">
-                            <div class="display_flex">
-                                <div class="center">
-                                    <p>メインカラー</p>
-                                    <input class="color-picker" [(colorPicker)]="color" cpAlphaChannel="disabled" cpOutputFormat="auto" [style.background]="color" [value]="color" readonly/>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-                    <div class="project-form_main_thumbnails">
-                        <label>
-                            <img id="thumbnails" class="project-form_main_thumbnails_upload" [src]="imgSrcProject" alt="">
-                            <input id="thumbnails-input" type="file" accept="image/*" (change)="onChangeFileInputProject($event)">
-                        </label>
-                    </div>
-                </section>
+                        <input id="thumbnails-input" type="file" accept="image/*" (change)="onChangeFileInputProject($event)">
+                    </label>
+                </div>
+            </section>
 
-                <hr color="#bad3ff">
-                
-                <h2 class="project-form_detail_title"><ruby>作<rt>つく</rt></ruby>った<ruby>背景<rt>はいけい</rt></ruby></h2>
-                <section class="project-form_detail">
-                    <div class="project-form_detail_content">
-                        <div class="project-form_detail_description">
-                            <textarea id="background_description" maxlength="200" placeholder="説明文"></textarea>
-                        </div>
-                    </div>
-                    <div class="project-form_detail_thumbnails">
-                        <label>
-                            <img id="detail_background_img" class="project-form_detail_thumbnails_upload" [src]="imgSrcBackground" alt="">
-                            <input id="detail_background_img_input" type="file" accept="image/*" (change)="onChangeFileInputBackground($event)">
-                        </label>
-                    </div>
-                </section>
+            <hr>
 
-                <div class="display_flex"><div class="center"><img class="icon_detail" src="/assets/img/icon_idea_point.png"><h2 class="project-form_detail_title">アイディアのポイント</h2></div></div>
-                <section class="project-form_detail">
-                    <div class="project-form_detail_content">
-                        <div class="project-form_detail_description">
-                            <textarea id="point_description" maxlength="200" placeholder="説明文"></textarea>
-                        </div>
-                    </div>
-                    <div class="project-form_detail_thumbnails">
-                        <label>
-                            <img id="detail_point_img" class="project-form_detail_thumbnails_upload" [src]="imgSrcPoint" alt="">
-                            <input id="detail_point_img_input" type="file" accept="image/*"  (change)="onChangeFileInputPoint($event)">
-                        </label>
-                    </div>
-                </section>
+            <h2 class="project-form_detail_title"><ruby>作<rt>つく</rt></ruby>った<ruby>背景<rt>はいけい</rt></ruby></h2>
+            <section class="project-form_detail">
+                <div class="project-form_detail_content">
+                    <textarea id="background_description" maxlength="200" placeholder="説明文"></textarea>
+                </div>
+                <div class="project-form_detail_thumbnails">
+                    <img id="detail_background_img" [src]="imgSrcBackground" alt="">
+                    <label for="detail_background_img_input">
+                        <div class="btn_image_select"><p><ruby>画像<rt>がぞう</rt></ruby>を<ruby>選択<rt>せんたく</rt></ruby>する</p></div>
+                        <input id="detail_background_img_input" type="file" accept="image/*" (change)="onChangeFileInputBackground($event)">
+                    </label>
+                </div>
+            </section>
 
-                <div class="display_flex"><div class="center"><img class="icon_detail" src="/assets/img/icon_tech.png"><h2 class="project-form_detail_title"><ruby>技術<rt>ぎじゅつ</rt></ruby>の<ruby>工夫<rt>くふう</rt></ruby></h2></div></div>
-                <section class="project-form_detail">
-                    <div class="project-form_detail_content">
-                        <div class="project-form_detail_description">
-                            <textarea id="tech_description" maxlength="200" placeholder="説明文"></textarea>
-                        </div>
-                    </div>
-                    <div class="project-form_detail_thumbnails">
-                        <label>
-                            <img id="detail_tech_img" class="project-form_detail_thumbnails_upload" [src]="imgSrcTech" alt="">
-                            <input id="detail_tech_img_input" type="file" accept="image/*"  (change)="onChangeFileInputTech($event)">
-                        </label>
-                    </div>
-                </section>
+            <div class="display_flex"><div class="center"><img class="icon_detail" src="/assets/img/icon_idea_point.png"><h2 class="project-form_detail_title">アイディアのポイント</h2></div></div>
+            <section class="project-form_detail">
+                <div class="project-form_detail_content">
+                    <textarea id="point_description" maxlength="200" placeholder="説明文"></textarea>
+                </div>
+                <div class="project-form_detail_thumbnails">
+                    <img id="detail_point_img" [src]="imgSrcPoint" alt="">
+                    <label for="detail_point_img_input">
+                        <div class="btn_image_select"><p><ruby>画像<rt>がぞう</rt></ruby>を<ruby>選択<rt>せんたく</rt></ruby>する</p></div>
+                        <input id="detail_point_img_input" type="file" accept="image/*"  (change)="onChangeFileInputPoint($event)">
+                    </label>
+                </div>
+            </section>
 
-                <h2 class="project-form_detail_title"><ruby>作品<rt>さくひん</rt></ruby>の<ruby>補足事項<rt>ほそくじこう</rt></ruby></h2>
-                <textarea id="editor" name="name" rows="20" cols="40">
-                </textarea>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+            <div class="display_flex"><div class="center"><h2 class="project-form_detail_title"><img class="icon_detail" src="/assets/img/icon_tech.png"><ruby>技術<rt>ぎじゅつ</rt></ruby>の<ruby>工夫<rt>くふう</rt></ruby></h2></div></div>
+            <section class="project-form_detail">
+                <div class="project-form_detail_content">
+                    <textarea id="tech_description" maxlength="200" placeholder="説明文"></textarea>
+                </div>
+                <div class="project-form_detail_thumbnails">
+                    <img id="detail_tech_img" [src]="imgSrcTech" alt="">
+                    <label for="detail_background_img_input">
+                        <div class="btn_image_select"><p><ruby>画像<rt>がぞう</rt></ruby>を<ruby>選択<rt>せんたく</rt></ruby>する</p></div>
+                        <input id="detail_tech_img_input" type="file" accept="image/*"  (change)="onChangeFileInputTech($event)">
+                    </label>
+                </div>
+            </section>
 
-                <div class="btn-submission" (click)="keyPhrases()">
+            <h2 class="project-form_detail_title"><ruby>作品<rt>さくひん</rt></ruby>の<ruby>補足事項<rt>ほそくじこう</rt></ruby></h2>
+            <textarea id="editor" name="name" rows="20" cols="40">
+            </textarea>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+
+            <div class="btn-submission" (click)="keyPhrases()">
+                <P>
                     <img src="/assets/img/pencil.png">
-                    <P><ruby>作品<rt>さくひん</rt></ruby>を<ruby>投稿<rt>とうこう</rt></ruby></P>
-                </div>
-            </article>
-            <footer class="footer">
-                <div class="footer-body">
-                    <div class="footer-body_logo">
-                        <div class="display_flex">
-                            <img id="safire_mark" src="/assets/img/safire.png" alt="safireマーク">
-                            <img id="safire_logo" src="/assets/img/safire_logo.png" alt="SaFireロゴ">
-                        </div>
-                        <p>宝石である「あなたの挑戦」をさらに磨き上げる！</p>
+                    <ruby>作品<rt>さくひん</rt></ruby>を<ruby>投稿<rt>とうこう</rt></ruby>
+                </P>
+            </div>
+        </article>
+
+        <!-- .bodyとの組み合わせでフッターを最下部に固定するためのdiv -->
+        <div class="footer_fixer"></div>
+
+        <footer class="footer">
+            <div class="footer-body">
+                <div class="footer-body_logo">
+                    <div class="display_flex">
+                        <img id="safire_mark" src="/assets/img/safire.png" alt="safireマーク">
+                        <img id="safire_logo" src="/assets/img/safire_logo.png" alt="SaFireロゴ">
                     </div>
+                    <p>宝石である「あなたの挑戦」をさらに磨き上げる！</p>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
     </div>
 </ion-content>

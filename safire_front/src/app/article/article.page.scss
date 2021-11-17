@@ -1,92 +1,17 @@
+/** footerを最下部に固定するための設定 **/
+.body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+.footer_fixer {
+    flex: 1;
+}
+
 /** 要素 **/
-body {
-    display: block;
-    margin: 0;
-}
-
-header {
-    display: block;
-}
-
-footer {
-    display: block;
-}
-
-img {
-    border-style: none;
-}
-
-a {
-    background-color: transparent;
-    text-decoration: none;
-}
-
-button, input, select, textarea {
-    border-style: none;
-}
-
-button {
-    color: inherit;
-}
-
-button, select {
-    text-transform: none;
-}
-
-button {
-    overflow: visible;
-}
-
-button, input, optgroup, select, textarea {
-    font: inherit;
-}
-
 h2 {
-    display: block;
     font-size: 24px;
-    margin-block-start: 13.28px;
-    margin-block-end: 13.28px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
-}
-
-h3 {
-    display: block;
-    font-size: 18.72px;
-    margin-block-start: 16px;
-    margin-block-end: 16px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-}
-
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 16px;
-    margin-block-end: 16px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-
-ul ul {
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-
-section {
-    display: block;
-}
-
-article {
-    display: block;
 }
 
 /** 便利 **/
@@ -100,44 +25,32 @@ article {
 
 .center {
     display: flex;
+    justify-content: center;
     margin-left: auto;
     margin-right: auto;
 }
 
-.text_center {
-    text-align: center;
-}
-
 /** ヘッダー **/
-.header {
+header {
+    display: flex;
     width: 100%;
-    height: auto;
+    height: 70px;
     position: fixed;
     top: 0;
     z-index: 1000;
-}
-
-.header-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: #75a9ff;
 }
 
-.header-main_logo {
-    padding: 0px 0 0px 30px;
-    display: flex;
-    align-items: center;
-}
-.header-main_logo img {
-    height: 30%;
-    width: 30%;
+.header_logo {
+    padding: 0px 0px 0px 30px;
+    width: auto;
+    height: 70px;
 }
 
 /** フッター **/
-.footer {
+footer {
     width: 100%;
-    height: 7vw;
+    height: 150px;
     margin-top: 50px;
     padding-top: 30px;
     background: #75a9ff;
@@ -163,116 +76,87 @@ article {
     height: 20%;
 }
 .footer-body_logo p {
-    margin-top: 0;
-    font-size: .9516837482vw;
-    font-weight: 500;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 /** ホームメイン **/
 .project {
-    width: 1000px;
-    margin: 0 auto;
-    padding: 120px 0 0;
-    /* padding: 0 0 0; */
+    width: 900px;
+    margin: 120px auto;
+    justify-content: center;
+    background-color: white;
+}
+
+.project hr {
+    height: 2px;
+    background-color: #bad3ff;
 }
 
 .project_title {
-    margin: 0 0 45px 0;
+    margin: 0 0 4px 0;
     display: inline-block;
-    position: relative;
-    text-align: center;
     font-size: 50px;
-    border-bottom: 4px solid #75a9ff;
+    border-bottom: 5px solid #75a9ff;
 }
 
 .btn-presentation {
-    width: 50%;
-    margin: auto 0 auto auto;
-    /*
+    width: 250px;
     position: absolute;
     top: 120px;
-    right: 200px;
-    */
+    right: 20px;
+    padding: 5px;
+    border: 3px solid #dddddd;
 }
 .btn-presentation img {
     margin-right: 3px;
     width: 30px;
     height: 30px;
 }
+.btn-presentation ion-button {
+    height: 45px;
+    max-width: 245px;
+}
 
-.project_main {
-    width: 100%;
+.project-main {
+    height: 420px;
     display: flex;
-    align-items: center;
     margin-bottom: 20px;
 }
 
-.project_main_content {
-    width: 50%;
-    margin: 0px 0 0 32px;
+.project-main_content {
+    width: 60%;
+    margin: 32px 0 0 32px;
 }
 
-.project_description {
-    position: relative;
-}
-.project_description h3 {
-    position: absolute;
-    top: 15px;
-
-    width: 350px;
-    text-align: center;
-}
-.project_description textarea {
-    position: absolute;
-    top: 70px;
-    left: 50px;
-
-    width: 260px;
-    height: 130px;
-    outline: none;
+#project_description {
+    width: 100%;
+    border-style: none;
     background-color: #eeeeee;
-}
-.project_description img {
-    width: 350px;
-    height: 240px;
-}
-
-.project_tags {
-    padding-left: 0px;
     margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style: none;
 }
 
-.project_thumbnails {
-    width: 50%;
-    margin: 0 0 0 0px;
-    padding: 0 0 0 0;
+.project-main_thumbnails {
+    width: 40%;
+    margin: 32px 0 0 0;
     text-align: center;
-    position: relative;
-    top: 0;
+    justify-content: center;
 }
 
 #thumbnails {
-    width: 325px;
-    height: 223px;
-}
-
-.project_tags {
-    margin-top: 0px;
-    flex-wrap: wrap;
-}
-
-.tags {
-    background: chartreuse;
-
+    width: 271px;
+    height: 186px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    top: 0;
+    border: #414141 solid 5px;
 }
 
 .project-color {
-    align-items: left;
-    padding-left: 0;
+    height: 35px;
+    display: flex;
+    margin-bottom: 16px;
 }
 
 .color {
@@ -284,45 +168,71 @@ article {
     border-radius: 8px;
     text-align: center;
 }
-/*.project-form_detail_background_img_upload {
-    width: 271px;
-    height: 186px;
-    background-image: url('../img/project_img_none.png');
-    cursor: pointer;
-}
 
-.project-form_detail_background {
-    display: flex;
-}
-
-#detail_background_img_input {
-    display: none;
-}
-
-.project-form_detail_background_description {
+.tags {
     width: 100%;
-    margin-bottom: 16px;
+    height: 150px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+    background-color: white;
+    border: #bbbbbb solid 2px;
 }
 
-.project-form_detail_background_description textarea {
-    width: 400px;
-    outline: none;
+.project-detail {
+    height: 280px;
+    display: flex;
+    margin-bottom: 0px;
 }
 
-.project-form_detail_background_description textarea:focus {
-    background-color: #eeeeee;
-}*/
-
-.icon_detail {
-    width: 24px;
-    height: 24px;
-    margin: 30px 5px 0 0;
-}
-
-.project_detail_title {
+.project-detail_title {
     margin: 30px 0 0 0;
     position: relative;
     text-align: center;
+    text-decoration: underline;
+}
+
+.project-detail_content {
+    width: 60%;
+    margin: 32px 0 0 32px;
+}
+.project-detail_content textarea {
+    width: 100%;
+    height: 186px;
+    outline: none;
+    background-color: #eeeeee;
+    margin-bottom: 16px;
+}
+
+.project-detail_thumbnails {
+    width: 40%;
+    margin: 32px 0 0 0;
+    text-align: center;
+    justify-content: center;
+}
+
+#detail_background_img {
+    width: 271px;
+    height: 186px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    top: 0;
+    border: #414141 solid 5px;
+}
+#detail_point_img {
+    width: 271px;
+    height: 186px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    top: 0;
+    border: #414141 solid 5px;
+}
+#detail_tech_img {
+    width: 271px;
+    height: 186px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    top: 0;
+    border: #414141 solid 5px;
 }
 
 .icon_detail {
@@ -331,54 +241,7 @@ article {
     margin: 30px 5px 0 0;
 }
 
-.project_detail {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.project_detail_content {
-    width: 50%;
-    margin: 10px 0 0 32px;
-}
-
-.project_detail_description {
-    position: relative;
-}
-.project_detail_description textarea {
-    position: absolute;
-    top: 50px;
-    left: 70px;
-
-    width: 300px;
-    height: 180px;
-    outline: none;
-    background-color: #ffffff;
-}
-.project_detail_description img {
-    width: 430px;
-    height: 300px;
-}
-
-.project_detail_thumbnails {
-    width: 50%;
-    margin: 10px 0 0 0px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-}
-
-.project_detail_thumbnails img {
-    width: 271px;
-    height: 186px;
-    margin-right: auto;
-    margin-left: auto;
-    // content: url('/assets/img/project_img_none.png');
-}
-
 .note {
-    width: 800px;
-    //height: 400px;
+    width: 100%;
     background-color: #ffffff;
-    border: 5px solid #ffad90;
 }
