@@ -1,3 +1,13 @@
+/** footerを最下部に固定するための設定 **/
+.body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+.footer_fixer {
+    flex: 1;
+}
+
 /** 要素 **/
 body {
     display: block;
@@ -105,61 +115,43 @@ section {
 }
 
 /** ヘッダー **/
-.header {
+header {
+    display: flex;
     width: 100%;
-    height: auto;
+    height: 70px;
     position: fixed;
     top: 0;
     z-index: 1000;
-}
-
-.header-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: #75a9ff;
 }
 
-.header-main_logo {
-    padding: 0px 0 0px 30px;
-    display: flex;
-    align-items: center;
-}
-.header-main_logo img {
-    height: 30%;
-    width: 30%;
-    cursor: pointer;
+.header_logo {
+    padding: 0px 0px 0px 30px;
+    width: auto;
+    height: 70px;
 }
 
-.header-main_menu {
+.header_menu {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    right: 0px;
+    margin-right: 20px;
+    margin-top: 15px;
     z-index: 100;
 }
 
-.header-main_menu_logout {
+.header_menu_logout {
     width: 120px;
     height: 40px;
-    margin: 0 20px 0 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.0);
+    margin: 0;
     font-size: 20px;
-}
-.header-main_menu_logout a {
-    color: #ffffff;
-    text-decoration: none;
 }
 
 /** フッター **/
-.footer {
+footer {
     width: 100%;
-    height: 7vw;
-    margin-top: 200px;
+    height: 150px;
+    margin-top: 50px;
     padding-top: 30px;
     background: #75a9ff;
     color: #ffffff;
@@ -184,15 +176,15 @@ section {
     height: 20%;
 }
 .footer-body_logo p {
-    margin-top: 0;
-    font-size: .9516837482vw;
-    font-weight: 500;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 /** ホームメイン **/
 .home-main {
     width: 100%;
-    padding: 120px 0 0;
+    margin: 120px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -208,7 +200,7 @@ section {
 }
 
 .user-info {
-    width: 700px;
+    width: 1000px;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -279,7 +271,8 @@ section {
 }
 
 /** みんなの作品 **/
-.project-list {
+/*.project-list {
+    width: 1000px;
     padding: 30px 0 0 90px;
 }
 
@@ -290,6 +283,9 @@ section {
 }
 
 .project-list_content {
+    width: 1000px;
+    display: flex;
+    justify-content: center;
 }
 
 .projects {
@@ -397,11 +393,88 @@ section {
 .project-card_date p {
     margin: 0;
     font-size: 12px;
+}*/
+.project-list {
+    width: 1000px;
+    margin: 40px auto 0 auto;
+}
+
+.project-list_title {
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+
+.project-list_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    width: 300px;
+    height: 430px;
+    margin-bottom: 50px;
+    padding-left: 0;
+    border-radius: 16px;
+    background: #eeeeee;
+    box-shadow: 5px 5px 15px #bbbbbb, -5px -5px 15px #eeeeee;
+    list-style: none;
+    transform: .3s;
+}
+.project-card:hover {
+    cursor: pointer;
+}
+
+.project-card_thumnail {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 0%;
+}
+.project-card_thumnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.project-card_title {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid #75a9ff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.project-card_tags {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.project-card_user {
+    font-size: 15px;
+    margin: 5px auto 0 10px;
+}
+
+.project-card_created {
+    display: flex;
+    justify-content: right;
+    margin: 0 10px 0 auto;
+}
+
+.project-card_promotion {
+    margin: 5px 10px auto 10px;
+    font-size: 12px;
 }
 
 /* プロジェクト参加の申請 */
 .applied-user-list_content {
 }
+
 .applied-users {
     width: 800px;
 }

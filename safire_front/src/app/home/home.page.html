@@ -1,144 +1,126 @@
 <ion-content [fullscreen]="true">
-    <div>
+    <div class="body">
         <!-- ヘッダー -->
-        <header class="header">
-            <div class="header-main">
-                <div class="header-main_logo">
-                    <img src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
-                </div>
-                <div *ngIf="login_flag" class="header-main_menu">
-                    <ion-button class="header-main_menu_logout" (click)='logout()'>ログアウト</ion-button>
-                </div>
-                <div *ngIf="!login_flag" class="header-main_menu">
-                    <ion-button class="header-main_menu_signup" (click)='signup()'><ruby>新規登録<rt>しんきとうろく</rt></ruby></ion-button>
-                    <ion-button class="header-main_menu_login" (click)='login()'>ログイン</ion-button>
-                </div>
+        <header>
+            <a href="">
+                <img class="header_logo" src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
+            </a>
+            <div *ngIf="login_flag" class="header_menu">
+                <ion-button class="header_menu_logout" (click)='logout()'>ログアウト</ion-button>
+            </div>
+            <div *ngIf="!login_flag" class="header_menu">
+                <ion-button class="header_menu_signup" (click)='signup()'><ruby>新規登録<rt>しんきとうろく</rt></ruby></ion-button>
+                <ion-button class="header_menu_login" (click)='login()'>ログイン</ion-button>
             </div>
         </header>
-        <!-- メインパーツ -->
-        <div class="home-main">
-            <!-- メニュー欄 -->
-            <div *ngIf="login_flag" class="home-left">
-                <ul class="home-left_list">
-                    <li>
-                        <div class="tomypage-card" (click)='toMypage()'>
-                            <div class="tomypage-card_icon">
-                                <img src="/assets/img/user_ex_icon.jpg">
-                            </div>
-                            <div class="tomypage-card_title">
-                                <p>マイページ</p>
-                            </div>
+
+        <!-- メニュー欄 -->
+        <div *ngIf="login_flag" class="home-left">
+            <ul class="home-left_list">
+                <li>
+                    <div class="tomypage-card" (click)='toMypage()'>
+                        <div class="tomypage-card_icon">
+                            <img src="/assets/img/user_ex_icon.jpg">
                         </div>
-                    </li>
-                    <li>
-                        <div class="new-project new-project-color" (click)="toNewProject()">
+                        <div class="tomypage-card_title">
+                            <p>マイページ</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="new-project new-project-color" (click)="toNewProject()">
+                        <P>
                             <img src="assets/img/pencil.png">
-                            <P><ruby>作品<rt>さくひん</rt></ruby>を<ruby>投稿<rt>とうこう</rt></ruby></P>
-                        </div>
-                        <div *ngIf="challenge_flag" class="new-project new-challenge-color" (click)="practiceLatestPost()">
+                            <ruby>作品<rt>さくひん</rt></ruby>を<ruby>投稿<rt>とうこう</rt></ruby>
+                        </P>
+                    </div>
+                    <div *ngIf="challenge_flag" class="new-project new-challenge-color" (click)="practiceLatestPost()">
+                        <P>
                             <ion-icon name="barbell-outline"></ion-icon>
-                            <P><ruby>最新作品<rt>さくひん</rt></ruby>の<ruby>練習<rt>れんしゅう</rt></ruby></P>
-                            <ion-icon name="barbell-outline"></ion-icon>
-                        </div>
-                        <div *ngIf="challenge_flag" class="new-project new-challenge-color" (click)="practiceLatestPost()">
-                            <ion-icon name="barbell-outline"></ion-icon>
-                            <P>最新作品の練習</P>
-                            <ion-icon name="barbell-outline"></ion-icon>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- 中央 -->
-            <section class="recommended-user-list">
+                            <ruby>最新作品<rt>さくひん</rt></ruby>の<ruby>練習<rt>れんしゅう</rt></ruby>
+                        </P>
+                        <ion-icon name="barbell-outline"></ion-icon>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 中央のメインパーツ -->
+        <div class="home-main">
+            <!-- おすすめのユーザ -->
+            <section>
                 <ng-container *ngIf="login_flag">
                     <h2 class="recommended-user-list_title">おすすめのユーザ</h2>
-                    <div class="recommended-user-list_content">
-                        <div class="recommended-users">
-                            <ion-row class="recommended-users-list">
-                                <ng-container *ngFor="let user of recommend_user">
-                                    <ion-card class="user-card" (click)='toUserPage(user.name)'>
-                                        <div class="user-card_icon">
-                                            <img src="/assets/img/user_ex_icon.jpg">
-                                        </div>
-                                        <ul class="user-card_profile">
-                                            <li class="user-card_name">
-                                                <p>{{user.name}}</p>
-                                            </li>
-                                            <li class="user-card_tags">
-                                                <!--<p>タグ: <span *ngFor="let tag of user.top_tag">{{tag}}</span></p>-->
-                                                <!--<p>タグ: <span>{{user.top_tag}}</span></p>-->
-                                                <ion-chip>
-                                                    <ion-label>{{user.top_tag}}</ion-label>
-                                                </ion-chip>
-                                            </li>
-                                        </ul>
-                                    </ion-card>
-                                </ng-container>
-                            </ion-row>
-                        </div>
+                    <div class="recommended-users">
+                        <ng-container *ngFor="let user of recommend_user">
+                            <ion-card class="user-card" (click)='toUserPage(user.name)'>
+                                <div class="user-card_icon">
+                                    <img src="/assets/img/user_ex_icon.jpg">
+                                </div>
+                                <div class="user-card_profile">
+                                    <p class="user-card_name">{{user.name}}</p>
+                                        <!--<p>タグ: <span *ngFor="let tag of user.top_tag">{{tag}}</span></p>-->
+                                        <!--<p>タグ: <span>{{user.top_tag}}</span></p>-->
+                                    <ion-chip>
+                                        <ion-label>{{user.top_tag}}</ion-label>
+                                    </ion-chip>
+                                </div>
+                            </ion-card>
+                        </ng-container>
                     </div>
                 </ng-container>
+            </section>
 
-                <h2 class="recommended-project-list_title">おすすめ<ruby>記事<rt>きじ</rt></ruby></h2>
-                <div class="recommended-user-list_content">
-                    <div class="recommended-users">
-                        <ion-row class="recommended-users-list">
-                            <ng-container *ngFor="let project of ranking_project">
-                                <ion-card class="user-card" (click)='toArticlePage(project.id)'>
-                                    <ul class="user-card_profile">
-                                        <li class="user-card_name">
-                                            <img class="article-card__image ion-padding-end" [src]="project.img"><p>{{project.name}}</p>
-                                        </li>
-                                        <li class="user-card_tags">
-                                            <ng-container *ngFor="let tag of project.tag_list">
-                                                <ion-chip>
-                                                    <ion-label>{{tag}}</ion-label>
-                                                </ion-chip>
-                                            </ng-container>
-                                        </li>
-                                    </ul>
-                                </ion-card>
-                            </ng-container>
-                        </ion-row>
-                    </div>
+            <!-- ランキング -->
+            <section class="view-ranking">
+                <h2 class="view-ranking_title">おすすめ<ruby>記事<rt>きじ</rt></ruby></h2>
+                <div class="view-ranking_content">
+                    <ng-container *ngFor="let project of ranking_project">
+                        <ion-card  class="ranking-card">
+                            <div class="ranking-card_name" (click)='toArticlePage(project.id)'>
+                                <img [src]="project.img">
+                                <p>{{project.name}}</p>
+                            </div>
+                            <div class="ranking-card_tags">
+                                <ng-container *ngFor="let tag of project.tag_list" >
+                                    <ion-chip>
+                                        <ion-label>{{tag}}</ion-label>
+                                    </ion-chip>
+                                </ng-container>
+                            </div>
+                        </ion-card>
+                    </ng-container>
                 </div>
-
             </section>
 
             <section class="project-list">
                 <h2 class="project-list_title">みんなの<ruby>作品<rt>さくひん</rt></ruby></h2>
                 <div class="project-list_content">
-                    <div class="projects">
-                        <div *ngFor='let project of project_list'>
-                            <ion-card class="project-card" [style.background]="'#'+project['color']" (click)="toArticlePage(project['id'])">
-                                <div class="project-card_thumnail">
-                                    <img [src]="project['thumbnail']">
-                                </div>
-                                <h3 class="project-card_title">{{project['title']}}</h3>
-                                <div class="project-card_tags">
-                                    <ng-container *ngFor="let tag of project['tag_list']">
-                                        <ion-chip>
-                                            <ion-label>{{tag}}</ion-label>
-                                        </ion-chip>
-                                    </ng-container>
-                                </div>
-                                <div class="project-card_user">
-                                    <p>{{project['user_id']}}</p>
-                                </div>
-                                <div class="project-card_created">
-                                    <p>{{project['created_at'].split('T')[0]}}</p>
-                                </div>
-                                <div class="project-card_promotion">
-                                    <p>{{project['description']}}</p>
-                                </div>
-                            </ion-card>
+                    <ion-card  *ngFor='let project of project_list' class="project-card" [style.background]="'#'+project['color']" (click)="toArticlePage(project['id'])">
+                        <div class="project-card_thumnail">
+                            <img [src]="project['thumbnail']">
                         </div>
-                    </div>
+                        <h3 class="project-card_title">{{project['title']}}</h3>
+                        <div class="project-card_tags">
+                            <ng-container *ngFor="let tag of project['tag_list']">
+                                <ion-chip>
+                                    <ion-label>{{tag}}</ion-label>
+                                </ion-chip>
+                            </ng-container>
+                        </div>
+                        <p class="project-card_user">{{project['user_id']}}</p>
+                        <p class="project-card_created">{{project['created_at'].split('T')[0]}}</p>
+                        <p class="project-card_promotion">{{project['description']}}</p>
+                    </ion-card>
                 </div>
             </section>
-            
         </div>
-        <footer class="footer">
+
+        <!-- .bodyとの組み合わせでフッターを最下部に固定するためのdiv -->
+        <div class="footer_fixer"></div>
+
+        <!-- フッター -->
+        <footer>
             <div class="footer-body">
                 <div class="footer-body_logo">
                     <div class="display_flex">
