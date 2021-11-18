@@ -12,9 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ChartsModule } from 'ng2-charts';
-import { ModalResultPageModule } from './feedback/modal-result/modal-result.module';
-
-
+// import { ModalResultPageModule } from './feedback/modal-result/modal-result.module';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +31,8 @@ import { ModalResultPageModule } from './feedback/modal-result/modal-result.modu
       registrationStrategy: 'registerWhenStable:30000'
     }),
     ChartsModule,
-    ModalResultPageModule
+    // ModalResultPageModule,
+    ComponentsModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

@@ -8,7 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { UserpagePageRoutingModule } from './userpage-routing.module';
 
-import { HeaderComponent } from '../components/header/header.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -16,9 +16,10 @@ import { HeaderComponent } from '../components/header/header.component';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    UserpagePageRoutingModule
+    UserpagePageRoutingModule,
+    ComponentsModule,
   ],
-  exports: [HeaderComponent],
-  declarations: [UserpagePage, HeaderComponent]
+  exports: [],
+  declarations: [UserpagePage]
 })
 export class UserpagePageModule {}
