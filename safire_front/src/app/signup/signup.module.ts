@@ -8,6 +8,8 @@ import { SignupPageRoutingModule } from './signup-routing.module';
 
 import { SignupPage } from './signup.page';
 
+import { HeaderComponent } from '../components/header/header.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { SignupPage } from './signup.page';
     IonicModule,
     SignupPageRoutingModule
   ],
-  declarations: [SignupPage]
+  exports: [HeaderComponent],
+  declarations: [SignupPage, HeaderComponent]
 })
 export class SignupPageModule {}

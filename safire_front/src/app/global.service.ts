@@ -54,7 +54,7 @@ export class GlobalService {
     postUrl = _postUrl;
     ret = this._http.post(postUrl, _trans_data, HTTP_OPTIONS)
     .pipe(
-      timeout(5000),
+      timeout(10000),
       catchError(this.handleError())
     );
     return ret;
@@ -65,7 +65,7 @@ export class GlobalService {
     postUrl = _postUrl;
     ret = this._http.post(postUrl, _trans_data, HTTP_OPTIONS_ABST)
     .pipe(
-      timeout(5000),
+      timeout(10000),
       catchError(this.handleError())
     );
     return ret;
@@ -76,7 +76,7 @@ export class GlobalService {
     postUrl = _postUrl;
     ret = this._http.post(postUrl, _trans_data, HTTP_OPTIONS_NEGATIVE)
     .pipe(
-      timeout(5000),
+      timeout(10000),
       catchError(this.handleError())
     );
     return ret;
@@ -88,7 +88,7 @@ export class GlobalService {
     postUrl = _postUrl;
     ret = this._http.put(postUrl, _trans_data, HTTP_OPTIONS)
     .pipe(
-      timeout(5000),
+      timeout(10000),
       catchError(this.handleError())
     );
     return ret;
@@ -100,7 +100,7 @@ export class GlobalService {
     getUrl = _getUrl;
     ret = this._http.get(getUrl, HTTP_OPTIONS_GET)
     .pipe(
-      timeout(5000),
+      timeout(10000),
       catchError(this.handleError())
     );
     return ret;
@@ -111,7 +111,7 @@ export class GlobalService {
     getUrl = _getUrl;
     ret = this._http.get(getUrl, HTTP_OPTIONS_ABST_GET)
     .pipe(
-      timeout(5000),
+      timeout(10000),
       catchError(this.handleError())
     );
     return ret;
