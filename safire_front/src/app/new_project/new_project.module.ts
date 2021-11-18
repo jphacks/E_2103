@@ -9,6 +9,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { NewProjectPageRoutingModule } from './new_project-routing.module';
 
 import { ColorPickerModule } from 'ngx-color-picker';
+import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
     NewProjectPageRoutingModule,
     ColorPickerModule
   ],
-  declarations: [NewProjectPage]
+  exports: [HeaderComponent],
+  declarations: [NewProjectPage, HeaderComponent]
 })
 export class NewProjectPageModule {}

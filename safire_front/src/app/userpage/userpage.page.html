@@ -1,13 +1,6 @@
 <ion-content [fullscreen]="true">
     <div class="body">
-        <header>
-            <a href="">
-                <img class="header_logo" src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
-            </a>
-            <div class="header_menu">
-                <ion-button class="header_menu_logout" (click)='logout()'>ログアウト</ion-button>
-            </div>
-        </header>
+        <app-header></app-header>>
 
         <section class="home-main">
             <div class="text_center"><h1 class="user_name">{{user_id_page}}</h1></div>

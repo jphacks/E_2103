@@ -8,6 +8,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { UserpagePageRoutingModule } from './userpage-routing.module';
 
+import { HeaderComponent } from '../components/header/header.component';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -16,6 +18,7 @@ import { UserpagePageRoutingModule } from './userpage-routing.module';
     ExploreContainerComponentModule,
     UserpagePageRoutingModule
   ],
-  declarations: [UserpagePage]
+  exports: [HeaderComponent],
+  declarations: [UserpagePage, HeaderComponent]
 })
 export class UserpagePageModule {}
