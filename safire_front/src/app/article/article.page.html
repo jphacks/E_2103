@@ -13,13 +13,6 @@
         </header>
 
         <article class="project">
-            <div class="btn-presentation">
-                <ion-button *ngIf="apply_flag" expand="block" color="secondary" (click)="presentModal()"><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" ><ruby>評価<rt>ひょうか</rt></ruby>する</span></ion-button>
-                <ion-button *ngIf="apply_flag" expand="block" fill="outline" (click)="alertConfirm()"><ion-icon name="people-outline"></ion-icon><span class="ion-padding" >メンバー<ruby>参加<rt>さんか</rt></ruby>の<ruby>申請<rt>しんせい</rt></ruby></span></ion-button>
-                <ion-button *ngIf="member_flag" expand="block" fill="outline" (click)="toEdit()"><ion-icon name="pencil-outline"></ion-icon><span class="ion-padding" ><ruby>編集<rt>へんしゅう</rt></ruby></span></ion-button>
-                <ion-button *ngIf="member_flag" expand="block" fill="outline" (click)="toTraining()"><ion-icon name="trending-up-outline"></ion-icon><span class="ion-padding" ><ruby>発表練習<rt>はっぴょうれんしゅう</rt></ruby></span></ion-button>
-                <ion-button (click)="toPresentation()" expand="block"><ion-icon name="videocam-outline"></ion-icon><span class="ion-padding" >プレゼンモード</span></ion-button>
-            </div>
             <div class="center"><h1 class="project_title" [style.borderColor]="color">{{title}}</h1></div>
 
             <section class="project-main">
@@ -56,6 +49,13 @@
                 </div>
                 <div class="project-main_thumbnails">
                     <img id="thumbnails" [src]="thumbnail">
+                    <div class="btn-presentation">
+                        <ion-button *ngIf="apply_flag" expand="block" color="secondary" (click)="presentModal()"><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" ><ruby>評価<rt>ひょうか</rt></ruby>する</span></ion-button>
+                        <ion-button *ngIf="apply_flag" expand="block" fill="outline" (click)="alertConfirm()"><ion-icon name="people-outline"></ion-icon><span class="ion-padding" >メンバー<ruby>参加<rt>さんか</rt></ruby>の<ruby>申請<rt>しんせい</rt></ruby></span></ion-button>
+                        <ion-button *ngIf="member_flag" expand="block" fill="outline" (click)="toEdit()"><ion-icon name="pencil-outline"></ion-icon><span class="ion-padding" ><ruby>編集<rt>へんしゅう</rt></ruby></span></ion-button>
+                        <ion-button *ngIf="member_flag" expand="block" fill="outline" (click)="toTraining()"><ion-icon name="trending-up-outline"></ion-icon><span class="ion-padding" ><ruby>発表練習<rt>はっぴょうれんしゅう</rt></ruby></span></ion-button>
+                        <ion-button (click)="toPresentation()" expand="block"><ion-icon name="videocam-outline"></ion-icon><span class="ion-padding" >プレゼンモード</span></ion-button>
+                    </div>
                 </div>
             </section>
 
