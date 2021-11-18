@@ -9,7 +9,6 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { NewProjectPageRoutingModule } from './new_project-routing.module';
 
 import { ColorPickerModule } from 'ngx-color-picker';
-import { HeaderComponent } from '../components/header/header.component';
 
 import { ComponentsModule } from '../components/components.module';
 
