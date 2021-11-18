@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><span [innerHTML]="headerName"></span></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <swiper
+    #swiper
+    (slideChange)="onSlideChange($event)">
+    <ng-container *ngFor="let asset of assets">
+      <!-- <ng-template swiperSlide>{{asset}}</ng-template> -->
+      <ng-template swiperSlide><div class="image-container"><img class="ion-padding" [src]="asset"></div></ng-template>
+    </ng-container>
+    <!-- <ng-template swiperSlide><div><img src="''../../../assets/img/tutorial/'+asset"></div></ng-template> -->
+  </swiper>
+  <ion-button *ngIf="!exitFlag" expand="block" (click)="slideNext()"><span><ruby>次<rt>つぎ</rt></ruby>へ</span></ion-button>
+  <ion-button *ngIf="exitFlag" expand="block" fill="outline" (click)="dismiss()"><span><ruby>閉<rt>と</rt></ruby>じる</span></ion-button>
+  <ion-button *ngIf="backFlag" expand="block" fill="outline" color="secondary" (click)="slidePrev()"><span><ruby>戻<rt>もど</rt></ruby>る</span></ion-button>
+</ion-content>

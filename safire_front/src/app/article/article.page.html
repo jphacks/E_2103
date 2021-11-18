@@ -5,127 +5,96 @@
 </ion-header> -->
 
 <ion-content>
-  <div>
-    <div>
-        <header class="header">
-            <div class="header-main">
-                <a href="">
-                    <div class="header-main_logo">
-                        <img src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
-                    </div>
-                </a>
-            </div>
-        </header>
+    <div class="body">
+        <app-header></app-header>
 
         <article class="project">
-            <div class="btn-presentation">
-                <ion-button *ngIf="apply_flag" color="secondary" (click)="presentModal()"><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" ><ruby>評価<rt>ひょうか</rt></ruby>する</span></ion-button>
-                <ion-button *ngIf="apply_flag" fill="outline" (click)="alertConfirm()"><ion-icon name="people-outline"></ion-icon><span class="ion-padding" >メンバー<ruby>参加<rt>さんか</rt></ruby>の<ruby>申請<rt>しんせい</rt></ruby></span></ion-button>
-                <ion-button *ngIf="member_flag" fill="outline" (click)="toEdit()"><ion-icon name="pencil-outline"></ion-icon><span class="ion-padding" ><ruby>編集<rt>へんしゅう</rt></ruby></span></ion-button>
-                <ion-button *ngIf="member_flag" fill="outline" (click)="toTraining()"><ion-icon name="trending-up-outline"></ion-icon><span class="ion-padding" ><ruby>発表練習<rt>はっぴょうれんしゅう</rt></ruby></span></ion-button>
-                <ion-button (click)="toPresentation()"><ion-icon name="videocam-outline"></ion-icon><span class="ion-padding" >プレゼンモード</span></ion-button>
-            </div>
-            <div class="text_center"><h1 class="project_title">{{title}}</h1></div>
-            <section class="project_main">
-                <div class="project_main_content">
-                    <div class="project_description">
-                        <img src="/assets/img/ring_memo.jpeg">
-                        <h3>どんなサービス？</h3>
-                        <textarea id="project_description" readonly>{{description}}</textarea>
+            <div class="center"><h1 class="project_title" [style.borderColor]="color">{{title}}</h1></div>
+
+            <section class="project-main">
+                <div class="project-main_content">
+                    <textarea id="project_description" readonly>{{description}}</textarea>
+                    <div>
+                        <ng-container>
+                            <ion-chip>
+                                <ion-avatar>
+                                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                                    </ion-avatar>
+                                <ion-label>{{user_id}}</ion-label>
+                            </ion-chip>
+                        </ng-container>
+                        <ng-container *ngFor="let member of member_list">
+                            <ion-chip>
+                                <ion-avatar>
+                                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                                    </ion-avatar>
+                                <ion-label>{{member}}</ion-label>
+                            </ion-chip>
+                        </ng-container>
                     </div>
-                    <ul class="project_tags">
-                        <div class="display_flex">
-                            <div class="center">
-                                <div>
-                                    <ng-container>
-                                        <ion-chip>
-                                            <ion-avatar>
-                                                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                                              </ion-avatar>
-                                            <ion-label>{{user_id}}</ion-label>
-                                        </ion-chip>
-                                    </ng-container>
-                                    <ng-container *ngFor="let member of member_list">
-                                        <ion-chip>
-                                            <ion-avatar>
-                                                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                                              </ion-avatar>
-                                            <ion-label>{{member}}</ion-label>
-                                        </ion-chip>
-                                    </ng-container>
-                                </div>
-                            </div>
-                        </div>
-                    </ul>
-                    <ul class="project_tags">
-                        <div class="display_flex">
-                            <div class="center">
-                                <div>
-                                    <ng-container *ngFor="let tag of tag_list">
-                                        <ion-chip>
-                                            <ion-label>{{tag}}</ion-label>
-                                        </ion-chip>
-                                    </ng-container>
-                                </div>
-                            </div>
-                        </div>
-                    </ul>
-                    <ul class="project-color">
+                    <div class="project-color">
                         <div class="color" [style.background]="color"></div>
-                    </ul>
+                    </div>
+                    <div class="tags">
+                        <ng-container *ngFor="let tag of tag_list">
+                            <ion-chip>
+                                <ion-label>{{tag}}</ion-label>
+                            </ion-chip>
+                        </ng-container>
+                    </div>
                 </div>
-                <div class="project_thumbnails">
+                <div class="project-main_thumbnails">
                     <img id="thumbnails" [src]="thumbnail">
+                    <div class="btn-presentation">
+                        <ion-button *ngIf="apply_flag" expand="block" color="secondary" (click)="presentModal()"><ion-icon name="star-half-outline"></ion-icon><span class="ion-padding" ><ruby>評価<rt>ひょうか</rt></ruby>する</span></ion-button>
+                        <ion-button *ngIf="apply_flag" expand="block" fill="outline" (click)="alertConfirm()"><ion-icon name="people-outline"></ion-icon><span class="ion-padding" >メンバー<ruby>参加<rt>さんか</rt></ruby>の<ruby>申請<rt>しんせい</rt></ruby></span></ion-button>
+                        <ion-button *ngIf="member_flag" expand="block" fill="outline" (click)="toEdit()"><ion-icon name="pencil-outline"></ion-icon><span class="ion-padding" ><ruby>編集<rt>へんしゅう</rt></ruby></span></ion-button>
+                        <ion-button *ngIf="member_flag" expand="block" fill="outline" (click)="toTraining()"><ion-icon name="trending-up-outline"></ion-icon><span class="ion-padding" ><ruby>発表練習<rt>はっぴょうれんしゅう</rt></ruby></span></ion-button>
+                        <ion-button (click)="toPresentation()" expand="block"><ion-icon name="videocam-outline"></ion-icon><span class="ion-padding" >プレゼンモード</span></ion-button>
+                    </div>
                 </div>
             </section>
 
-            <hr color="#31apee">
-            
-            <h2 class="project_detail_title"><ruby>作<rt>つく</rt></ruby>った<ruby>背景<rt>はいけい</rt></ruby></h2>
-            <section class="project_detail">
-                <div class="project_detail_content">
-                    <div class="project_detail_description">
-                        <img src="/assets/img/ring_memo.jpeg">
-                        <textarea id="project_detail_description" readonly>{{description_background}}</textarea>
-                    </div>
+            <hr>
+
+            <h2 class="project-detail_title"><ruby>作<rt>つく</rt></ruby>った<ruby>背景<rt>はいけい</rt></ruby></h2>
+            <section class="project-detail">
+                <div class="project-detail_content">
+                    <textarea id="background_description" readonly>{{description_background}}</textarea>
                 </div>
-                <div class="project_detail_thumbnails">
+                <div class="project-detail_thumbnails">
                     <img id="detail_background_img" [src]="thumbnail_background">
                 </div>
             </section>
 
-            <div class="display_flex"><div class="center"><img class="icon_detail" src="/assets/img/icon_idea_point.png"><h2 class="project_detail_title">アイディアのポイント</h2></div></div>
-            <section class="project_detail">
-                <div class="project_detail_content">
-                    <div class="project_detail_description">
-                        <img src="/assets/img/ring_memo.jpeg">
-                        <textarea id="project_detail_description" readonly>{{description_idea}}</textarea>
-                    </div>
+            <div class="display_flex"><div class="center"><img class="icon_detail" src="/assets/img/icon_idea_point.png"><h2 class="project-detail_title">アイディアのポイント</h2></div></div>
+            <section class="project-detail">
+                <div class="project-detail_content">
+                    <textarea id="point_description" readonly>{{description_idea}}</textarea>
                 </div>
-                <div class="project_detail_thumbnails">
+                <div class="project-detail_thumbnails">
                     <img id="detail_point_img" [src]="thumbnail_idea">
                 </div>
             </section>
 
-            <div class="display_flex"><div class="center"><img class="icon_detail" src="/assets/img/icon_tech.png"><h2 class="project_detail_title"><ruby>技術<rt>ぎじゅつ</rt></ruby>の<ruby>工夫<rt>くふう</rt></ruby></h2></div></div>
-            <section class="project_detail">
-                <div class="project_detail_content">
-                    <div class="project_detail_description">
-                        <img src="/assets/img/ring_memo.jpeg">
-                        <textarea id="project_detail_description" readonly>{{description_technology}}</textarea>
-                    </div>
+            <div class="display_flex"><div class="center"><h2 class="project-detail_title"><img class="icon_detail" src="/assets/img/icon_tech.png"><ruby>技術<rt>ぎじゅつ</rt></ruby>の<ruby>工夫<rt>くふう</rt></ruby></h2></div></div>
+            <section class="project-detail">
+                <div class="project-detail_content">
+                    <textarea id="tech_description" readonly>{{description_technology}}</textarea>
                 </div>
-                <div class="project_detail_thumbnails">
+                <div class="project-detail_thumbnails">
                     <img id="detail_tech_img" [src]="thumbnail_technology">
                 </div>
             </section>
+            
+            <hr>
 
-            <h2 class="project_detail_title"><ruby>作品<rt>さくひん</rt></ruby>の<ruby>補足説明<rt>ほそくせつめい</rt></ruby></h2>
-            <div class="note center">
-                <div class="display_block" id="appendix" [innerHTML]="appendix_html"></div>
-            </div>
+            <h2 class="project-detail_title"><ruby>作品<rt>さくひん</rt></ruby>の<ruby>補足説明<rt>ほそくせつめい</rt></ruby></h2>
+            <div class="note" id="appendix" [innerHTML]="appendix_html"></div>
         </article>
 
+        <!-- .bodyとの組み合わせでフッターを最下部に固定するためのdiv -->
+        <div class="footer_fixer"></div>
 
         <footer class="footer">
             <div class="footer-body">
@@ -139,5 +108,4 @@
             </div>
         </footer>
     </div>
-</div>
 </ion-content>

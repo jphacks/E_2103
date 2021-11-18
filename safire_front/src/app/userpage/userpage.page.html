@@ -1,158 +1,141 @@
 <ion-content [fullscreen]="true">
-    <div>
-        <div>
-            <header class="header">
-                <div class="header-main">
-                    <div class="header-main_logo" (click)='toUserHome()'>
-                        <img src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
-                    </div>
-                    <div class="header-main_menu">
-                        <ion-button class="header-main_menu_logout" (click)='logout()'>ログアウト</ion-button>
+    <div class="body">
+        <app-header></app-header>>
+
+        <section class="home-main">
+            <div class="text_center"><h1 class="user_name">{{user_id_page}}</h1></div>
+            <section class="user-info">
+                <div class="user-info_icon">
+                    <img id="user_icon" src="/assets/img/user_ex_icon.jpg">
+                </div>
+                <div class="user-info_profile">
+                    <div class="user-card_profile_content">
+                        <img src="/assets/img/ring_memo.jpeg">
+                        <h3><ruby>自己紹介<rt>じこしょうかい</rt></ruby></h3>
+                        <textarea id="project_description" readonly>{{description}}</textarea>
                     </div>
                 </div>
-            </header>
-            <div class="home-main">
-                <div class="text_center"><h1 class="user_name">{{user_id_page}}</h1></div>
-                <section class="user-info">
-                    <div class="user-info_icon">
-                        <img id="user_icon" src="/assets/img/user_ex_icon.jpg">
-                    </div>
-                    <div class="user-info_profile">
-                        <div class="user-card_profile_content">
-                            <img src="/assets/img/ring_memo.jpeg">
-                            <h3><ruby>自己紹介<rt>じこしょうかい</rt></ruby></h3>
-                            <textarea id="project_description" readonly>{{description}}</textarea>
-                        </div>
-                    </div>
-                </section>
+            </section>
 
-                <div class="achievement-container ion-margin">
-                    <div class="achievement-block">
-                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="document-outline"></ion-icon> <ruby>投稿数<rt>とうこうすう</rt></ruby></div>
-                        <div class="achievement-text">{{total_post}}</div>
-                    </div>
-                    <div class="achievement-block">
-                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="ribbon-outline"></ion-icon><ruby>目標全達成数<rt>もくひょうぜんたっせいすう</rt></ruby></div>
-                        <div class="achievement-text">{{total_clear}}</div>
-                    </div>
-                    <div class="achievement-block">
-                        <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="barbell-outline"></ion-icon><ruby>練習回数<rt>れんしゅうかいすう</rt></ruby></div>
-                        <div class="achievement-text">{{total_practice}}</div>
-                    </div>
+            <div class="achievement-container ion-margin">
+                <div class="achievement-block">
+                    <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="document-outline"></ion-icon> <ruby>投稿数<rt>とうこうすう</rt></ruby></div>
+                    <div class="achievement-text">{{total_post}}</div>
                 </div>
-
-                <div class="liked-project_content">
-                    <div class="btn_show_liked-project">
-                        <button onclick="document.getElementById('dialog_liked-project').showModal()">{{user_id_page}}さんが<ruby>高評価<rt>こうひょうか</rt></ruby>したプロジェクトを<ruby>見<rt>み</rt></ruby>る</button>  
-                    </div>
+                <div class="achievement-block">
+                    <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="ribbon-outline"></ion-icon><ruby>目標全達成数<rt>もくひょうぜんたっせいすう</rt></ruby></div>
+                    <div class="achievement-text">{{total_clear}}</div>
                 </div>
-
-                <section class="project-list">
-                    <ng-container *ngIf="applied_flag">
-                        <h2 class="project-list_title">プロジェクトのメンバー<ruby>参加申請<rt>さんかしんせい</rt></ruby></h2>
-                        <div class="applied-user-list_content">
-                            <div class="applied-users">
-                                <ion-row class="applied-users-list">
-                
-                                    <ion-card *ngFor="let user of applied_user; index as i" class="user-card" (click)="alertConfirm(user.id, user.user_id, user.project_title, i)">
-                                        <div class="user-card_icon">
-                                            <img src="/assets/img/user_ex_icon.jpg">
-                                        </div>
-                                        <ul class="user-card_profile">
-                                            <li class="user-card_name">
-                                                <p>{{user.user_id}}</p>
-                                            </li>
-                                            <li class="user-card_tags">
-                                                <p>{{user.project_title}}</p>
-                                            </li>
-                                        </ul>
-                                    </ion-card>
-
-                                </ion-row>
-                            </div>
-                        </div>
-                    </ng-container>
-                    <h2 class="project-list_title">{{user_id_page}}さんの<ruby>作品<rt>さくひん</rt></ruby></h2>
-                    <div class="project-list_content">
-                        <div class="projects">
-                            <div *ngFor="let item of own_project_list">
-                                <ion-card class="project-card" (click)="toArticlePage(item['id'])">
-                                    <div class="project-card_thumnail">
-                                        <img [src]="item['thumbnail']">
-                                    </div>
-                                    <h3 class="project-card_title">{{item['title']}}</h3>
-                                    <div class="project-card_tags">
-                                        <ng-container *ngFor="let tag of item['tag_list']">
-                                            <ion-chip>
-                                                <ion-label>{{tag}}</ion-label>
-                                            </ion-chip>
-                                        </ng-container>
-                                    </div>
-                                    <div class="project-card_user">
-                                        <p>{{item['user_id']}}</p>
-                                    </div>
-                                    <div class="project-card_created">
-                                        <p>{{item['created_at'].split('T')[0]}}</p>
-                                    </div>
-                                    <div class="project-card_promotion">
-                                        <p>{{item['description']}}</p>
-                                    </div>
-                                </ion-card>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-
-                <dialog class="liked-project_dialog" id="dialog_liked-project">
-                    <h2 class="liked-project_dialog_title">{{user_id_page}}さんが<ruby>高評価<rt>こうひょうか</rt></ruby>したプロジェクト</h2>
-                    <hr color="#136fff">
-                    <div class="display_right">
-                        <ion-button class="liked-project_dialog_finish" onclick="document.getElementById('dialog_liked-project').close();"><ruby>完了<rt>かんりょう</rt></ruby></ion-button>
-                    </div>
-                    <div class="liked-project_dialog_content">
-                        <div class="liked_projects">
-                            <div *ngFor="let item of liked_project_list">
-                                <ion-card class="liked_project-card" (click)="toArticlePage(item['id'])">
-                                    <div class="project-card_thumnail">
-                                        <img [src]="item['thumbnail']">
-                                    </div>
-                                    <h3 class="project-card_title">{{item['title']}}</h3>
-                                    <div class="project-card_tags">
-                                        <ng-container *ngFor="let tag of item['tag_list']">
-                                            <ion-chip>
-                                                <ion-label>{{tag}}</ion-label>
-                                            </ion-chip>
-                                        </ng-container>
-                                    </div>
-                                    <div class="project-card_user">
-                                        <p>{{item['user_id']}}</p>
-                                    </div>
-                                    <div class="project-card_created">
-                                        <p>{{item['created_at'].split('T')[0]}}</p>
-                                    </div>
-                                    <div class="project-card_promotion">
-                                        <p>{{item['description']}}</p>
-                                    </div>
-                                </ion-card>
-                            </div>
-                        </div>
-                    </div>
-                </dialog>
-
+                <div class="achievement-block">
+                    <div class="achievement-title ion-padding"><ion-icon class="ion-padding-end" name="barbell-outline"></ion-icon><ruby>練習回数<rt>れんしゅうかいすう</rt></ruby></div>
+                    <div class="achievement-text">{{total_practice}}</div>
+                </div>
             </div>
-            <footer class="footer">
-                <div class="footer-body">
-                    <div class="footer-body_logo">
-                        <div class="display_flex">
-                            <img id="safire_mark" src="/assets/img/safire.png" alt="safireマーク">
-                            <img id="safire_logo" src="/assets/img/safire_logo.png" alt="SaFireロゴ">
-                        </div>
-                        <p>宝石である「あなたの挑戦」をさらに磨き上げる！</p>
+
+            <div class="liked-project_content">
+                <div class="btn_show_liked-project">
+                    <button onclick="document.getElementById('dialog_liked-project').showModal()">{{user_id_page}}さんが<ruby>高評価<rt>こうひょうか</rt></ruby>したプロジェクトを<ruby>見<rt>み</rt></ruby>る</button>  
+                </div>
+            </div>
+        </section>
+        <section class="project-list">
+            <ng-container *ngIf="applied_flag">
+                <h2 class="project-list_title">プロジェクトのメンバー<ruby>参加申請<rt>さんかしんせい</rt></ruby></h2>
+                <div class="applied-user-list_content">
+                    <div class="applied-users">
+                        <ion-row class="applied-users-list">
+        
+                            <ion-card *ngFor="let user of applied_user; index as i" class="user-card" (click)="alertConfirm(user.id, user.user_id, user.project_title, i)">
+                                <div class="user-card_icon">
+                                    <img src="/assets/img/user_ex_icon.jpg">
+                                </div>
+                                <ul class="user-card_profile">
+                                    <li class="user-card_name">
+                                        <p>{{user.user_id}}</p>
+                                    </li>
+                                    <li class="user-card_tags">
+                                        <p>{{user.project_title}}</p>
+                                    </li>
+                                </ul>
+                            </ion-card>
+
+                        </ion-row>
                     </div>
                 </div>
-            </footer>
-        </div>
+            </ng-container>
+
+            <section class="project-list">
+                <h2 class="project-list_title">{{user_id_page}}さんの<ruby>作品<rt>さくひん</rt></ruby></h2>
+                <div class="project-list_content">
+                    <ion-card  *ngFor='let project of own_project_list' class="project-card" (click)="toArticlePage(project['id'])">
+                        <div class="project-card_thumnail">
+                            <img [src]="project['thumbnail']">
+                        </div>
+                        <h3 class="project-card_title">{{project['title']}}</h3>
+                        <div class="project-card_tags">
+                            <ng-container *ngFor="let tag of project['tag_list']">
+                                <ion-chip>
+                                    <ion-label>{{tag}}</ion-label>
+                                </ion-chip>
+                            </ng-container>
+                        </div>
+                        <p class="project-card_user">{{project['user_id']}}</p>
+                        <p class="project-card_created">{{project['created_at'].split('T')[0]}}</p>
+                        <p class="project-card_promotion">{{project['description']}}</p>
+                    </ion-card>
+                </div>
+            </section>
+        </section>
+
+        <dialog class="liked-project_dialog" id="dialog_liked-project">
+            <h2 class="liked-project_dialog_title">{{user_id_page}}さんが<ruby>高評価<rt>こうひょうか</rt></ruby>したプロジェクト</h2>
+            <hr color="#136fff">
+            <div class="display_right">
+                <ion-button class="liked-project_dialog_finish" onclick="document.getElementById('dialog_liked-project').close();"><ruby>完了<rt>かんりょう</rt></ruby></ion-button>
+            </div>
+            <div class="liked-project_dialog_content">
+                <div class="liked_projects">
+                    <div *ngFor="let item of liked_project_list">
+                        <ion-card class="liked_project-card" (click)="toArticlePage(item['id'])">
+                            <div class="project-card_thumnail">
+                                <img [src]="item['thumbnail']">
+                            </div>
+                            <h3 class="project-card_title">{{item['title']}}</h3>
+                            <div class="project-card_tags">
+                                <ng-container *ngFor="let tag of item['tag_list']">
+                                    <ion-chip>
+                                        <ion-label>{{tag}}</ion-label>
+                                    </ion-chip>
+                                </ng-container>
+                            </div>
+                            <div class="project-card_user">
+                                <p>{{item['user_id']}}</p>
+                            </div>
+                            <div class="project-card_created">
+                                <p>{{item['created_at'].split('T')[0]}}</p>
+                            </div>
+                            <div class="project-card_promotion">
+                                <p>{{item['description']}}</p>
+                            </div>
+                        </ion-card>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+
+        <!-- .bodyとの組み合わせでフッターを最下部に固定するためのdiv -->
+        <div class="footer_fixer"></div>
+
+        <footer class="footer">
+            <div class="footer-body">
+                <div class="footer-body_logo">
+                    <div class="display_flex">
+                        <img id="safire_mark" src="/assets/img/safire.png" alt="safireマーク">
+                        <img id="safire_logo" src="/assets/img/safire_logo.png" alt="SaFireロゴ">
+                    </div>
+                    <p>宝石である「あなたの挑戦」をさらに磨き上げる！</p>
+                </div>
+            </div>
+        </footer>
     </div>
 </ion-content>

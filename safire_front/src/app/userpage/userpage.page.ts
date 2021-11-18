@@ -55,6 +55,7 @@ export class UserpagePage {
         this.returnObj = res;
         if(this.returnObj['user_id']){
           this.own_project_list = this.returnObj['own_project_list'];
+          this.setInfo();
           this.checkTagListLength(this.own_project_list);
           //this.image = this.['thumbnail'];
           console.log('Success Get User Info');
@@ -75,6 +76,12 @@ export class UserpagePage {
         this.router.navigate(['error'])
       }
     )
+  }
+
+  setInfo = () => {
+    for(let i=0; i < this.own_project_list.length; i++){
+      this.own_project_list[i]['thumbnail'] = (this.own_project_list[i]['thumbnail'] == null) ? "/assets/img/project_img_none.png" : this.own_project_list[i]['thumbnail'];
+    }
   }
 
   toArticlePage = (id: any) => {

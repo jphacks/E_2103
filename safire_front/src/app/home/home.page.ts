@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
 import { environment } from 'src/environments/environment';
+import { HeaderComponent } from '../components/header/header.component';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild(HeaderComponent, {static: false})
+  header: HeaderComponent
   url: string = 'https://techfusion-studio.com/safire/'
   postObj: any = {};
   returnObj: any = {};
@@ -63,7 +66,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private router: Router,
-    public gs: GlobalService
+    public gs: GlobalService,
   ) { }
 
   ngOnInit() {
@@ -71,14 +74,15 @@ export class HomePage implements OnInit {
 
   // 既存のページに帰ってくる場合はこっち
   ionViewDidEnter() {
-    this.checkLogin();
+    this.checkLogin()
+    this.header.checkLogin()
     this.gs.httpGet(this.url + 'home/' + '?' + 'user_id=' + localStorage.user_id).subscribe(
       res => {
         this.returnObj = res;
-        console.log(this.returnObj)
         if(this.returnObj['project_list']){
           this.project_list = this.returnObj['project_list'];
           this.checkTagListLength(this.project_list)
+          this.setInfo()
           this.setRecommendUser(this.returnObj.user_list)
           this.setRecommendProject(this.returnObj.top_project_list)
         }
@@ -95,23 +99,14 @@ export class HomePage implements OnInit {
     )
   }
 
-  signup = () => {
-    this.router.navigate(['signup']);
-  }
-
-  login = () => {
-    this.router.navigate(['login']);
-  }
-
-  logout = () => {
-    localStorage.clear();
-    this.checkLogin();
-    // this.router.navigate(['']);
+  setInfo = () => {
+    for(let i=0; i < this.project_list.length; i++){
+      this.project_list[i]['thumbnail'] = (this.project_list[i]['thumbnail'] == null) ? "/assets/img/project_img_none.png" : this.project_list[i]['thumbnail'];
+    }
   }
 
   checkLogin = () => {
     this.login_flag = (localStorage.user_id !== undefined)
-    console.log(this.login_flag)
   }
 
   toMypage = () => {
@@ -144,7 +139,6 @@ export class HomePage implements OnInit {
 
   setRecommendUser = (user_list: any[]) => {
     this.recommend_user = user_list;
-    console.log(this.recommend_user)
   }
 
   setRecommendProject = (project_list: any[]) => {
@@ -165,4 +159,5 @@ export class HomePage implements OnInit {
     localStorage.project_id = this.latest_project_id
     this.router.navigate(['/practice', this.latest_project_id])
   }
+
 }

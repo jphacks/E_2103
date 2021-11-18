@@ -7,6 +7,7 @@ import { LoadingController } from '@ionic/angular';
 import * as $ from "jquery";
 import * as SimpleMDE from 'simplemde';
 import * as marked from 'marked';
+import { ConnectionClosedEvent } from 'microsoft-cognitiveservices-speech-sdk/distrib/lib/src/common/ConnectionEvents';
 
 @Component({
   selector: 'app-new_project',
@@ -63,6 +64,7 @@ export class NewProjectPage {
   ) { }
 
   ngOnInit() {
+    console.log('aa')
 
     this.simplemde = new SimpleMDE({
       element: document.getElementById("editor"),
@@ -190,12 +192,7 @@ export class NewProjectPage {
     this.description = element.value;
     this.user_id = this.user_id == null ? localStorage.user_id : this.user_id
 
-    const allCheckBoxes = document.querySelectorAll("input[type='checkbox']") as NodeListOf<HTMLInputElement>;
-    allCheckBoxes.forEach(checkBox => {
-      if(checkBox && checkBox.checked) {
-        this.tag_list.push(checkBox.value)
-      }
-    });
+    this.setTags()
 
     var element_background: HTMLInputElement = <HTMLInputElement>document.getElementById('background_description');
     this.description_background = element_background.value
@@ -208,6 +205,20 @@ export class NewProjectPage {
     //thumbnail_technology -> onChangeFileInputTechnology
     this.appendix = this.simplemde.value();
     this.color = this.color;
+  }
+
+  setTags = () => {
+    this.tag_list = []
+    const allCheckBoxes = document.querySelectorAll("input[type='checkbox']") as NodeListOf<HTMLInputElement>;
+    allCheckBoxes.forEach(checkBox => {
+      if(checkBox && checkBox.checked) {
+        this.tag_list.push(checkBox.value)
+      }
+    });
+    this.allCheckBoxes =  document.querySelectorAll("input[type='checkbox']") as NodeListOf<HTMLInputElement>
+    this.allCheckBoxes.forEach(checkBox => {
+      if (this.tag_list.includes(checkBox.value)) checkBox.checked = true
+    });
   }
 
   onChangeFileInputProject(event) {

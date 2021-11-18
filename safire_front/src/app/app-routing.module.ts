@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'practice/:project_id',
     loadChildren: () => import('./practice/practice.module').then( m => m.PracticePageModule)
   },
+  {
+    path: 'slider-tutorial',
+    loadChildren: () => import('./modals/slider-tutorial/slider-tutorial.module').then( m => m.SliderTutorialPageModule)
+  },
   /*{
     path: 'title',
     loadChildren: () => import('./title/title.module').then( m => m.TitlePageModule)
