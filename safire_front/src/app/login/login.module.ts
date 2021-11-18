@@ -8,16 +8,17 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 
-import { HeaderComponent } from '../components/header/header.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    LoginPageRoutingModule,
+    ComponentsModule,
   ],
-  exports: [HeaderComponent],
-  declarations: [LoginPage, HeaderComponent]
+  exports: [],
+  declarations: [LoginPage]
 })
 export class LoginPageModule {}

@@ -8,16 +8,17 @@ import { ArticlePageRoutingModule } from './article-routing.module';
 
 import { ArticlePage } from './article.page';
 
-import { HeaderComponent } from '../components/header/header.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ArticlePageRoutingModule
+    ArticlePageRoutingModule,
+    ComponentsModule,
   ],
-  exports: [HeaderComponent],
-  declarations: [ArticlePage, HeaderComponent]
+  exports: [],
+  declarations: [ArticlePage]
 })
 export class ArticlePageModule {}
