@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   has_many :project_tag, primary_key: :id, foreign_key: :project_id
   has_many :member, primary_key: :id, foreign_key: :project_id
   has_many :rate, primary_key: :id, foreign_key: :project_id
+  has_many :practice, primary_key: :id, foreign_key: :project_id
 
   accepts_nested_attributes_for :project_tag
 end
