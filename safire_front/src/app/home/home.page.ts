@@ -75,10 +75,10 @@ export class HomePage implements OnInit {
     this.gs.httpGet(this.url + 'home/' + '?' + 'user_id=' + localStorage.user_id).subscribe(
       res => {
         this.returnObj = res;
-        console.log(this.returnObj)
         if(this.returnObj['project_list']){
           this.project_list = this.returnObj['project_list'];
           this.checkTagListLength(this.project_list)
+          this.setInfo()
           this.setRecommendUser(this.returnObj.user_list)
           this.setRecommendProject(this.returnObj.top_project_list)
         }
@@ -93,6 +93,12 @@ export class HomePage implements OnInit {
         else this.challenge_flag = false
       }
     )
+  }
+
+  setInfo = () => {
+    for(let i=0; i < this.project_list.length; i++){
+      this.project_list[i]['thumbnail'] = (this.project_list[i]['thumbnail'] == null) ? "/assets/img/project_img_none.png" : this.project_list[i]['thumbnail'];
+    }
   }
 
   signup = () => {
@@ -111,7 +117,6 @@ export class HomePage implements OnInit {
 
   checkLogin = () => {
     this.login_flag = (localStorage.user_id !== undefined)
-    console.log(this.login_flag)
   }
 
   toMypage = () => {
@@ -144,7 +149,6 @@ export class HomePage implements OnInit {
 
   setRecommendUser = (user_list: any[]) => {
     this.recommend_user = user_list;
-    console.log(this.recommend_user)
   }
 
   setRecommendProject = (project_list: any[]) => {
