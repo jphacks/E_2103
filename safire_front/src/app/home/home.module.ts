@@ -8,7 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 
-import { HeaderComponent } from '../components/header/header.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -16,8 +16,9 @@ import { HeaderComponent } from '../components/header/header.component';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+    ComponentsModule,
   ],
-  exports: [HeaderComponent],
-  declarations: [HomePage, HeaderComponent]
+  exports: [],
+  declarations: [HomePage]
 })
 export class HomePageModule {}
