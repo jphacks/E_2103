@@ -12,6 +12,11 @@
                 <ion-button class="header_menu_signup" (click)='signup()'><ruby>新規登録<rt>しんきとうろく</rt></ruby></ion-button>
                 <ion-button class="header_menu_login" (click)='login()'>ログイン</ion-button>
             </div>
+            <div class="header_menu">
+                <ion-fab-button class="header_menu_tutorial" (click)="presentPopover($event)">
+                    <ion-icon name="help-outline"></ion-icon>
+                </ion-fab-button>
+            </div>
         </header>
 
         <!-- メニュー欄 -->
