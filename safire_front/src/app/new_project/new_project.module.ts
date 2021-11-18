@@ -11,6 +11,8 @@ import { NewProjectPageRoutingModule } from './new_project-routing.module';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { HeaderComponent } from '../components/header/header.component';
 
+import { ComponentsModule } from '../components/components.module';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -19,9 +21,10 @@ import { HeaderComponent } from '../components/header/header.component';
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: NewProjectPage }]),
     NewProjectPageRoutingModule,
-    ColorPickerModule
+    ColorPickerModule,
+    ComponentsModule,
   ],
-  exports: [HeaderComponent],
-  declarations: [NewProjectPage, HeaderComponent]
+  exports: [],
+  declarations: [NewProjectPage]
 })
 export class NewProjectPageModule {}
