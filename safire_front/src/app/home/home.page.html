@@ -1,23 +1,7 @@
 <ion-content [fullscreen]="true">
     <div class="body">
         <!-- ヘッダー -->
-        <header>
-            <a href="">
-                <img class="header_logo" src="/assets/img/safire_logo_header.png" alt="SaFireロゴ">
-            </a>
-            <div *ngIf="login_flag" class="header_menu">
-                <ion-button class="header_menu_logout" (click)='logout()'>ログアウト</ion-button>
-            </div>
-            <div *ngIf="!login_flag" class="header_menu">
-                <ion-button class="header_menu_signup" (click)='signup()'><ruby>新規登録<rt>しんきとうろく</rt></ruby></ion-button>
-                <ion-button class="header_menu_login" (click)='login()'>ログイン</ion-button>
-            </div>
-            <div class="header_menu">
-                <ion-fab-button class="header_menu_tutorial" (click)="presentPopover($event)">
-                    <ion-icon name="help-outline"></ion-icon>
-                </ion-fab-button>
-            </div>
-        </header>
+        <app-header (logoutEvent)="checkLogin()"></app-header>
 
         <!-- メニュー欄 -->
         <div *ngIf="login_flag" class="home-left">

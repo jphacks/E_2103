@@ -8,6 +8,8 @@ import { PracticePageRoutingModule } from './practice-routing.module';
 
 import { PracticePage } from './practice.page';
 
+import { HeaderComponent } from '../components/header/header.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { PracticePage } from './practice.page';
     IonicModule,
     PracticePageRoutingModule
   ],
-  declarations: [PracticePage]
+  exports: [HeaderComponent],
+  declarations: [PracticePage, HeaderComponent]
 })
 export class PracticePageModule {}

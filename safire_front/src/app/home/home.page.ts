@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
 import { environment } from 'src/environments/environment';
-import { PopoverController } from '@ionic/angular';
-import { PopoverTutorialComponent } from '../components/popover-tutorial/popover-tutorial.component';
+import { HeaderComponent } from '../components/header/header.component';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +10,8 @@ import { PopoverTutorialComponent } from '../components/popover-tutorial/popover
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild(HeaderComponent, {static: false})
+  header: HeaderComponent
   url: string = 'https://techfusion-studio.com/safire/'
   postObj: any = {};
   returnObj: any = {};
@@ -66,7 +67,6 @@ export class HomePage implements OnInit {
   constructor(
     private router: Router,
     public gs: GlobalService,
-    public popoverController: PopoverController
   ) { }
 
   ngOnInit() {
@@ -74,7 +74,8 @@ export class HomePage implements OnInit {
 
   // 既存のページに帰ってくる場合はこっち
   ionViewDidEnter() {
-    this.checkLogin();
+    this.checkLogin()
+    this.header.checkLogin()
     this.gs.httpGet(this.url + 'home/' + '?' + 'user_id=' + localStorage.user_id).subscribe(
       res => {
         this.returnObj = res;
@@ -102,20 +103,6 @@ export class HomePage implements OnInit {
     for(let i=0; i < this.project_list.length; i++){
       this.project_list[i]['thumbnail'] = (this.project_list[i]['thumbnail'] == null) ? "/assets/img/project_img_none.png" : this.project_list[i]['thumbnail'];
     }
-  }
-
-  signup = () => {
-    this.router.navigate(['signup']);
-  }
-
-  login = () => {
-    this.router.navigate(['login']);
-  }
-
-  logout = () => {
-    localStorage.clear();
-    this.checkLogin();
-    // this.router.navigate(['']);
   }
 
   checkLogin = () => {
@@ -173,14 +160,4 @@ export class HomePage implements OnInit {
     this.router.navigate(['/practice', this.latest_project_id])
   }
 
-  async presentPopover(ev: any) {
-    const popover = await this.popoverController.create({
-      component: PopoverTutorialComponent,
-      event: ev
-    });
-    await popover.present();
-
-    const { role } = await popover.onDidDismiss();
-    // console.log('onDidDismiss resolved with role', role);
-  }
 }
