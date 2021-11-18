@@ -78,6 +78,7 @@ export class HomePage implements OnInit {
         if(this.returnObj['project_list']){
           this.project_list = this.returnObj['project_list'];
           this.checkTagListLength(this.project_list)
+          this.setInfo()
           this.setRecommendUser(this.returnObj.user_list)
           this.setRecommendProject(this.returnObj.top_project_list)
         }
@@ -92,6 +93,12 @@ export class HomePage implements OnInit {
         else this.challenge_flag = false
       }
     )
+  }
+
+  setInfo = () => {
+    for(let i=0; i < this.project_list.length; i++){
+      this.project_list[i]['thumbnail'] = (this.project_list[i]['thumbnail'] == null) ? "/assets/img/project_img_none.png" : this.project_list[i]['thumbnail'];
+    }
   }
 
   signup = () => {

@@ -78,7 +78,8 @@ export class ArticlePage implements OnInit {
   setInfo = (res: any) => {
     this.project_id = res['id']
     this.title = res['title']
-    this.thumbnail = res['thumbnail']
+    this.thumbnail = (res['thumbnail'] == null) ? "/assets/img/project_img_none.png" : res['thumbnail'];
+    $('#thumbnails').css('content', 'none');
     this.description = res['description']
     this.user_id = res['user_id']
     this.owner_flag = this.user_id == localStorage.user_id
