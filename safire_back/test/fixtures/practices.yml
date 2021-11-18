@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 1
+  smile_result: 1
+  filler_result: 1
+  negative_result: 1
+  time_result: 1
+
+two:
+  project_id: 1
+  smile_result: 1
+  filler_result: 1
+  negative_result: 1
+  time_result: 1
