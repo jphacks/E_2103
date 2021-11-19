@@ -10,6 +10,8 @@ import { PracticePage } from './practice.page';
 
 import { ComponentsModule } from '../components/components.module';
 
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,6 +19,7 @@ import { ComponentsModule } from '../components/components.module';
     IonicModule,
     PracticePageRoutingModule,
     ComponentsModule,
+    ChartsModule,
   ],
   exports: [],
   declarations: [PracticePage]

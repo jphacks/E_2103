@@ -149,7 +149,7 @@ export class HomePage implements OnInit {
 
   toArticlePage = (id: any) => {
     localStorage.project_id = id;
-    this.router.navigate(['article']);
+    this.router.navigate(['article', id]);
   }
 
   /** プロジェクトタグが3つ以上の場合はproject-cardに収まらないので3つだけ表示 **/
