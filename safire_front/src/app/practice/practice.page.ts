@@ -7,7 +7,6 @@ import { ModalController } from '@ionic/angular';
 import { ModalSettingPage } from './modal-setting/modal-setting.page';
 import { fill } from '@tensorflow/tfjs-core';
 import { Chart } from 'chart.js';
-import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-practice',
@@ -199,7 +198,7 @@ export class PracticePage implements OnInit {
           }
         }],
         yAxes: [{
-          id: "y-temp",
+          id: "y-axis",
           type: "linear", 
           position: "left",
           scaleLabel: {
@@ -226,7 +225,7 @@ export class PracticePage implements OnInit {
             data: this.results[param],
             borderColor: this.lineColor[param],
             backgroundColor: "rgba(0,0,0,0)",
-            yAxisID: 'y-temp'
+            yAxisID: 'y-axis'
           }
         ],
       },
