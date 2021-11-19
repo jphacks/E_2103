@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { PipTimerComponent } from './pip-timer/pip-timer.component';
 import { HintComponent } from './hint/hint.component';
 import { PopoverHintComponent } from './popover-hint/popover-hint.component';
+import { SnackbarPresentationComponent } from './snackbar-presentation/snackbar-presentation.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PopoverHintComponent } from './popover-hint/popover-hint.component';
     PipTimerComponent,
     HintComponent,
     PopoverHintComponent,
+    SnackbarPresentationComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { PopoverHintComponent } from './popover-hint/popover-hint.component';
     PipTimerComponent,
     HintComponent,
     PopoverHintComponent,
+    SnackbarPresentationComponent,
   ],
 })
 export class ComponentsModule { }
