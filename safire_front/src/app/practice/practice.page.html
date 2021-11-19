@@ -52,9 +52,43 @@
             </div>
         </div>
       </div>
+
+      <div class="dashboard">
+        <h2>あなたの<ruby>成長<rt>せいちょう</rt></ruby></h2>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+            <ion-card class="dashboard-canvas">
+              <p>スマイルの<ruby>回数<rt>かいすう</rt></ruby></p>
+              <canvas #smileCanvas></canvas>
+            </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-card class="dashboard-canvas">
+                <p>フィラーの<ruby>回数<rt>かいすう</rt></ruby></p>
+                <canvas #fillerCanvas></canvas>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-card class="dashboard-canvas">
+                <p>ネガティブの<ruby>回数<rt>かいすう</rt></ruby></p>
+                <canvas #negativeCanvas></canvas>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-card class="dashboard-canvas">
+                <p><ruby>目標発表時間<rt>もくひょうはっぴょうじかん</rt></ruby>との<ruby>差<rt>さ</rt></ruby></p>
+                <canvas #timeCanvas></canvas>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
     </div>
     
-    <footer class="footer">
+    <footer>
       <div class="footer-body">
           <div class="footer-body_logo">
               <div class="display_flex">

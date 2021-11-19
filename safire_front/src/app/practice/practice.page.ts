@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../global.service';
 import { environment } from 'src/environments/environment';
@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { ModalController } from '@ionic/angular';
 import { ModalSettingPage } from './modal-setting/modal-setting.page';
 import { fill } from '@tensorflow/tfjs-core';
+import { Chart } from 'chart.js';
+import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-practice',
@@ -21,6 +23,36 @@ export class PracticePage implements OnInit {
     public gs: GlobalService
   ) { }
 
+  @ViewChild('smileCanvas')
+  smileCanvas: ElementRef;
+  @ViewChild('fillerCanvas')
+  fillerCanvas: ElementRef;
+  @ViewChild('negativeCanvas')
+  negativeCanvas: ElementRef;
+  @ViewChild('timeCanvas')
+  timeCanvas: ElementRef;
+
+  options: any;
+  ctx: any = {};
+  lineColor: any = {
+    smile: '#4169e1',
+    filler: '#ff69b4',
+    negative: '#ffa500',
+    time: '#98fb98'
+  }
+  label: any = {
+    smile: 'スマイルの回数',
+    filler: 'フィラーの回数',
+    negative: 'ネガティブの回数',
+    time: '発表時間と目標時間の差(秒)'
+  }
+  ylabel: any = {
+    smile: '回数',
+    filler: '回数',
+    negative: '回数',
+    time: '時間(秒)'
+  }
+
   project_id: string
   smile_times: number
   filler_times: number
@@ -32,6 +64,7 @@ export class PracticePage implements OnInit {
   filler_result: number
   negative_result: number
   time_result: number
+  results: any
 
   modal_return: any
   status_list: string[] = ["", "", "", ""]
@@ -53,7 +86,9 @@ export class PracticePage implements OnInit {
             this.filler_result = res["filler_result"]
             this.negative_result = res["negative_result"]
             this.time_result = res["time_result"]
+            this.results = res["results"]
             this.checkTarget()
+            this.drawDashBorad()
           }
         )
       }
@@ -112,6 +147,85 @@ export class PracticePage implements OnInit {
     else {
       this.status_list[3] = "あと" + String(this.time_result - 30) + "<ruby>秒<rt>びょう</rt></ruby>!"
     }
+  }
+
+  drawDashBorad = () => {
+    this.drawPractices('smile')
+    this.drawPractices('filler')
+    this.drawPractices('negative')
+    this.drawPractices('time')
+  }
+
+  drawPractices = (param: string) => {
+    /** canvasのリファレンス取得 **/
+    if(param == 'smile') {
+      const canvas = this.smileCanvas.nativeElement
+      var ctx = canvas.getContext('2d');
+    }
+    else if(param == 'filler') {
+      const canvas = this.fillerCanvas.nativeElement
+      var ctx = canvas.getContext('2d');}
+    else if(param == 'negative') {
+      const canvas = this.negativeCanvas.nativeElement
+      var ctx = canvas.getContext('2d');
+    }
+    else if(param == 'time') {
+      const canvas = this.timeCanvas.nativeElement
+      var ctx = canvas.getContext('2d');
+    }
+
+    /**  **/
+    var labels = []
+    for(let i = 0; i < this.results[param].length; i++)
+      labels.push(`${i+1}`)
+
+    var options = {
+      scales: {
+        xAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: '練習回数',
+            fontSize: 15
+          },
+          ticks: {
+            maxTicksLimit: 100
+          }
+        }],
+        yAxes: [{
+          id: "y-temp",
+          type: "linear", 
+          position: "left",
+          scaleLabel: {
+            display: true,
+            labelString: this.ylabel[param],
+            fontSize: 15
+          },
+          ticks: {
+            fontColor: '#ff66666'
+          }
+        }],
+      },
+      legend: {
+        display: false
+      }
+    }
+    new Chart(ctx, {
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            type: 'line',
+            label: this.label[param],
+            data: this.results[param],
+            borderColor: this.lineColor[param],
+            backgroundColor: "rgba(0,0,0,0)",
+            yAxisID: 'y-temp'
+          }
+        ],
+      },
+      options: options
+    })
   }
 
   toArticle = () => {
