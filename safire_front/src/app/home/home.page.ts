@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
 import { environment } from 'src/environments/environment';
 import { HeaderComponent } from '../components/header/header.component';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -64,18 +65,29 @@ export class HomePage implements OnInit {
   challenge_flag: boolean = false
   latest_project_id: number
 
+  waiting: any
+
   constructor(
     private router: Router,
     public gs: GlobalService,
+    public loadingController: LoadingController,
   ) { }
 
   ngOnInit() {
   }
+  ngOnDestroy() {
+    this.waiting.dismiss()
+  }
 
   // 既存のページに帰ってくる場合はこっち
   ionViewDidEnter() {
+    this.loading()
     this.checkLogin()
     this.header.checkLogin()
+    this.getHomeInformation()
+  }
+
+  getHomeInformation = () => {
     this.gs.httpGet(this.url + 'home/' + '?' + 'user_id=' + localStorage.user_id).subscribe(
       res => {
         this.returnObj = res;
@@ -86,15 +98,29 @@ export class HomePage implements OnInit {
           this.setRecommendUser(this.returnObj.user_list)
           this.setRecommendProject(this.returnObj.top_project_list)
         }
+        if (this.login_flag) this.getLatestProject()
+        else this.waiting.dismiss()
+      },
+      error => {
+        this.waiting.dismiss()
+        this.router.navigate(['error'])
       }
     )
+  }
+
+  getLatestProject = () => {
     this.gs.httpGet(environment.url+'project/'+localStorage.user_id+'/latest_project').subscribe(
-      (res) => {
+      res => {
         if (res["project_id"] != null) {
           this.challenge_flag = true
           this.latest_project_id = res["project_id"]
         }
         else this.challenge_flag = false
+        this.waiting.dismiss()
+      },
+      error => {
+        this.waiting.dismiss()
+        this.router.navigate(['error'])
       }
     )
   }
@@ -160,4 +186,11 @@ export class HomePage implements OnInit {
     this.router.navigate(['/practice', this.latest_project_id])
   }
 
+  loading = async () => {
+    this.waiting = await this.loadingController.create({
+      message: `読み込み中...⏳`,
+      duration: 10000
+    })
+    await this.waiting.present()
+  }
 }

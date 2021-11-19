@@ -21,10 +21,10 @@ export class NewProjectPage {
   returnObj: any = {};
 
   file: File = null;
-  imgSrcProject: string | ArrayBuffer = "";
-  imgSrcBackground: string | ArrayBuffer = "";
-  imgSrcPoint: string | ArrayBuffer = "";
-  imgSrcTech: string | ArrayBuffer = "";
+  imgSrcProject: string | ArrayBuffer = '/assets/img/project_img_none.png';
+  imgSrcBackground: string | ArrayBuffer = '/assets/img/project_img_none.png';
+  imgSrcPoint: string | ArrayBuffer = '/assets/img/project_img_none.png';
+  imgSrcTech: string | ArrayBuffer = '/assets/img/project_img_none.png';
 
   projectDetail: string = null;
   simplemde: SimpleMDE;
@@ -56,6 +56,8 @@ export class NewProjectPage {
   abstract_id: string[] = []
   abstract_flag: boolean[] = [false, false, false]
 
+  waiting: any
+
   constructor(
     private router: Router,
     public gs: GlobalService,
@@ -64,8 +66,6 @@ export class NewProjectPage {
   ) { }
 
   ngOnInit() {
-    console.log('aa')
-
     this.simplemde = new SimpleMDE({
       element: document.getElementById("editor"),
       toolbar: [
@@ -101,6 +101,7 @@ export class NewProjectPage {
     this.route.params.subscribe(
       params => {
         if (params['project_id'] !== undefined) {
+          this.initialLoading()
           this.edit_flag = true
           this.project_id = params['project_id']
           this.gs.httpGet("https://techfusion-studio.com/safire/project/"+this.project_id).subscribe(
@@ -134,6 +135,12 @@ export class NewProjectPage {
               this.imgSrcPoint = this.thumbnail_idea == null ? '/assets/img/project_img_none.png' : this.thumbnail_idea
               this.thumbnail_technology = res["thumbnail_technology"]
               this.imgSrcTech = this.thumbnail_technology == null ? '/assets/img/project_img_none.png' : this.thumbnail_technology
+
+              this.waiting.dismiss()
+            },
+            error => {
+              this.waiting.dismiss()
+              this.router.navigate(['error'])
             }
           )
         }
@@ -152,6 +159,12 @@ export class NewProjectPage {
       sanitizer: escape,
       breaks : true
     });
+  }
+  ngOnDestroy() {
+    this.route.params.subscribe(
+      params => {
+        if (params['project_id'] !== undefined) this.waiting.dismiss()
+      })
   }
 
   postProject = () => {
@@ -410,5 +423,13 @@ export class NewProjectPage {
         }, 3000)
       }
     )
+  }
+
+  initialLoading = async () => {
+    this.waiting = await this.loadingController.create({
+      message: `読み込み中...⏳`,
+      duration: 10000
+    })
+    await this.waiting.present()
   }
 }
