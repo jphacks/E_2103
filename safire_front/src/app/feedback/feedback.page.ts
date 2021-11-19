@@ -99,6 +99,8 @@ export class FeedbackPage implements OnInit, OnDestroy {
 
   blob: Blob
 
+  waiting: any
+
   constructor(
     private router: Router,
     public gs: GlobalService,
@@ -109,6 +111,7 @@ export class FeedbackPage implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.initialLoading()
     // this.getTokenOrRefresh()
     this.route.params.subscribe(
       params => {
@@ -116,8 +119,11 @@ export class FeedbackPage implements OnInit, OnDestroy {
         this.gs.httpGet("https://techfusion-studio.com/safire/presentation/" + this.project_id).subscribe(
           res => {
             this.return = res
-            console.log(res)
             this.setList(res)
+          },
+          error => {
+            this.waiting.dismiss()
+            this.router.navigate(['error'])
           }
         )
       }
@@ -127,6 +133,7 @@ export class FeedbackPage implements OnInit, OnDestroy {
     if (this.video_flag) {
       this.stream.getTracks().forEach(track => track.stop())  // 遷移時のカメラ停止
     }
+    this.waiting.dismiss()
   }
 
   setList = (res) => {
@@ -139,6 +146,7 @@ export class FeedbackPage implements OnInit, OnDestroy {
     this.top_button_list[1]["list"].push(res["abstract_list"][1].join("<br>"))
     this.top_button_list[1]["list"].push(res["abstract_list"][2].join("<br>"))
     this.top_button_list[2]["list"].push(marked(res["appendix"]).replace('\n', '<br>'))
+    this.waiting.dismiss()
   }
 
   clickTopButton = (index) => {
@@ -515,5 +523,13 @@ export class FeedbackPage implements OnInit, OnDestroy {
     await modal.present();
     // this.modal_return = await modal.onDidDismiss()
     // this.smile_times = this.modal_return["data"]["smile_times"]
+  }
+
+  initialLoading = async () => {
+    this.waiting = await this.loadingController.create({
+      message: `読み込み中...⏳`,
+      duration: 10000
+    })
+    await this.waiting.present()
   }
 }
