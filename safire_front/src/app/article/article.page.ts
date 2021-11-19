@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
 import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 
 import { ModalController } from '@ionic/angular';
 import { RateModalPage } from '../rate-modal/rate-modal.page';
@@ -21,16 +22,16 @@ export class ArticlePage implements OnInit {
   returnObj: any = {};
 
   title: string;
-  thumbnail: string;
+  thumbnail: string = "/assets/img/project_img_none.png";
   description: string;
   user_id: string;
   tag_list: any[] = [];
   description_background: string;
-  thumbnail_background: any;
+  thumbnail_background: any = "/assets/img/project_img_none.png";
   description_idea: string;
-  thumbnail_idea: any;
+  thumbnail_idea: any = "/assets/img/project_img_none.png";
   description_technology: string;
-  thumbnail_technology: any;
+  thumbnail_technology: any = "/assets/img/project_img_none.png";
   appendix: string;
   appendix_html: string;
   color: string;
@@ -43,15 +44,26 @@ export class ArticlePage implements OnInit {
 
   project_id: string
 
+  waiting: any
+
   constructor(
     private router: Router,
     private alertController: AlertController,
     public gs: GlobalService,
     public modalController: ModalController,
+    public loadingController: LoadingController,
   ) { }
 
   ngOnInit() {
+    this.loading()
     this.login_flag = localStorage.user_id != null
+    this.getProject()
+  }
+  ngOnDestroy() {
+    this.waiting.dismiss()
+  }
+
+  getProject = () => {
     this.gs.httpGet(this.url+'project/'+localStorage.project_id).subscribe(
       res => {
         this.returnObj = res;
@@ -60,17 +72,29 @@ export class ArticlePage implements OnInit {
           console.log('Success: Get Project Detail Info')
           this.setInfo(this.returnObj);
           this.getMember()
+          this.getPresentation()
         }
         else {
-          console.log('Error');
-          return;
+          this.waiting.dismiss()
+          this.router.navigate(['error'])
         }
+      },
+      error => {
+        this.waiting.dismiss()
+        this.router.navigate(['error'])
       }
     )
+  }
+  getPresentation = () => {
     this.gs.httpGet("https://techfusion-studio.com/safire/presentation/"+localStorage.project_id).subscribe(
       res => {
         localStorage.abstract = JSON.stringify(res)
         console.log(JSON.parse(localStorage.abstract)["title"])
+        this.waiting.dismiss()
+      },
+      error => {
+        this.waiting.dismiss()
+        this.router.navigate(['error'])
       }
     )
   }
@@ -171,5 +195,13 @@ export class ArticlePage implements OnInit {
       }
     });
     return await modal.present();
+  }
+
+  loading = async () => {
+    this.waiting = await this.loadingController.create({
+      message: `読み込み中...⏳`,
+      duration: 10000
+    })
+    await this.waiting.present()
   }
 }

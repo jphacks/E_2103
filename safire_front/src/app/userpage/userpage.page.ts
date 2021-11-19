@@ -4,6 +4,7 @@ import { GlobalService } from '../global.service';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-userpage',
@@ -30,21 +31,27 @@ export class UserpagePage {
   total_clear: number = 0
   total_practice: number = 0
 
+  waiting: any
+
   constructor(
     private router: Router,
     private alertController: AlertController,
     public gs: GlobalService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public loadingController: LoadingController,
   ) { }
 
   ngOnInit(){
+    this.loading()
     this.route.queryParams
       //.filter(params => params.user)
       .subscribe(params => {
         this.user_id_page = params.user
         this.getUserInfo()
-        this.getAppliedUser()
       });
+  }
+  ngOnDestroy() {
+    this.waiting.dismiss()
   }
 
   getUserInfo = () => {
@@ -71,11 +78,30 @@ export class UserpagePage {
         else{
           return;
         }
+        this.getAppliedUser()
       },
       error => {
+        this.waiting.dismiss()
         this.router.navigate(['error'])
       }
     )
+  }
+
+  getAppliedUser = () => {
+    if (localStorage.user_id == this.user_id_page) {
+      console.log(this.url + "member?owner_id=" + localStorage.user_id)
+      this.gs.httpGet(this.url + "member?owner_id=" + localStorage.user_id).subscribe(
+        res => {
+          this.applied_user = res
+          this.applied_flag = this.applied_user.length > 0
+          this.waiting.dismiss()
+        },
+        error => {
+          this.waiting.dismiss()
+          this.router.navigate(['error'])
+        }
+      )
+    }
   }
 
   setInfo = () => {
@@ -166,18 +192,6 @@ export class UserpagePage {
     await alert.present();
   }
 
-  getAppliedUser = () => {
-    if (localStorage.user_id == this.user_id_page) {
-      console.log(this.url + "member?owner_id=" + localStorage.user_id)
-      this.gs.httpGet(this.url + "member?owner_id=" + localStorage.user_id).subscribe(
-        res => {
-          this.applied_user = res
-          this.applied_flag = this.applied_user.length > 0
-        }
-      )
-    }
-  }
-
   /** プロジェクトタグが3つ以上の場合はproject-cardに収まらないので3つだけ表示 **/
   checkTagListLength = (projects: any[]) => {
     for(let i in projects){
@@ -200,5 +214,13 @@ export class UserpagePage {
 
   setLikedProjects = (projects: any[]) => {
     this.liked_project_list = projects
+  }
+
+  loading = async () => {
+    this.waiting = await this.loadingController.create({
+      message: `読み込み中...⏳`,
+      duration: 10000
+    })
+    await this.waiting.present()
   }
 }
