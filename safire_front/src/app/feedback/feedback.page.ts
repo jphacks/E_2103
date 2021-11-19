@@ -157,8 +157,6 @@ export class FeedbackPage implements OnInit, OnDestroy {
   }
 
   startSpeech = () => {
-    this.pipTimer.setInterval()
-    // this.pipTimer.makeCanvas()
     this.pipTimer.makePip()
     this.text = ""
     this.smile_sequence = []

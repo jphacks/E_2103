@@ -43,10 +43,8 @@ export class PipTimerComponent implements OnInit {
 
   setInterval = () => {
     this.updateCanvas()
-    // 更新処理を加える
     if (this.intervalFlag){
       this.interval = setTimeout(() => {
-        console.log("hello")
         this.setInterval()
       }, 300)
     }
