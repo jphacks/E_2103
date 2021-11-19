@@ -36,6 +36,12 @@ export class PracticePage implements OnInit {
   modal_return: any
   status_list: string[] = ["", "", "", ""]
 
+  hint: string = "フィラーは「えーと」「あー」<br> \
+                  などのように<ruby>話<rt>はな</rt></ruby>している<ruby>途中<rt>とちゅう</rt></ruby>に<br> \
+                  ついつい<ruby>出<rt>で</rt></ruby>てしまう<ruby>言葉<rt>ことば</rt></ruby>です…<br> \
+                  これが<ruby>多<rt>おお</rt></ruby>いとうまく<ruby>話<rt>はなし</rt></ruby>が<ruby><br> \
+                  伝<rt>つた</rt></ruby>わりません😢"
+
   ngOnInit() {
     this.route.params.subscribe(
       params => {
