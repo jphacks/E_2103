@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/global.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarPresentationComponent } from 'src/app/components/snackbar-presentation/snackbar-presentation.component';
 
 // import table from 'src/app/slide.config';
 
@@ -19,20 +21,24 @@ export class TitlePage implements OnInit {
 
   constructor(
     private router: Router,
-    public gs: GlobalService
+    public gs: GlobalService,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
+    this.snackBar.openFromComponent(SnackbarPresentationComponent, {
+      duration: 2000,
+    });
   }
-  @HostListener('window:keydown', ['$event'])
-  handleKeyDown(event: KeyboardEvent) {
-    this.ngOnInit();
-    if(event.key == 'Enter' || event.key == 'ArrowRight'){
-      // this.currentPageIndex = table.indexOf(this.currentPage);
-      this.ngOnInit();
-      this.toNextPage();
-    }
+  ionViewDidEnter() {
   }
+  // @HostListener('window:keydown', ['$event'])
+  // handleKeyDown(event: KeyboardEvent) {
+  //   if(event.key == 'Enter' || event.key == 'ArrowRight'){
+  //     // this.currentPageIndex = table.indexOf(this.currentPage);
+  //     this.toNextPage();
+  //   }
+  // }
 
   toNextPage = () => {
     this.router.navigate(['/slides', 'background']);

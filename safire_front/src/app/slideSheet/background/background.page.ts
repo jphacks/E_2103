@@ -24,18 +24,16 @@ export class BackgroundPage implements OnInit {
   ngOnInit() {
   }
 
-  @HostListener('window:keydown', ['$event'])
-  handleKeyDown(event: KeyboardEvent) {
-    this.ngOnInit();
-    if(event.key == 'Enter' || event.key == 'ArrowRight'){
-      this.ngOnInit();
-      this.toNextPage();
-    }
-    else if(event.key == 'ArrowLeft'){
-      this.ngOnInit();
-      this.toPrevPage();
-    }
-  }
+  // @HostListener('window:keydown', ['$event'])
+  // handleKeyDown(event: KeyboardEvent) {
+  //   this.ngOnInit();
+  //   if(event.key == 'Enter' || event.key == 'ArrowRight'){
+  //     this.toNextPage();
+  //   }
+  //   else if(event.key == 'ArrowLeft'){
+  //     this.toPrevPage();
+  //   }
+  // }
   
 
   toNextPage = () => {

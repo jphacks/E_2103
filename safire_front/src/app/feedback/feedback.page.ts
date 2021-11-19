@@ -35,7 +35,8 @@ export class FeedbackPage implements OnInit, OnDestroy {
   text: string = "しゃべった内容をここで確認！"
   status: string = "しゃべった内容をここで確認！"
 
-  speechFlag: boolean = true
+  speechFlag: boolean = false
+  practiceFlag: boolean = false
 
   return: any = {}
 
@@ -100,6 +101,8 @@ export class FeedbackPage implements OnInit, OnDestroy {
   blob: Blob
 
   waiting: any
+
+  buttonText: string = "<ruby>練習<rt>れんしゅう</rt></ruby><ruby>（録画）<rt>ろくが</rt></ruby><ruby>開始<rt>かいし</rt></ruby>"
 
   constructor(
     private router: Router,
@@ -172,11 +175,13 @@ export class FeedbackPage implements OnInit, OnDestroy {
     this.negative_sequence= []
     this.speed_sequence = []
     this.speechFlag = true
+    this.practiceFlag = true
     this.sttFromMic()
     this.startRecording()
   }
   stopSpeech = () => {
     this.speechFlag = false
+    this.pipTimer.stopPip()
   }
 
   countFiller = () => {
@@ -432,7 +437,8 @@ export class FeedbackPage implements OnInit, OnDestroy {
     };
   }
   stopRecording = () => {
-    this.pipTimer.stopPip()
+    this.buttonText = "もう１<ruby>回<rt>かい</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>する！"
+    this.practiceFlag = false
     this.recorder.stop()
     this.combine_stream.getTracks().forEach(track => track.stop())
     this.stopTimer()
