@@ -55,8 +55,7 @@ export class LoginPage implements OnInit {
         }
       ]
     });
-    //入力欄のリセット
-    this.user_id = "";
+    //パスワード入力欄のリセット
     this.password = "";
     await alert.present();
   }
