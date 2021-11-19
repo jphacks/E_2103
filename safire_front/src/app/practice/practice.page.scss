@@ -663,8 +663,16 @@ background: url('/assets/img/search_icon.jpg') no-repeat scroll 0 0;
 }
 
 .dashboard {
+  width: 90%;
   margin: 50px;
   text-align: center;
+  background: #757575;
+  border-radius: 5px;
+}
+
+.dashboard ion-col {
+  display: flex;
+  justify-content: center;
 }
 
 .dashboard-canvas {
