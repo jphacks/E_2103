@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../global.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
@@ -52,12 +52,18 @@ export class ArticlePage implements OnInit {
     public gs: GlobalService,
     public modalController: ModalController,
     public loadingController: LoadingController,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
     this.loading()
-    this.login_flag = localStorage.user_id != null
-    this.getProject()
+    this.route.params.subscribe(
+      params => {
+        this.project_id = params["project_id"]
+        this.login_flag = localStorage.user_id != null
+        this.getProject()
+      }
+    )
   }
   ngOnDestroy() {
     this.waiting.dismiss()
