@@ -7,13 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { TitlePageRoutingModule } from './title-routing.module';
 
 import { TitlePage } from './title.page';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TitlePageRoutingModule
+    TitlePageRoutingModule,
+    MatSnackBarModule,
+    ComponentsModule,
   ],
   declarations: [TitlePage]
 })
