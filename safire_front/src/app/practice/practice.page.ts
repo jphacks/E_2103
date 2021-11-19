@@ -37,7 +37,7 @@ export class PracticePage implements OnInit {
     smile: '#4169e1',
     filler: '#ff69b4',
     negative: '#ffa500',
-    time: '#98fb98'
+    time: '#00cc00'
   }
   label: any = {
     smile: 'スマイルの回数',
@@ -181,7 +181,6 @@ export class PracticePage implements OnInit {
       var ctx = canvas.getContext('2d');
     }
 
-    /**  **/
     var labels = []
     for(let i = 0; i < this.results[param].length; i++)
       labels.push(`${i+1}`)
@@ -193,23 +192,28 @@ export class PracticePage implements OnInit {
           scaleLabel: {
             display: true,
             labelString: '練習回数',
-            fontSize: 15
+            fontSize: 15,
+            fontColor: "#000000"
           },
           ticks: {
-            maxTicksLimit: 100
+            fontColor: '#000000',
+            maxTicksLimit: 20
           }
         }],
         yAxes: [{
+          display: true,
           id: "y-axis",
           type: "linear", 
           position: "left",
           scaleLabel: {
             display: true,
             labelString: this.ylabel[param],
-            fontSize: 15
+            fontSize: 15,
+            fontColor: "#000000"
           },
           ticks: {
-            fontColor: '#ff66666'
+            fontColor: '#000000',
+            maxTicksLimit: 7
           }
         }],
       },
@@ -224,7 +228,7 @@ export class PracticePage implements OnInit {
           {
             type: 'line',
             label: this.label[param],
-            data: this.results[param],
+            data: this.results[param].reverse(), //最新が先頭[0]のため逆順にする
             borderColor: this.lineColor[param],
             backgroundColor: "rgba(0,0,0,0)",
             yAxisID: 'y-axis'
@@ -238,5 +242,4 @@ export class PracticePage implements OnInit {
   toArticle = () => {
     this.router.navigate(['/article', this.project_id])
   }
-
 }
