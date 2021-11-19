@@ -179,7 +179,6 @@ export class PracticePage implements OnInit {
       var ctx = canvas.getContext('2d');
     }
 
-    /**  **/
     var labels = []
     for(let i = 0; i < this.results[param].length; i++)
       labels.push(`${i+1}`)
@@ -194,10 +193,11 @@ export class PracticePage implements OnInit {
             fontSize: 15
           },
           ticks: {
-            maxTicksLimit: 100
+            maxTicksLimit: 20
           }
         }],
         yAxes: [{
+          display: true,
           id: "y-axis",
           type: "linear", 
           position: "left",
@@ -207,7 +207,8 @@ export class PracticePage implements OnInit {
             fontSize: 15
           },
           ticks: {
-            fontColor: '#ff66666'
+            fontColor: '#ff66666',
+            maxTicksLimit: 7
           }
         }],
       },
@@ -236,5 +237,4 @@ export class PracticePage implements OnInit {
   toArticle = () => {
     this.router.navigate(['/article', this.project_id])
   }
-
 }
