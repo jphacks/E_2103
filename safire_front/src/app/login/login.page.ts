@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
   
   constructor(
     private router: Router,
-    public gs: GlobalService
+    public gs: GlobalService,
+    private alertController: AlertController,
   ) { }
 
   ngOnInit() {
@@ -31,15 +33,30 @@ export class LoginPage implements OnInit {
       res => {
         this.returnObj = res;
         if(this.returnObj['message']){
-          console.log('Success Login')
           localStorage.user_id = this.user_id;
           this.router.navigate(['home']);
         }
         else{
-          console.log('Error');
           return;
         }
+      },
+      error => {
+        this.errorInform()
       }
     )
+  }
+
+  async errorInform() {
+    const alert = await this.alertController.create({
+      message: 'ユーザIDもしくはパスワードが<ruby>間違<rt>まちが</rt></ruby>っています.<br><ruby>入力<rt>にゅうりょく</rt></ruby>し<ruby>直<rt>なお</rt></ruby>してください🙇‍♂️',
+      buttons: [
+        {
+          text: 'OK'
+        }
+      ]
+    });
+    //パスワード入力欄のリセット
+    this.password = "";
+    await alert.present();
   }
 }
