@@ -28,9 +28,11 @@ export class BackgroundPage implements OnInit {
   handleKeyDown(event: KeyboardEvent) {
     this.ngOnInit();
     if(event.key == 'Enter' || event.key == 'ArrowRight'){
+      this.ngOnInit();
       this.toNextPage();
     }
     else if(event.key == 'ArrowLeft'){
+      this.ngOnInit();
       this.toPrevPage();
     }
   }
