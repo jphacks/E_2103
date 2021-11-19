@@ -3,18 +3,18 @@
         <app-header></app-header>
 
         <section class="home-main">
-            <div class="text_center"><h1 class="user_name">{{user_id_page}}</h1></div>
             <section class="user-info">
-                <div class="user-info_icon">
-                    <img id="user_icon" src="/assets/img/user_ex_icon.jpg">
-                </div>
-                <div class="user-info_profile">
+                <ion-card class="user-info_card">
+                    <div class="user-info_icon">
+                        <img id="user_icon" src="/assets/img/user_ex_icon.jpg">
+                        <h1 class="user_name">{{user_id_page}}</h1>
+                    </div>
                     <div class="user-card_profile_content">
                         <img src="/assets/img/ring_memo.jpeg">
                         <h3><ruby>自己紹介<rt>じこしょうかい</rt></ruby></h3>
                         <textarea id="project_description" readonly>{{description}}</textarea>
                     </div>
-                </div>
+                </ion-card>
             </section>
 
             <div class="achievement-container ion-margin">
@@ -90,9 +90,9 @@
         <dialog class="liked-project_dialog" id="dialog_liked-project">
             <h2 class="liked-project_dialog_title">{{user_id_page}}さんが<ruby>高評価<rt>こうひょうか</rt></ruby>したプロジェクト</h2>
             <hr color="#136fff">
-            <div class="display_right">
-                <ion-button class="liked-project_dialog_finish" onclick="document.getElementById('dialog_liked-project').close();"><ruby>完了<rt>かんりょう</rt></ruby></ion-button>
-            </div>
+            <!-- <div class="display_right"> -->
+                <ion-button class="liked-project_dialog_finish" onclick="document.getElementById('dialog_liked-project').close();"><ruby>戻<rt>もど</rt>る</ruby></ion-button>
+            <!-- </div> -->
             <div class="liked-project_dialog_content">
                 <div class="liked_projects">
                     <div *ngFor="let item of liked_project_list">
