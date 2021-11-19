@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../global.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
@@ -52,19 +52,25 @@ export class ArticlePage implements OnInit {
     public gs: GlobalService,
     public modalController: ModalController,
     public loadingController: LoadingController,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
     this.loading()
-    this.login_flag = localStorage.user_id != null
-    this.getProject()
+    this.route.params.subscribe(
+      params => {
+        this.project_id = params["project_id"]
+        this.login_flag = localStorage.user_id != null
+        this.getProject()
+      }
+    )
   }
   ngOnDestroy() {
     this.waiting.dismiss()
   }
 
   getProject = () => {
-    this.gs.httpGet(this.url+'project/'+localStorage.project_id).subscribe(
+    this.gs.httpGet(this.url+'project/'+this.project_id).subscribe(
       res => {
         this.returnObj = res;
         console.log(this.returnObj['message']);
@@ -86,7 +92,7 @@ export class ArticlePage implements OnInit {
     )
   }
   getPresentation = () => {
-    this.gs.httpGet("https://techfusion-studio.com/safire/presentation/"+localStorage.project_id).subscribe(
+    this.gs.httpGet("https://techfusion-studio.com/safire/presentation/"+this.project_id).subscribe(
       res => {
         localStorage.abstract = JSON.stringify(res)
         console.log(JSON.parse(localStorage.abstract)["title"])

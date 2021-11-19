@@ -16,6 +16,7 @@ export class TechPage implements OnInit {
   thumbnail: string = JSON.parse(localStorage.abstract)["thumbnail_technology"] || "/assets/img/project_img_none.png"
   abstract_list: string[] = JSON.parse(localStorage.abstract)["abstract_list"][2]
   background: string = "#" + JSON.parse(localStorage.abstract)["color"]
+  project_id: string = localStorage.project_id
 
   constructor(
     private router: Router,
@@ -28,21 +29,12 @@ export class TechPage implements OnInit {
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     this.ngOnInit();
-    if(event.key == 'Enter' || event.key == 'ArrowRight'){
+    if(event.key == 'ArrowLeft'){
       // this.currentPageIndex = table.indexOf(this.currentPage);
-      this.toNextPage();
-    }
-    else if(event.key == 'ArrowLeft'){
-      // this.currentPageIndex = table.indexOf(this.currentPage);
+      this.ngOnInit();
       this.toPrevPage();
     }
-    console.log('aaa')
-    this.router.navigate(['/article'])
-  }
-  
-
-  toNextPage = () => {
-    // これが最後のスライド
+    else this.router.navigate(['/article', this.project_id])
   }
 
   toPrevPage = () => {
