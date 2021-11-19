@@ -16,7 +16,7 @@
                     <textarea id="project_description" readonly>{{description}}</textarea>
                     <div>
                         <ng-container>
-                            <ion-chip>
+                            <ion-chip (click)="toUserPage(user_id)">
                                 <ion-avatar>
                                     <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
                                     </ion-avatar>
@@ -24,7 +24,7 @@
                             </ion-chip>
                         </ng-container>
                         <ng-container *ngFor="let member of member_list">
-                            <ion-chip>
+                            <ion-chip (click)="toUserPage(member)">
                                 <ion-avatar>
                                     <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
                                     </ion-avatar>

@@ -73,6 +73,8 @@ export class PracticePage implements OnInit {
                   ついつい<ruby>出<rt>で</rt></ruby>てしまう<ruby>言葉<rt>ことば</rt></ruby>です…<br> \
                   これが<ruby>多<rt>おお</rt></ruby>いとうまく<ruby>話<rt>はなし</rt></ruby>が<ruby><br> \
                   伝<rt>つた</rt></ruby>わりません😢"
+  hintSmile: string = "カメラを<ruby>起動<rt>きどう</rt></ruby>しないと<br> \
+                       <ruby>数<rt>かぞ</rt></ruby>えられませんよ！"
 
   ngOnInit() {
     this.route.params.subscribe(

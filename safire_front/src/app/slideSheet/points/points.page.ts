@@ -25,20 +25,17 @@ export class PointsPage implements OnInit {
   ngOnInit() {
   }
 
-  @HostListener('window:keydown', ['$event'])
-  handleKeyDown(event: KeyboardEvent) {
-    this.ngOnInit();
-    if(event.key == 'Enter' || event.key == 'ArrowRight'){
-      // this.currentPageIndex = table.indexOf(this.currentPage);
-      this.ngOnInit()
-      this.toNextPage();
-    }
-    else if(event.key == 'ArrowLeft'){
-      // this.currentPageIndex = table.indexOf(this.currentPage);
-      this.ngOnInit()
-      this.toPrevPage();
-    }
-  }
+  // @HostListener('window:keydown', ['$event'])
+  // handleKeyDown(event: KeyboardEvent) {
+  //   if(event.key == 'Enter' || event.key == 'ArrowRight'){
+  //     // this.currentPageIndex = table.indexOf(this.currentPage);
+  //     this.toNextPage();
+  //   }
+  //   else if(event.key == 'ArrowLeft'){
+  //     // this.currentPageIndex = table.indexOf(this.currentPage);
+  //     this.toPrevPage();
+  //   }
+  // }
   
 
   toNextPage = () => {

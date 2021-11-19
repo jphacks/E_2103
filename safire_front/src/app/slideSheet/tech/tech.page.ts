@@ -28,13 +28,13 @@ export class TechPage implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    this.ngOnInit();
-    if(event.key == 'ArrowLeft'){
-      // this.currentPageIndex = table.indexOf(this.currentPage);
-      this.ngOnInit();
-      this.toPrevPage();
-    }
-    else this.router.navigate(['/article', this.project_id])
+    // if(event.key == 'ArrowLeft'){
+    //   // this.currentPageIndex = table.indexOf(this.currentPage);
+    //   this.toPrevPage();
+    // }
+    // else this.router.navigate(['/article', this.project_id])
+
+    this.router.navigate(['/article', this.project_id])
   }
 
   toPrevPage = () => {
