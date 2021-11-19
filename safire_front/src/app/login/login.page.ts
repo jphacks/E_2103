@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
 
   async errorInform() {
     const alert = await this.alertController.create({
-      message: 'ユーザIDもしくはパスワードが間違っています.<br>入力し直してください🙇‍♂️',
+      message: 'ユーザIDもしくはパスワードが<ruby>間違<rt>まちが</rt></ruby>っています.<br><ruby>入力<rt>にゅうりょく</rt></ruby>し<ruby>直<rt>なお</rt></ruby>してください🙇‍♂️',
       buttons: [
         {
           text: 'OK'
