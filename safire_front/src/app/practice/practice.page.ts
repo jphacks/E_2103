@@ -235,7 +235,7 @@ export class PracticePage implements OnInit {
   }
 
   toArticle = () => {
-    this.router.navigate(['/article'])
+    this.router.navigate(['/article', this.project_id])
   }
 
 }

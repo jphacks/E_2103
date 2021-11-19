@@ -29,20 +29,12 @@ export class TitlePage implements OnInit {
     this.ngOnInit();
     if(event.key == 'Enter' || event.key == 'ArrowRight'){
       // this.currentPageIndex = table.indexOf(this.currentPage);
+      this.ngOnInit();
       this.toNextPage();
     }
-    else if(event.key == 'ArrowLeft'){
-      // this.currentPageIndex = table.indexOf(this.currentPage);
-      this.toPrevPage();
-    }
   }
-  
 
   toNextPage = () => {
     this.router.navigate(['/slides', 'background']);
-  }
-
-  toPrevPage = () => {
-    //このスライドが最初
   }
 }
