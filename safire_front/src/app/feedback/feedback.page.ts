@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GlobalService } from '../global.service';
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
@@ -13,6 +13,7 @@ import * as faceapi from 'face-api.js';
 
 import { ModalController } from '@ionic/angular';
 import { ModalResultPage } from './modal-result/modal-result.page';
+import { PipTimerComponent } from '../components/pip-timer/pip-timer.component';
 
 import { environment } from 'src/environments/environment';
 
@@ -28,6 +29,8 @@ declare global {
   styleUrls: ['./feedback.page.scss'],
 })
 export class FeedbackPage implements OnInit, OnDestroy {
+  @ViewChild(PipTimerComponent, {static: false})
+  pipTimer: PipTimerComponent
 
   text: string = "しゃべった内容をここで確認！"
   status: string = "しゃべった内容をここで確認！"
@@ -154,6 +157,9 @@ export class FeedbackPage implements OnInit, OnDestroy {
   }
 
   startSpeech = () => {
+    this.pipTimer.setInterval()
+    // this.pipTimer.makeCanvas()
+    this.pipTimer.makePip()
     this.text = ""
     this.smile_sequence = []
     this.filler_sequence = []
@@ -420,6 +426,7 @@ export class FeedbackPage implements OnInit, OnDestroy {
     };
   }
   stopRecording = () => {
+    this.pipTimer.stopPip()
     this.recorder.stop()
     this.combine_stream.getTracks().forEach(track => track.stop())
     this.stopTimer()
