@@ -114,7 +114,7 @@ export class UserHomePage {
 
   toArticlePage = (id: any) => {
     localStorage.project_id = id;
-    this.router.navigate(['article']);
+    this.router.navigate(['article', id]);
   }
 
   toUserHome = () => {
