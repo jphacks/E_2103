@@ -631,6 +631,7 @@ background: url('/assets/img/search_icon.jpg') no-repeat scroll 0 0;
   flex-wrap      : nowrap;                 /* 折り返し定義        */
 }
 .target-block {
+  text-align: center;
   width: 250px;
   height: 150px;
   margin: 20px;
@@ -666,20 +667,39 @@ background: url('/assets/img/search_icon.jpg') no-repeat scroll 0 0;
   width: 90%;
   margin: 50px;
   text-align: center;
-  background: #757575;
-  border-radius: 5px;
 }
-
 .dashboard ion-col {
   display: flex;
   justify-content: center;
 }
+.dashboard ion-card {
+  background: #f5fffa;
+}
+.dashboard h2 {
+  font-size: 28px;
+  //background: #ff8856;
+  //padding: 25px 0 15px 0;
+}
+
+
+.dashboard-content {
+  background: #b0c4de;
+  border-radius: 5px;
+}
 
 .dashboard-canvas {
-  width: 500px;
-  height: 330px; 
-  padding: 20px 20px 30px 10px;
+  width: 450px;
+  height: 300px; 
 }
 .dashboard-canvas p {
   font-size: 20px;
+  background: #444444;
+  color: #ffffcc;
+  font-weight: bold;
+  border-radius: 4px 4px 0 0;
+  padding: 20px 0 15px 0;
+}
+
+.dashboard-canvas canvas {
+  padding: 10px 10px 10px 10px;
 }

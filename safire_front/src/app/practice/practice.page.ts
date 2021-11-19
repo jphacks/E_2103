@@ -37,7 +37,7 @@ export class PracticePage implements OnInit {
     smile: '#4169e1',
     filler: '#ff69b4',
     negative: '#ffa500',
-    time: '#98fb98'
+    time: '#00cc00'
   }
   label: any = {
     smile: 'スマイルの回数',
@@ -190,9 +190,11 @@ export class PracticePage implements OnInit {
           scaleLabel: {
             display: true,
             labelString: '練習回数',
-            fontSize: 15
+            fontSize: 15,
+            fontColor: "#000000"
           },
           ticks: {
+            fontColor: '#000000',
             maxTicksLimit: 20
           }
         }],
@@ -204,10 +206,11 @@ export class PracticePage implements OnInit {
           scaleLabel: {
             display: true,
             labelString: this.ylabel[param],
-            fontSize: 15
+            fontSize: 15,
+            fontColor: "#000000"
           },
           ticks: {
-            fontColor: '#ff66666',
+            fontColor: '#000000',
             maxTicksLimit: 7
           }
         }],
@@ -223,7 +226,7 @@ export class PracticePage implements OnInit {
           {
             type: 'line',
             label: this.label[param],
-            data: this.results[param],
+            data: this.results[param].reverse(), //最新が先頭[0]のため逆順にする
             borderColor: this.lineColor[param],
             backgroundColor: "rgba(0,0,0,0)",
             yAxisID: 'y-axis'
