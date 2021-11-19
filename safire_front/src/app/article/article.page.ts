@@ -210,4 +210,8 @@ export class ArticlePage implements OnInit {
     })
     await this.waiting.present()
   }
+
+  toUserPage = (user_id: string) => {
+    this.router.navigate(['/userpage'], {queryParams: {user: user_id}})
+  }
 }
