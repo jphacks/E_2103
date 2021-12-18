@@ -86,7 +86,7 @@ li {
     text-align: -webkit-match-parent;
 }
 
-section {
+home-main {
     display: block;
 }
 
@@ -147,50 +147,63 @@ footer {
 /** ホームメイン **/
 .home-main {
     width: 100%;
-    margin: 120px 0 0;
-    display: flex;
-    flex-direction: column;
+    margin: 120px auto 0 auto;
+    //display: flex;
+    //flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .user_name {
-    margin: 0 0 45px 0;
+    margin-top: 15px;
+    background: white;
+    border-left: 4px solid #75a9ff;
+}
+.user_name h1 {
+    margin: 0 0 0 0;
+    padding: 0;
     display: inline-block;
-    position: relative;
     text-align: center;
-    font-size: 40px;
-    border-bottom: 4px solid #75a9ff;
+    font-size: 35px;
+    
 }
 
 .user-info {
-    width: 1000px;
+    width: 700px;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.user-info_card {
+    width: 700px;
+    height: 240px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    text-align: center;
+    display: block;
+    //position: relative;
+    //top: 0;
+    background: white;
+    display: flex;
 }
 
 .user-info_icon {
     width: 50%;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    text-align: center;
-    position: relative;
-    top: 0;
 }
 
 #user_icon {
-    width: 150px;
-    height: 150px;
-
-}
-
-.user-info_profile {
-    width: 50%;
-    margin: 0px 0 0 0px;
+    width: 120px;
+    height: 120px;
+    margin: 20px auto 0 auto;
+    border-radius: 50%;
 }
 
 .user-card_profile_content {
     position: relative;
+    width: 50%;
+    margin: 0px 0 0 0px;
 }
 .user-card_profile_content h3 {
     position: absolute;
@@ -199,9 +212,9 @@ footer {
     width: 350px;
     text-align: center;
 }
-.user-card_profile_content hr {
-    position: absolute;
-    top: 10px;
+.user-card_profile_content img {
+    height: 350px;
+    width: 240px;
 }
 .user-card_profile_content textarea {
     position: absolute;
@@ -359,7 +372,7 @@ footer {
 }*/
 .project-list {
     width: 1000px;
-    margin: 40px auto 0 auto;
+    margin: 20px auto 0 auto;
 }
 
 .project-list_title {
@@ -509,9 +522,9 @@ footer {
 }
 
 .liked-project_dialog_finish {
-    height: 40px;
+    height: 50px;
     margin-top: 20px;
-    width: 300px;
+    width: 700px;
     --background: #ffffff;
     font-size: 23px;
     --color: #deb887;
@@ -520,8 +533,6 @@ footer {
     --border-width: 5px;
     --border-radius: 5px;
     font-weight: bolder;
-    
-    
 }
 .liked-project_dialog_finish:hover  {
     cursor: pointer;
@@ -569,6 +580,10 @@ footer {
 
 .liked-project_content {
     height: 80px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
 }
 
 .btn_show_liked-project {
@@ -578,6 +593,7 @@ footer {
 }
 .btn_show_liked-project button {
     width: 700px;
+    height: 60px;
     display: inline-block;
     padding: 12px 24px;
     font-weight: bold;
@@ -604,6 +620,8 @@ footer {
     background-image: url('../../assets/svg/blurry-gradient-haikei.svg');
     background-size: cover;
     border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .achievement-block {
     width: 30%;
